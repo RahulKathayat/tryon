@@ -1,6 +1,3 @@
-
-
-
 body {
   margin: 0;
   padding: 0;
@@ -112,5 +109,100 @@ a {
   .user,
   .login-btn {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .CLOTHES {
+    right: 0;
+    top: 80px;
+  }
+}
+
+@media (min-width: 769px) {
+  .CLOTHES {
+    right: 8px;
+    top: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .FITTED {
+    right: 0;
+    top: 65px;
+  }
+}
+
+@media (min-width: 769px) {
+  .FITTED {
+    right: 15px;
+    top: 95px;
+  }
+}
+@media (max-width: 768px) {
+  .TIGHT {
+    right: 0;
+    top: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .TIGHT {
+    right: 15px;
+    top: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .HAIR {
+    left: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .HAIR {
+    left: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .Girl {
+    height: 200px;
+    width: 50%;
+    transform: scale(0.95);
+  }
+}
+
+@media (min-width: 769px) {
+  .Girl {
+    height: 300px;
+    width: 50%;
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .Boy {
+    height: 200px;
+    width: 90%;
+    transform: scale(0.95);
+  }
+}
+
+@media (min-width: 769px) {
+  .Boy {
+    height: 300px;
+    width: 90%;
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .ShirtSize {
+    margin-left: 96px;
+  }
+}
+
+@media (min-width: 769px) {
+  .ShirtSize {
+    margin-left: 96px;
   }
 }
