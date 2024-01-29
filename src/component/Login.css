@@ -114,41 +114,41 @@ a {
 
 @media (max-width: 768px) {
   .CLOTHES {
-    right: 0;
+    right: 2px;
     top: 80px;
   }
 }
 
 @media (min-width: 769px) {
   .CLOTHES {
-    right: 8px;
+    right: 9px;
     top: 110px;
   }
 }
 
 @media (max-width: 768px) {
   .FITTED {
-    right: 0;
+    right: 2px;
     top: 65px;
   }
 }
 
 @media (min-width: 769px) {
   .FITTED {
-    right: 15px;
+    right: 18px;
     top: 95px;
   }
 }
 @media (max-width: 768px) {
   .TIGHT {
-    right: 0;
+    right: 5px;
     top: 50px;
   }
 }
 
 @media (min-width: 769px) {
   .TIGHT {
-    right: 15px;
+    right: 21px;
     top: 80px;
   }
 }
@@ -168,6 +168,7 @@ a {
     height: 200px;
     width: 50%;
     transform: scale(0.95);
+    width: 80px;
   }
 }
 
@@ -176,6 +177,7 @@ a {
     height: 300px;
     width: 50%;
     transform: scale(0.95);
+    width: 120px;
   }
 }
 
@@ -204,5 +206,82 @@ a {
 @media (min-width: 769px) {
   .ShirtSize {
     margin-left: 96px;
+  }
+}
+@media (max-width: 768px) {
+  .FLAT {
+    margin-left: 2px;
+  }
+}
+
+@media (min-width: 769px) {
+  .FLAT {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .BARE {
+    margin-left: 2px;
+  }
+}
+
+@media (min-width: 769px) {
+  .BARE {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .FEET {
+    margin-left: 2px;
+  }
+}
+
+@media (min-width: 769px) {
+  .FEET {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Hairimage {
+    height: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: -15px;
+  }
+}
+
+@media (min-width: 769px) {
+  .Hairimage {
+    height: 10px;
+    cursor: pointer;
+    margin-left: 28px;
+    margin-top: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .icons8 {
+    top: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .icons8 {
+    top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Shoes {
+    left: 62px;
+    top: 25px;
+  }
+}
+
+@media (min-width: 769px) {
+  .Shoes {
+    left: 80px;
   }
 }

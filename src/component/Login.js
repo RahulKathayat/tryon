@@ -1,25 +1,36 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import TryOn from "./Tryon";
+import Favorite from "./Favorite";
+import Profile from "./Profile";
 import "./Login.css";
 import axios from "axios";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useFormik } from "formik";
-import * as Yup from "yup";
-import {
-  Box,
-  Button,
-  Stack,
-  TextField,
-  Typography,
-  Slider,
-} from "@mui/material";
-import Switch from "@mui/material/Switch";
-import { FormControlLabel } from "@mui/material";
+import BodyMeas from "./BodyMeas";
+import { Box } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
+import { makeStyles } from "@mui/styles";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 
+import * as Yup from "yup";
+import { Button, Stack, TextField, Typography, Slider } from "@mui/material";
+import Switch from "@mui/material/Switch";
+
+const useStyles = makeStyles({
+  root: {
+    color: "black",
+  },
+});
 const theme = createTheme();
 
 function valueLabelFormat(value) {
-  const units = ["in", "MB", "GB", "TB"];
+  const units = ["cm", "MB", "GB", "TB"];
 
   let unitIndex = 0;
   let scaledValue = value;
@@ -42,6 +53,25 @@ const Login = () => {
   const [isChecked, setChecked] = useState(false);
   const [isChecked1, setChecked1] = useState(false);
   const [ImageFailed, setImageFailed] = useState(false);
+  const [Mobiledata, setMobiledata] = useState(false);
+  const [selectedOptionProfile, setSelectedOptionProfile] = useState("profile");
+
+  const handleOptionClick = (option) => {
+    setSelectedOptionProfile(option);
+  };
+  const classes = useStyles();
+  const [selectedButton, setSelectedButton] = useState(null);
+
+  const [selectedAdjustment, setSelectedAdjustment] = useState(null);
+  const [confirm, setconfirm] = useState(false);
+
+  const handleAdjustmentChange = (adjustment) => {
+    setSelectedAdjustment(adjustment);
+  };
+
+  const handleButtonClick = (btnType) => {
+    setSelectedButton(btnType);
+  };
 
   const toggleSwitch = () => {
     setChecked(!isChecked);
@@ -272,7 +302,7 @@ const Login = () => {
               style={{ cursor: "pointer" }}
               onClick={() => {
                 setStatus(true);
-                SetLogin(false);
+                SetLogin(true);
               }}
             />
           </div>
@@ -336,6 +366,7 @@ const Login = () => {
                         style={{
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          fontWeight: "bold",
                         }}
                       >
                         Virtual Fitting Room
@@ -437,7 +468,7 @@ const Login = () => {
                         setTimeout(() => {
                           SetLogin(null);
                           setPhotoImage(true);
-                        }, [3000]);
+                        }, [0]);
                       }}
                     >
                       Continue
@@ -577,6 +608,7 @@ const Login = () => {
                       style={{
                         fontFamily: "Soleil",
                         sansSerif: "sans-serif",
+                        fontWeight: "bold",
                       }}
                     >
                       Virtual Fitting Room
@@ -897,6 +929,8 @@ const Login = () => {
                       display: "flex",
                       justifyContent: "center",
                       marginTop: "10px",
+                      fontFamily: "Soleil",
+                      sansSerif: "sans-serif",
                     }}
                   >
                     FRONT POSE
@@ -910,7 +944,7 @@ const Login = () => {
                     }}
                   >
                     <img
-                      src={"/assets/girl.jpg"}
+                      src={"/assets/blackgirl.jpeg"}
                       alt="not found"
                       className="Girl"
                     />
@@ -930,10 +964,18 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          marginTop: "-10px",
                         }}
                       >
                         {" "}
                         HAIR UP
+                        <span>
+                          <img
+                            src={"/assets/icons8-dot-32.png"}
+                            alt=""
+                            className="Hairimage"
+                          />
+                        </span>
                       </Typography>
                     </div>
 
@@ -961,6 +1003,14 @@ const Login = () => {
                       >
                         TIGHT
                       </Typography>
+                    </span>
+
+                    <span style={{ position: "absolute" }} className="icons8">
+                      <img
+                        src={"/assets/icons8-dot-32.png"}
+                        alt=""
+                        style={{ height: "10px", cursor: "pointer" }}
+                      />
                     </span>
                     <span
                       style={{
@@ -1024,7 +1074,9 @@ const Login = () => {
                         fontSize: "0.7rem",
                         lineHeight: 1,
                         letterSpacing: "0.00735em",
+                        // marginLeft:"2px"
                       }}
+                      className="FLAT"
                     >
                       <Typography
                         color="text.secondary"
@@ -1037,6 +1089,14 @@ const Login = () => {
                       >
                         FLAT SHOES
                       </Typography>
+
+                      <span style={{ position: "absolute" }} className="Shoes">
+                        <img
+                          src={"/assets/icons8-dot-32.png"}
+                          alt=""
+                          style={{ height: "10px", cursor: "pointer" }}
+                        />
+                      </span>
                     </span>
                     <span
                       style={{
@@ -1048,7 +1108,9 @@ const Login = () => {
                         fontSize: "0.7rem",
                         lineHeight: 1,
                         letterSpacing: "0.00735em",
+                        // marginLeft:"2px"
                       }}
+                      className="BARE"
                     >
                       <Typography
                         color="text.secondary"
@@ -1072,7 +1134,9 @@ const Login = () => {
                         fontSize: "0.8rem",
                         lineHeight: 1,
                         letterSpacing: "0.00735em",
+                        // marginLeft:"2px"
                       }}
+                      className="FEET"
                     >
                       <Typography
                         color="text.secondary"
@@ -1124,6 +1188,9 @@ const Login = () => {
                       display: "flex",
                       justifyContent: "center",
                       marginTop: "10px",
+
+                      fontFamily: "Soleil",
+                      sansSerif: "sans-serif",
                     }}
                   >
                     SIDE POSE
@@ -1271,7 +1338,13 @@ const Login = () => {
                 </span>
               </Typography>
 
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: "-40px",
+                }}
+              >
                 <div>
                   <img
                     src={"/assets/icons8-less-than-30.png"}
@@ -1310,6 +1383,7 @@ const Login = () => {
                   fontSize: "1rem",
                   lineHeight: 2,
                   letterSpacing: "0.00735em",
+                  marginTop: "30px",
                 }}
               >
                 <b style={{ color: "black" }}>Gender</b>
@@ -1445,6 +1519,7 @@ const Login = () => {
                   display: "flex",
                   justifyContent: "center",
                   marginLeft: "20px",
+                  marginTop: "10px",
                 }}
               >
                 <div>
@@ -2004,14 +2079,6 @@ const Login = () => {
           </Box>
         </ThemeProvider>
       )}
-      {Congratulation && (
-        <div className="container">
-          <img
-            src={"assets/icons8-congratulation.gif"}
-            style={{ height: "100px" }}
-          />
-        </div>
-      )}
 
       {ImageFailed && (
         <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
@@ -2123,6 +2190,469 @@ const Login = () => {
             </Box>
           </ThemeProvider>
         </div>
+      )}
+
+      {Congratulation && (
+        <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+          <div>
+            <ThemeProvider theme={theme}>
+              <Box
+                sx={{
+                  flex: "1 1 auto",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "2%",
+                }}
+              >
+                <Box
+                  sx={{
+                    maxWidth: 550,
+                    px: 3,
+                    py: "50px",
+                    width: "100%",
+                    border: "3px #d4cfc5 solid",
+                    borderRadius: "8px",
+                    position: "relative",
+                  }}
+                >
+                  <Typography
+                    color="text.secondary"
+                    variant="body2"
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      bottom: "5px",
+                      fontFamily: "Soleil",
+                      sansSerif: "sans-serif",
+                      fontWeight: 400,
+                      fontSize: "1rem",
+                      lineHeight: 1,
+                      letterSpacing: "0.00735em",
+                      color: "black",
+                    }}
+                  >
+                    Powerd by swap{" "}
+                    <span>
+                      <img
+                        src={"/assets/icons8-social-64.png"}
+                        alt="not found"
+                        style={{ height: "28px", cursor: "pointer" }}
+                      />
+                    </span>
+                  </Typography>
+
+                  <div
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <div style={{ margin: "10px" }}>
+                      <FormControl>
+                        <FormLabel
+                          id="demo-radio-buttons-group-label"
+                          style={{
+                            color: "black",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "10px",
+                          }}
+                        >
+                          Adjust slider
+                        </FormLabel>
+                        <RadioGroup
+                          aria-labelledby="demo-radio-buttons-group-label"
+                          defaultValue="female"
+                          name="radio-buttons-group"
+                        >
+                          <FormControlLabel
+                            value="female"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Head size"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                          <FormControlLabel
+                            value="male"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Neck length"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                          <FormControlLabel
+                            value="other"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Shoulders"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+
+                          <FormControlLabel
+                            value="Arms"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Arms"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                          <FormControlLabel
+                            value="Waist"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Waist"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                          <FormControlLabel
+                            value="Hips"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Hips"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+
+                          <FormControlLabel
+                            value="Leg lenght"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Leg lenght"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                          <FormControlLabel
+                            value="Leg width"
+                            control={<Radio style={{ color: "black" }} />}
+                            label="Leg width"
+                            style={{
+                              marginRight: "10px",
+                              marginBottom: "-8px",
+                              fontSize: "10px",
+                              fontFamily: "Soleil",
+                              sansSerif: "sans-serif",
+                            }}
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </div>
+                    <div>
+                      <img
+                        src={"/assets/135bbd59-1f58-496c-960f-300e1cd4feb1.jpg"}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div className="row handleSlider">
+                    <hr style={{ border: "2px solid #d4cfc5" }}></hr>
+
+                    <Box sx={{ width: 400 }}>
+                      <Slider
+                        min={140}
+                        step={1}
+                        max={200}
+                        // getAriaValueText={valueLabelFormat}
+                        valueLabelFormat={valueLabelFormat}
+                        // valueLabelDisplay="auto"
+                        // aria-labelledby="non-linear-slider"
+                        style={{ color: "black" }}
+                      />
+                    </Box>
+                    <hr style={{ border: "2px #d4cfc5 solid" }}></hr>
+                  </div>
+                  <div className="btnCenter">
+                    <Button
+                      fullWidth
+                      size="large"
+                      sx={{ mt: 3 }}
+                      type="submit"
+                      variant="contained"
+                      style={{
+                        backgroundColor: "black",
+                        fontFamily: "Soleil",
+                        sansSerif: "sans-serif",
+                        marginBottom:"20px"
+                      }}
+                      onClick={() => {
+                        setCongratulation(false);
+                        setconfirm(true);
+                        setTimeout(() => {
+                          setconfirm(false);
+                          setMobiledata(true);
+                        }, [2000]);
+                      }}
+                    >
+                      Confirm
+                    </Button>
+                  </div>
+                </Box>
+              </Box>
+            </ThemeProvider>
+          </div>
+        </div>
+      )}
+
+      {confirm && (
+        <>
+          <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+            <ThemeProvider theme={theme}>
+              <Box
+                sx={{
+                  flex: "1 1 auto",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "2%",
+                }}
+              >
+                <Box
+                  sx={{
+                    maxWidth: 300,
+                    py: "20px",
+                    paddingBottom: "50px",
+                    width: "100%",
+                    border: "3px #d4cfc5 solid",
+                    borderRadius: "8px",
+                    position: "relative",
+                  }}
+                >
+                  <Typography
+                    color="text.secondary"
+                    variant="body2"
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      bottom: "5px",
+
+                      fontFamily: "Soleil",
+                      sansSerif: "sans-serif",
+                      fontWeight: 400,
+                      fontSize: "1rem",
+                      lineHeight: 1,
+                      letterSpacing: "0.00735em",
+                      // color: "black",
+                    }}
+                  >
+                    Powerd by swap{" "}
+                    <span>
+                      <img
+                        src={"/assets/icons8-social-64.png"}
+                        alt="not found"
+                        style={{ height: "28px", cursor: "pointer" }}
+                      />
+                    </span>
+                  </Typography>
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <img
+                        src={"assets/login-successful-9696591-7864617.webp"}
+                        alt=""
+                        style={{ height: "200px", width: "200px" }}
+                      />
+                    </div>
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                      style={{
+                        fontFamily: "Soleil",
+                        sansSerif: "sans-serif",
+                        fontWeight: 400,
+                        fontSize: "1rem",
+                        lineHeight: 1,
+                        letterSpacing: "0.00735em",
+                        marginRight: "20px",
+                        marginLeft: "50px",
+                      }}
+                    >
+                      Profile Created Successfully!
+                    </Typography>
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                      style={{
+                        fontFamily: "Soleil",
+                        sansSerif: "sans-serif",
+                        fontWeight: 400,
+                        fontSize: "1rem",
+                        lineHeight: 1,
+                        letterSpacing: "0.00735em",
+                        marginRight: "20px",
+                        marginLeft: "70px",
+                      }}
+                    >
+                      Entering your virtual room
+                    </Typography>
+                  </div>
+                </Box>
+              </Box>
+            </ThemeProvider>
+          </div>
+        </>
+      )}
+
+      {Mobiledata && (
+        <>
+          <div>
+            <ThemeProvider theme={theme}>
+              <Box
+                sx={{
+                  flex: "1 1 auto",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "2%",
+                }}
+              >
+                <Box
+                  sx={{
+                    maxWidth: 350,
+                    width: "100%",
+                    border: "3px #d4cfc5 solid",
+                    borderRadius: "8px",
+                    fontFamily: "Soleil",
+                    sansSerif: "sans-serif",
+                    color: "#a19f99",
+                  }}
+                >
+                  <div style={{ height: "540px" }}>
+                    {selectedOptionProfile === "tryOn" && (
+                      <div>
+                        <TryOn />
+                      </div>
+                    )}
+                    {selectedOptionProfile === "favorite" && (
+                      <div>
+                        <Favorite />
+                      </div>
+                    )}
+                    {selectedOptionProfile === "profile" && (
+                      <div style={{position:"relative"}}>
+                        <Profile />
+                      </div>
+                    )}
+                  </div>
+
+                  <hr
+                    style={{ border: "1px #d4cfc5 rgb(212, 207, 197)", marginBottom: "0px" }}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      fontWeight: "bold",
+                      fontSize: "15px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        border:
+                          selectedOptionProfile === "tryOn"
+                            ? "2px #d4cfc5 solid"
+                            : "2px white solid",
+                        borderRadius: "15px",
+                        padding: "10px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleOptionClick("tryOn")}
+                    >
+                      <img
+                        src={"/assets/icons8-cloakroom-100.png"}
+                        alt=""
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          marginLeft: "5px",
+                        }}
+                      />
+                      <div>Try on</div>
+                    </div>
+                    <div
+                      style={{
+                        border:
+                          selectedOptionProfile === "favorite"
+                            ? "2px #d4cfc5 solid"
+                            : "2px white solid",
+                        borderRadius: "15px",
+                        padding: "10px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleOptionClick("favorite")}
+                    >
+                      <img
+                        src={"/assets/icons8-favorite-100.png"}
+                        alt=""
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          marginLeft: "12px",
+                        }}
+                      />
+                      <div>Favorite</div>
+                    </div>
+                    <div
+                      style={{
+                        border:
+                          selectedOptionProfile === "profile"
+                            ? "2px #d4cfc5 solid"
+                            : "2px white solid",
+                        borderRadius: "15px",
+                        padding: "10px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleOptionClick("profile")}
+                    >
+                      <img
+                        src={"/assets/icons8-customer-100.png"}
+                        alt=""
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          marginLeft: "7px",
+                        }}
+                      />
+                      <div>Profile</div>
+                    </div>
+                  </div>
+                </Box>
+              </Box>
+            </ThemeProvider>
+          </div>
+        </>
       )}
     </div>
   );
