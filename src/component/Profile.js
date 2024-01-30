@@ -368,10 +368,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Your height&nbsp;</b>
+                  <b>Your height</b><span style={{color:"red"}}>*&nbsp;</span>
                 </div>
 
                 {!isChecked1 ? (
@@ -432,7 +432,7 @@ const Profile = () => {
                   </>
                 ) : (
                   <>
-                    <Box sx={{ width: 200 }}>
+                    <Box sx={{ width: 145 }}>
                       <Slider
                         min={140}
                         step={1}
@@ -460,10 +460,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Your shirt size &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                  <b>Your shirt size</b><span style={{color:"red"}}>*&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
 
                 <div>
@@ -504,10 +504,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Your waist size &nbsp;&nbsp;&nbsp;</b>
+                  <b>Your waist size</b><span style={{color:"red"}}>*&nbsp;&nbsp;</span>
                 </div>
                 <div>
                   <select
@@ -547,7 +547,7 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
                   <b>Your weight &nbsp;</b>
@@ -625,10 +625,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Your height&nbsp;</b>
+                  <b>Your height</b><span style={{color:"red"}}>*&nbsp;</span>
                 </div>
 
                 {!isChecked1 ? (
@@ -688,7 +688,7 @@ const Profile = () => {
                     </div>
                   </>
                 ) : (
-                  <Box sx={{ width: 200 }}>
+                  <Box sx={{ width: 145 }}>
                     <Slider
                       min={140}
                       step={1}
@@ -716,10 +716,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Bra Size &nbsp;</b>
+                  <b>Bra Size</b><span style={{color:"red"}}>*&nbsp;</span>
                 </div>
                 <div style={{ display: "flex" }}>
                   <div>
@@ -737,12 +737,11 @@ const Profile = () => {
                       <option value="">-</option>
 
                       <option value="option1">26</option>
-                      <option value="option2">27</option>
                       <option value="option3">28</option>
-                      <option value="option4">29</option>
                       <option value="option5">30</option>
-                      <option value="option6">31</option>
                       <option value="option7">32</option>
+                      <option value="option8">34</option>
+                      <option value="option9">36</option>
                     </select>
                   </div>
                   <div style={{ marginLeft: "30px" }}>
@@ -758,7 +757,12 @@ const Profile = () => {
                       }}
                     >
                       <option value="">-</option>
-                      <option value="option1">.5</option>
+                      <option value="option1">AA</option>
+                      <option value="option1">A</option>
+                      <option value="option1">B</option>
+                      <option value="option1">C</option>
+                      <option value="option1">D</option>
+                      <option value="option1">DD</option>
                     </select>
                   </div>
                 </div>
@@ -777,10 +781,10 @@ const Profile = () => {
                     fontSize: "1rem",
                     lineHeight: 2,
                     letterSpacing: "0.00735em",
-                    color:"black"
+                    color: "black",
                   }}
                 >
-                  <b>Dress Size &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                  <b>Dress Size</b><span style={{color:"red"}}>*&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
 
                 <div>
@@ -796,13 +800,13 @@ const Profile = () => {
                     }}
                   >
                     <option value="">-</option>
-                    <option value="option1">XS</option>
-                    <option value="option2">S</option>
-                    <option value="option3">M</option>
-                    <option value="option1">L</option>
-                    <option value="option2">XL</option>
-                    <option value="option3">2XL</option>
-                    <option value="option3">3XL</option>
+                    <option value="option1">4</option>
+                    <option value="option2">6</option>
+                    <option value="option3">8</option>
+                    <option value="option1">10</option>
+                    <option value="option2">12</option>
+                    <option value="option3">14</option>
+                    <option value="option3">16</option>
                   </select>
                 </div>
               </div>
@@ -822,7 +826,7 @@ const Profile = () => {
         }}
       >
         <Button
-          fullWidth 
+          fullWidth
           size="large"
           sx={{ mt: 3 }}
           type="submit"

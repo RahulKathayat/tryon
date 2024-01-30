@@ -43,7 +43,7 @@ const Favorite = () => {
         <h4
           className="handleFavTxt"
           style={{
-            color: "#a19f99",
+            // color: "#a19f99",
             display: "flex",
             justifyContent: "center",
             fontSize: "20px",

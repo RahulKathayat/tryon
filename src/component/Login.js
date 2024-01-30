@@ -523,6 +523,7 @@ const Login = () => {
                         lineHeight: 1,
                         letterSpacing: "0.00735em",
                         marginTop: "2%",
+                        color: "black",
                       }}
                     >
                       Continue with{" "}
@@ -751,6 +752,7 @@ const Login = () => {
                       lineHeight: 1,
                       letterSpacing: "0.00735em",
                       marginTop: "2%",
+                      color: "black",
                     }}
                   >
                     Continue with{" "}
@@ -850,6 +852,7 @@ const Login = () => {
 
                       fontFamily: "Soleil",
                       sansSerif: "sans-serif",
+                      color: "black",
                     }}
                   >
                     Take 2 Images
@@ -931,6 +934,7 @@ const Login = () => {
                       marginTop: "10px",
                       fontFamily: "Soleil",
                       sansSerif: "sans-serif",
+                      color: "black",
                     }}
                   >
                     FRONT POSE
@@ -965,6 +969,7 @@ const Login = () => {
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
                           marginTop: "-10px",
+                          color: "black",
                         }}
                       >
                         {" "}
@@ -989,6 +994,7 @@ const Login = () => {
                         fontSize: "0.7rem",
                         lineHeight: 1,
                         letterSpacing: "0.00735em",
+                        // color:"black"
                       }}
                       className="TIGHT"
                     >
@@ -999,6 +1005,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         TIGHT
@@ -1032,6 +1039,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         FITTED
@@ -1058,6 +1066,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         CLOTHES
@@ -1085,6 +1094,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         FLAT SHOES
@@ -1119,6 +1129,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         OR BARE
@@ -1145,6 +1156,7 @@ const Login = () => {
                           fontSize: "8.9px",
                           fontFamily: "Soleil",
                           sansSerif: "sans-serif",
+                          color: "black",
                         }}
                       >
                         FEET
@@ -1191,6 +1203,7 @@ const Login = () => {
 
                       fontFamily: "Soleil",
                       sansSerif: "sans-serif",
+                      color: "black",
                     }}
                   >
                     SIDE POSE
@@ -1302,7 +1315,7 @@ const Login = () => {
           >
             <Box
               sx={{
-                maxWidth: 550,
+                maxWidth: 400,
                 px: 3,
                 py: "50px",
                 paddingBottom: "80px",
@@ -1481,6 +1494,7 @@ const Login = () => {
                   justifyContent: "space-between",
                   paddingRight: "20px",
                   paddingLeft: "20px",
+                  marginTop: "10px",
                 }}
               >
                 <div
@@ -1518,7 +1532,7 @@ const Login = () => {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  marginLeft: "20px",
+                  marginLeft: "15px",
                   marginTop: "10px",
                 }}
               >
@@ -1623,7 +1637,8 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Your height&nbsp;</b>
+                      <b>Your height</b>
+                      <span style={{ color: "red" }}>*&nbsp;</span>
                     </div>
 
                     {!isChecked1 ? (
@@ -1714,7 +1729,10 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Your shirt size &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                      <b>Your shirt size</b>
+                      <span style={{ color: "red" }}>
+                        *&nbsp;&nbsp;&nbsp;&nbsp;
+                      </span>
                     </div>
 
                     <div>
@@ -1757,7 +1775,8 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Your waist size &nbsp;&nbsp;&nbsp;</b>
+                      <b>Your waist size</b>
+                      <span style={{ color: "red" }}>*&nbsp;&nbsp;&nbsp;</span>
                     </div>
                     <div>
                       <select
@@ -1876,7 +1895,8 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Your height&nbsp;</b>
+                      <b>Your height</b>
+                      <span style={{ color: "red" }}>*&nbsp;</span>
                     </div>
 
                     {!isChecked1 ? (
@@ -1966,7 +1986,8 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Bra Size &nbsp;</b>
+                      <b>Bra Size</b>
+                      <span style={{ color: "red" }}>*&nbsp;</span>
                     </div>
                     <div style={{ display: "flex" }}>
                       <div>
@@ -1984,12 +2005,14 @@ const Login = () => {
                           <option value="">-</option>
 
                           <option value="option1">26</option>
-                          <option value="option2">27</option>
+                          {/* <option value="option2">2</option> */}
                           <option value="option3">28</option>
-                          <option value="option4">29</option>
+                          {/* <option value="option4">2</option> */}
                           <option value="option5">30</option>
-                          <option value="option6">31</option>
+                          {/* <option value="option6">31</option> */}
                           <option value="option7">32</option>
+                          <option value="option8">34</option>
+                          <option value="option9">36</option>
                         </select>
                       </div>
                       <div style={{ marginLeft: "30px" }}>
@@ -2005,7 +2028,12 @@ const Login = () => {
                           }}
                         >
                           <option value="">-</option>
-                          <option value="option1">.5</option>
+                          <option value="option1">AA</option>
+                          <option value="option1">A</option>
+                          <option value="option1">B</option>
+                          <option value="option1">C</option>
+                          <option value="option1">D</option>
+                          <option value="option1">DD</option>
                         </select>
                       </div>
                     </div>
@@ -2026,7 +2054,10 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                       }}
                     >
-                      <b>Dress Size &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                      <b>Dress Size</b>
+                      <span style={{ color: "red" }}>
+                        *&nbsp;&nbsp;&nbsp;&nbsp;
+                      </span>
                     </div>
 
                     <div>
@@ -2042,13 +2073,13 @@ const Login = () => {
                         }}
                       >
                         <option value="">-</option>
-                        <option value="option1">XS</option>
-                        <option value="option2">S</option>
-                        <option value="option3">M</option>
-                        <option value="option1">L</option>
-                        <option value="option2">XL</option>
-                        <option value="option3">2XL</option>
-                        <option value="option3">3XL</option>
+                        <option value="option1">4</option>
+                        <option value="option2">6</option>
+                        <option value="option3">8</option>
+                        <option value="option1">10</option>
+                        <option value="option2">12</option>
+                        <option value="option3">14</option>
+                        <option value="option3">16</option>
                       </select>
                     </div>
                   </div>
@@ -2400,7 +2431,7 @@ const Login = () => {
                         backgroundColor: "black",
                         fontFamily: "Soleil",
                         sansSerif: "sans-serif",
-                        marginBottom:"20px"
+                        marginBottom: "20px",
                       }}
                       onClick={() => {
                         setCongratulation(false);
@@ -2561,14 +2592,18 @@ const Login = () => {
                       </div>
                     )}
                     {selectedOptionProfile === "profile" && (
-                      <div style={{position:"relative"}}>
+                      <div style={{ position: "relative" }}>
                         <Profile />
                       </div>
                     )}
                   </div>
 
                   <hr
-                    style={{ border: "1px #d4cfc5 rgb(212, 207, 197)", marginBottom: "0px" }}
+                    style={{
+                      border: "1px #d4cfc5 rgb(212, 207, 197)",
+                      marginBottom: "0px",
+                      // opacity:"0px"
+                    }}
                   />
                   <div
                     style={{
@@ -2596,10 +2631,10 @@ const Login = () => {
                         style={{
                           height: "25px",
                           width: "25px",
-                          marginLeft: "5px",
+                          marginLeft: "9px",
                         }}
                       />
-                      <div>Try on</div>
+                      <div style={{ color: "black" }}>Try on</div>
                     </div>
                     <div
                       style={{
@@ -2619,10 +2654,10 @@ const Login = () => {
                         style={{
                           height: "25px",
                           width: "25px",
-                          marginLeft: "12px",
+                          marginLeft: "15px",
                         }}
                       />
-                      <div>Favorite</div>
+                      <div style={{ color: "black" }}>Favorite</div>
                     </div>
                     <div
                       style={{
@@ -2642,10 +2677,44 @@ const Login = () => {
                         style={{
                           height: "25px",
                           width: "25px",
-                          marginLeft: "7px",
+                          marginLeft: "9px",
                         }}
                       />
-                      <div>Profile</div>
+                      <div style={{ color: "black" }}>Profile</div>
+                    </div>
+
+                    <div
+                      style={{
+                        border:
+                          selectedOptionProfile === "logout"
+                            ? "2px #d4cfc5 solid"
+                            : "2px white solid",
+                        borderRadius: "15px",
+                        padding: "10px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        const confirm = window.confirm(
+                          "Are you sure to logout?"
+                        );
+                        if (confirm) {
+                          setMobiledata(false);
+                          setStatus(false);
+
+                          window.location.reload();
+                        }
+                      }}
+                    >
+                      <img
+                        src={"/assets/icons8-logout-50.png"}
+                        alt=""
+                        style={{
+                          height: "21px",
+                          width: "21px",
+                          marginLeft: "13px",
+                        }}
+                      />
+                      <div style={{ color: "black" }}>Logout</div>
                     </div>
                   </div>
                 </Box>
