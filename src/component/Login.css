@@ -174,7 +174,7 @@ a {
 
 @media (min-width: 769px) {
   .Girl {
-    height: 300px;
+    height: 250px;
     width: 50%;
     transform: scale(0.95);
     width: 120px;
@@ -191,7 +191,7 @@ a {
 
 @media (min-width: 769px) {
   .Boy {
-    height: 300px;
+    height: 250px;
     width: 90%;
     transform: scale(0.95);
   }
@@ -257,8 +257,8 @@ a {
   .Hairimage {
     height: 10px;
     cursor: pointer;
-    margin-left: 28px;
-    margin-top: 8px;
+    margin-left: 8px;
+    margin-top: 0px;
   }
 }
 @media (max-width: 768px) {
@@ -282,6 +282,7 @@ a {
 
 @media (min-width: 769px) {
   .Shoes {
-    left: 80px;
+    left: 60px;
+    top: 21px;
   }
 }

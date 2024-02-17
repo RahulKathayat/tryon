@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./try.css";
 
-const Favorite = () => {
+const Favorite = ({ close, back }) => {
   const [PhotoImage, setPhotoImage] = useState(false);
   const [Measure, setMeasure] = useState(false);
   const [status, setStatus] = useState(false);
@@ -20,8 +20,7 @@ const Favorite = () => {
               marginLeft: "2px",
             }}
             onClick={() => {
-              setMeasure(false);
-              setPhotoImage(true);
+              back(true);
             }}
           />
         </div>
@@ -31,8 +30,7 @@ const Favorite = () => {
             alt="not found"
             style={{ transform: "scale(0.4)", cursor: "pointer" }}
             onClick={() => {
-              setMeasure(false);
-              setStatus(false);
+              close(true);
             }}
           />
         </div>
@@ -52,10 +50,16 @@ const Favorite = () => {
         >
           Favorite
         </h4>
-        <div style={{ display: "flex", justifyContent:"space-between" , margin:"25px"}}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: "25px",
+          }}
+        >
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding:"20px" }}
+            style={{ marginRight: "0px", padding: "20px" }}
           >
             <img
               src={"/assets/firstimage.jpg"}
@@ -63,7 +67,10 @@ const Favorite = () => {
               style={{ height: "70px", marginLeft: "10px", marginTop: "2px" }}
             />
           </div>
-          <div className="col-md-5 handleImgBorder"  style={{ marginRight: "0px", padding:"20px" }}>
+          <div
+            className="col-md-5 handleImgBorder"
+            style={{ marginRight: "0px", padding: "20px" }}
+          >
             <img
               src={"/assets/icons8-dress-48.png"}
               alt=""
@@ -72,21 +79,29 @@ const Favorite = () => {
           </div>
         </div>
 
-
-        <div style={{ display: "flex", justifyContent:"space-between" , margin:"25px"}}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: "25px",
+          }}
+        >
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding:"20px" }}
+            style={{ marginRight: "0px", padding: "20px" }}
           >
             <img
-             src={"/assets/icons8-dress-48 (1).png"}
+              src={"/assets/icons8-dress-48 (1).png"}
               alt=""
               style={{ height: "70px", marginLeft: "10px", marginTop: "2px" }}
             />
           </div>
-          <div className="col-md-5 handleImgBorder"  style={{ marginRight: "0px", padding:"20px" }}>
+          <div
+            className="col-md-5 handleImgBorder"
+            style={{ marginRight: "0px", padding: "20px" }}
+          >
             <img
-             src={"/assets/icons8-dress-48 (2).png"}
+              src={"/assets/icons8-dress-48 (2).png"}
               alt=""
               style={{ height: "80px", marginLeft: "5px" }}
             />

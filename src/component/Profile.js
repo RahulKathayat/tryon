@@ -19,7 +19,7 @@ function valueLabelFormat(value) {
   return `${scaledValue} ${units[unitIndex]}`;
 }
 
-const Profile = () => {
+const Profile = ({ close, back }) => {
   const [PhotoImage, setPhotoImage] = useState(false);
   const [Measure, setMeasure] = useState(false);
   const [status, setStatus] = useState(false);
@@ -100,8 +100,7 @@ const Profile = () => {
                 marginLeft: "2px",
               }}
               onClick={() => {
-                setMeasure(false);
-                setPhotoImage(true);
+                back(true)
               }}
             />
           </div>
@@ -111,8 +110,7 @@ const Profile = () => {
               alt="not found"
               style={{ transform: "scale(0.4)", cursor: "pointer" }}
               onClick={() => {
-                setMeasure(false);
-                setStatus(false);
+                close(true);
               }}
             />
           </div>
@@ -371,7 +369,8 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Your height</b><span style={{color:"red"}}>*&nbsp;</span>
+                  <b>Your height</b>
+                  <span style={{ color: "red" }}>*&nbsp;</span>
                 </div>
 
                 {!isChecked1 ? (
@@ -463,7 +462,10 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Your shirt size</b><span style={{color:"red"}}>*&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <b>Your shirt size</b>
+                  <span style={{ color: "red" }}>
+                    *&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
                 </div>
 
                 <div>
@@ -507,7 +509,8 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Your waist size</b><span style={{color:"red"}}>*&nbsp;&nbsp;</span>
+                  <b>Your waist size</b>
+                  <span style={{ color: "red" }}>*&nbsp;&nbsp;</span>
                 </div>
                 <div>
                   <select
@@ -628,7 +631,8 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Your height</b><span style={{color:"red"}}>*&nbsp;</span>
+                  <b>Your height</b>
+                  <span style={{ color: "red" }}>*&nbsp;</span>
                 </div>
 
                 {!isChecked1 ? (
@@ -719,7 +723,8 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Bra Size</b><span style={{color:"red"}}>*&nbsp;</span>
+                  <b>Bra Size</b>
+                  <span style={{ color: "red" }}>*&nbsp;</span>
                 </div>
                 <div style={{ display: "flex" }}>
                   <div>
@@ -784,7 +789,10 @@ const Profile = () => {
                     color: "black",
                   }}
                 >
-                  <b>Dress Size</b><span style={{color:"red"}}>*&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <b>Dress Size</b>
+                  <span style={{ color: "red" }}>
+                    *&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
                 </div>
 
                 <div>

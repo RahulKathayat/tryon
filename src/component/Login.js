@@ -19,7 +19,14 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 import * as Yup from "yup";
-import { Button, Stack, TextField, Typography, Slider } from "@mui/material";
+import {
+  Button,
+  Stack,
+  TextField,
+  Typography,
+  Slider,
+  Tooltip,
+} from "@mui/material";
 import Switch from "@mui/material/Switch";
 
 const useStyles = makeStyles({
@@ -76,10 +83,8 @@ const Login = () => {
   const toggleSwitch = () => {
     setChecked(!isChecked);
   };
-  console.log(isChecked);
   const toggleSwitch1 = () => {
     setChecked1(!isChecked1);
-    console.log(isChecked1);
   };
   const handleSwitchChange = () => {
     setSwitchState(!switchState);
@@ -205,6 +210,15 @@ const Login = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedImage2, setUploadedImage2] = useState(null);
 
+  if(uploadedImage2?.file?.path){
+    const encode =  btoa(uploadedImage2?.file?.path)
+    console.log("2",encode)
+  }
+  if(uploadedImage?.file?.path){
+    const encode =  btoa(uploadedImage?.file?.path)
+    console.log("1",encode)
+  }
+
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setUploadedImage({
@@ -281,6 +295,17 @@ const Login = () => {
     },
   });
 
+  const close = (data) => {
+    console.log(data);
+    window.location.reload();
+  };
+
+  const back = (data) => {
+    console.log(data);
+    setMobiledata(false);
+    setCongratulation(true);
+  };
+
   return (
     <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
       {!status && (
@@ -323,7 +348,7 @@ const Login = () => {
             >
               <Box
                 sx={{
-                  maxWidth: 550,
+                  maxWidth: 450,
                   px: 3,
                   py: "50px",
                   width: "100%",
@@ -343,7 +368,8 @@ const Login = () => {
                     fontFamily: "Soleil",
                     sansSerif: "sans-serif",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    // fontSize: "1rem",
+                    fontSize: "12px",
                     lineHeight: 1,
                     letterSpacing: "0.00735em",
                     color: "black",
@@ -354,7 +380,7 @@ const Login = () => {
                     <img
                       src={"/assets/icons8-social-64.png"}
                       alt="not found"
-                      style={{ height: "28px", cursor: "pointer" }}
+                      style={{ height: "22px", cursor: "pointer" }}
                     />
                   </span>
                 </Typography>
@@ -375,7 +401,11 @@ const Login = () => {
 
                     <Typography
                       variant="h4"
-                      style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                      style={{
+                        fontFamily: "Soleil",
+                        sansSerif: "sans-serif",
+                        fontSize: "25px",
+                      }}
                     >
                       Login
                     </Typography>
@@ -566,7 +596,7 @@ const Login = () => {
           >
             <Box
               sx={{
-                maxWidth: 550,
+                maxWidth: 450,
                 px: 3,
                 py: "50px",
                 width: "100%",
@@ -585,7 +615,8 @@ const Login = () => {
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
-                  fontSize: "1rem",
+                  // fontSize: "1rem",
+                  fontSize: "12px",
                   lineHeight: 1,
                   letterSpacing: "0.00735em",
                   color: "black",
@@ -596,7 +627,7 @@ const Login = () => {
                   <img
                     src={"/assets/icons8-social-64.png"}
                     alt="not found"
-                    style={{ height: "28px", cursor: "pointer" }}
+                    style={{ height: "22px", cursor: "pointer" }}
                   />
                 </span>
               </Typography>
@@ -618,7 +649,11 @@ const Login = () => {
 
                   <Typography
                     variant="h4"
-                    style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                    style={{
+                      fontFamily: "Soleil",
+                      sansSerif: "sans-serif",
+                      fontSize: "25px",
+                    }}
                   >
                     Register
                   </Typography>
@@ -794,7 +829,7 @@ const Login = () => {
           >
             <Box
               sx={{
-                maxWidth: 550,
+                maxWidth: 450,
                 px: 3,
                 py: "30px",
 
@@ -815,7 +850,7 @@ const Login = () => {
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
-                  fontSize: "1rem",
+                  fontSize: "12px",
                   lineHeight: 1,
                   letterSpacing: "0.00735em",
                   color: "black",
@@ -826,7 +861,7 @@ const Login = () => {
                   <img
                     src={"/assets/icons8-social-64.png"}
                     alt="not found"
-                    style={{ height: "28px", cursor: "pointer" }}
+                    style={{ height: "22px", cursor: "pointer" }}
                   />
                 </span>
               </Typography>
@@ -904,11 +939,13 @@ const Login = () => {
                 </div>
 
                 <div style={{ marginLeft: "20px" }}>
-                  <img
-                    src={"/assets/info_471662.png"}
-                    alt="not found"
-                    style={{ height: "20px", cursor: "pointer" }}
-                  />
+                  <Tooltip title="Instructions" placement="top">
+                    <img
+                      src={"/assets/info_471662.png"}
+                      alt="not found"
+                      style={{ height: "20px", cursor: "pointer" }}
+                    />
+                  </Tooltip>
                 </div>
               </div>
 
@@ -916,7 +953,7 @@ const Login = () => {
                 style={{
                   display: "flex",
                   justifyContent: "space-evenly",
-                  marginTop: "10px",
+                  marginTop: "20px",
                 }}
               >
                 <Box
@@ -976,7 +1013,7 @@ const Login = () => {
                         HAIR UP
                         <span>
                           <img
-                            src={"/assets/icons8-dot-32.png"}
+                            src={"/assets/icons8-dot-24.png"}
                             alt=""
                             className="Hairimage"
                           />
@@ -1014,7 +1051,7 @@ const Login = () => {
 
                     <span style={{ position: "absolute" }} className="icons8">
                       <img
-                        src={"/assets/icons8-dot-32.png"}
+                        src={"/assets/icons8-dot-24.png"}
                         alt=""
                         style={{ height: "10px", cursor: "pointer" }}
                       />
@@ -1102,7 +1139,7 @@ const Login = () => {
 
                       <span style={{ position: "absolute" }} className="Shoes">
                         <img
-                          src={"/assets/icons8-dot-32.png"}
+                          src={"/assets/icons8-dot-24.png"}
                           alt=""
                           style={{ height: "10px", cursor: "pointer" }}
                         />
@@ -1253,13 +1290,14 @@ const Login = () => {
                   style={{
                     fontFamily: "Soleil",
                     sansSerif: "sans-serif",
-                    marginRight: "80px",
-                    marginLeft: "80px",
+                    marginRight: "40px",
+                    marginLeft: "40px",
                     justifyContent: "center",
                     // color:"black",
                     // fontSize:"bold",
                     fontSize: "12px",
                     fontWeight: "bold",
+                    textAlign: "center",
                   }}
                 >
                   Your privacy is important all photos will be securely locked
@@ -1279,7 +1317,6 @@ const Login = () => {
                     sansSerif: "sans-serif",
                   }}
                   onClick={() => {
-                    console.log(uploadedImage2);
                     if (uploadedImage2?.file?.path == null) {
                       setImage2Error("Please Upload a image");
                     }
@@ -1302,6 +1339,7 @@ const Login = () => {
           </Box>
         </ThemeProvider>
       )}
+
       {Measure && (
         <ThemeProvider theme={theme}>
           <Box
@@ -1315,7 +1353,7 @@ const Login = () => {
           >
             <Box
               sx={{
-                maxWidth: 400,
+                maxWidth: 450,
                 px: 3,
                 py: "50px",
                 paddingBottom: "80px",
@@ -1335,7 +1373,7 @@ const Login = () => {
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
-                  fontSize: "1rem",
+                  fontSize: "12px",
                   lineHeight: 1,
                   letterSpacing: "0.00735em",
                   color: "black",
@@ -1346,7 +1384,7 @@ const Login = () => {
                   <img
                     src={"/assets/icons8-social-64.png"}
                     alt="not found"
-                    style={{ height: "28px", cursor: "pointer" }}
+                    style={{ height: "22px", cursor: "pointer" }}
                   />
                 </span>
               </Typography>
@@ -1699,7 +1737,7 @@ const Login = () => {
                       </>
                     ) : (
                       <>
-                        <Box sx={{ width: 200 }}>
+                        <Box sx={{ width: 145 }}>
                           <Slider
                             min={140}
                             step={1}
@@ -1956,7 +1994,7 @@ const Login = () => {
                         </div>
                       </>
                     ) : (
-                      <Box sx={{ width: 200 }}>
+                      <Box sx={{ width: 145 }}>
                         <Slider
                           min={140}
                           step={1}
@@ -2145,10 +2183,10 @@ const Login = () => {
                     fontFamily: "Soleil",
                     sansSerif: "sans-serif",
                     fontWeight: 400,
-                    fontSize: "1rem",
+                    fontSize: "12px",
                     lineHeight: 1,
                     letterSpacing: "0.00735em",
-                    // color: "black",
+                    color: "black",
                   }}
                 >
                   Powerd by swap{" "}
@@ -2156,7 +2194,7 @@ const Login = () => {
                     <img
                       src={"/assets/icons8-social-64.png"}
                       alt="not found"
-                      style={{ height: "28px", cursor: "pointer" }}
+                      style={{ height: "22px", cursor: "pointer" }}
                     />
                   </span>
                 </Typography>
@@ -2173,6 +2211,7 @@ const Login = () => {
                       fontSize: "2rem",
                       lineHeight: 1,
                       letterSpacing: "0.00735em",
+                      color: "black",
                     }}
                   >
                     Oops!
@@ -2196,6 +2235,7 @@ const Login = () => {
                       letterSpacing: "0.00735em",
                       marginRight: "20px",
                       marginLeft: "50px",
+                      color: "black",
                     }}
                   >
                     We couldn't find a face in the
@@ -2212,6 +2252,7 @@ const Login = () => {
                       letterSpacing: "0.00735em",
                       marginRight: "20px",
                       marginLeft: "70px",
+                      color: "black",
                     }}
                   >
                     images. Please try again
@@ -2238,7 +2279,7 @@ const Login = () => {
               >
                 <Box
                   sx={{
-                    maxWidth: 550,
+                    maxWidth: 450,
                     px: 3,
                     py: "50px",
                     width: "100%",
@@ -2257,7 +2298,7 @@ const Login = () => {
                       fontFamily: "Soleil",
                       sansSerif: "sans-serif",
                       fontWeight: 400,
-                      fontSize: "1rem",
+                      fontSize: "12px",
                       lineHeight: 1,
                       letterSpacing: "0.00735em",
                       color: "black",
@@ -2268,7 +2309,7 @@ const Login = () => {
                       <img
                         src={"/assets/icons8-social-64.png"}
                         alt="not found"
-                        style={{ height: "28px", cursor: "pointer" }}
+                        style={{ height: "22px", cursor: "pointer" }}
                       />
                     </span>
                   </Typography>
@@ -2487,10 +2528,10 @@ const Login = () => {
                       fontFamily: "Soleil",
                       sansSerif: "sans-serif",
                       fontWeight: 400,
-                      fontSize: "1rem",
+                      fontSize: "12px",
                       lineHeight: 1,
                       letterSpacing: "0.00735em",
-                      // color: "black",
+                      color: "black",
                     }}
                   >
                     Powerd by swap{" "}
@@ -2498,7 +2539,7 @@ const Login = () => {
                       <img
                         src={"/assets/icons8-social-64.png"}
                         alt="not found"
-                        style={{ height: "28px", cursor: "pointer" }}
+                        style={{ height: "22px", cursor: "pointer" }}
                       />
                     </span>
                   </Typography>
@@ -2528,6 +2569,7 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                         marginRight: "20px",
                         marginLeft: "50px",
+                        color: "black",
                       }}
                     >
                       Profile Created Successfully!
@@ -2544,6 +2586,7 @@ const Login = () => {
                         letterSpacing: "0.00735em",
                         marginRight: "20px",
                         marginLeft: "70px",
+                        color: "black",
                       }}
                     >
                       Entering your virtual room
@@ -2583,17 +2626,17 @@ const Login = () => {
                   <div style={{ height: "540px" }}>
                     {selectedOptionProfile === "tryOn" && (
                       <div>
-                        <TryOn />
+                        <TryOn close={close} back={back} />
                       </div>
                     )}
                     {selectedOptionProfile === "favorite" && (
                       <div>
-                        <Favorite />
+                        <Favorite close={close} back={back} />
                       </div>
                     )}
                     {selectedOptionProfile === "profile" && (
                       <div style={{ position: "relative" }}>
-                        <Profile />
+                        <Profile close={close} back={back} />
                       </div>
                     )}
                   </div>

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./try.css";
-const TryOn = () => {
-  const [PhotoImage, setPhotoImage] = useState(false);
-  const [Measure, setMeasure] = useState(false);
-  const [status, setStatus] = useState(false);
+const TryOn = ({ close, back }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleIconClick = () => {
@@ -30,8 +27,7 @@ const TryOn = () => {
               marginLeft: "2px",
             }}
             onClick={() => {
-              setMeasure(false);
-              setPhotoImage(true);
+              back(true)
             }}
           />
         </div>
@@ -41,8 +37,7 @@ const TryOn = () => {
             alt="not found"
             style={{ transform: "scale(0.4)", cursor: "pointer" }}
             onClick={() => {
-              setMeasure(false);
-              setStatus(false);
+              close(true);
             }}
           />
         </div>
