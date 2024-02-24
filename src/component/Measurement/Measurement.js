@@ -122,7 +122,7 @@ const Measurement = ({
               color: "black",
             }}
           >
-            Powered by swap{" "}
+            Powered by Swap{" "}
             <span>
               <img
                 src={"/assets/icons8-social-64.png"}
