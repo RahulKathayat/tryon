@@ -58,7 +58,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
               color: "black",
             }}
           >
-            Powerd by swap{" "}
+            Powered by swap{" "}
             <span>
               <img
                 src={"/assets/icons8-social-64.png"}
