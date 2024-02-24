@@ -57,18 +57,19 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             display: "flex",
             justifyContent: "center",
             padding: "2%",
+            height: "100vh",
           }}
         >
           <Box
             sx={{
               maxWidth: 450,
-              px: 3,
+              px: 4,
               py: "30px",
 
-              paddingBottom: "70px",
+              // paddingBottom: "70px",
               width: "100%",
-              border: "3px #d4cfc5 solid",
-              borderRadius: "8px",
+              border: "1.5px gray solid",
+              borderRadius: "20px",
               position: "relative",
             }}
           >
@@ -111,10 +112,10 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   color="text.secondary"
                   variant="body2"
                   style={{
-                    fontWeight: 400,
-                    fontSize: "1.7rem",
+                    fontWeight: "bold",
+                    fontSize: "1.8rem",
                     lineHeight: 1.135,
-                    letterSpacing: "0.00735em",
+                    letterSpacing: "0.009em",
                     marginBottom: "10px",
 
                     fontFamily: "Soleil",
@@ -122,7 +123,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     color: "black",
                   }}
                 >
-                  Take 2 Images
+                  Upload 2 Images
                 </Typography>
               </div>
               <div>
@@ -540,13 +541,23 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
               <Button
                 fullWidth
                 size="large"
-                sx={{ mt: 3 }}
+                sx={{
+                  backgroundColor: "black",
+                  '&:hover': {
+                    backgroundColor: '#272829',
+                    transform:"scale(1.01)",
+                  },
+                  transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                  mt:3,
+                  mb:2,
+                }}
                 type="submit"
                 variant="contained"
                 style={{
                   backgroundColor: "black",
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
+                  borderRadius:"25px",
                 }}
                 onClick={() => {
                   if (uploadedImage2?.file?.path == null) {

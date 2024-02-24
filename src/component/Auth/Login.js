@@ -51,7 +51,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               py: "50px",
               width: "100%",
               border: "1.5px gray solid",
-              borderRadius: "12px",
+              borderRadius: "20px",
               position: "relative",
             }}
           >
@@ -102,7 +102,8 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     fontFamily: "Soleil",
                     sansSerif: "sans-serif",
                     fontSize: "20px",
-                    fontWeight: "bold",
+                    // fontWeight: "bold",
+                    letterSpacing: "0.08rem"
                   }}
                 >
                   LOGIN
@@ -179,11 +180,19 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 <Button
                   fullWidth
                   size="large"
-                  sx={{ mt: 3 }}
+                  // sx={{ mt: 3 }}
+                  sx={{
+                    backgroundColor: "black",
+                    '&:hover': {
+                      backgroundColor: '#272829',
+                      transform:"scale(1.01)",
+                    },
+                    transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                    mt:3,
+                  }}
                   type="submit"
                   variant="contained"
                   style={{
-                    backgroundColor: "black",
                     fontFamily: "Soleil",
                     sansSerif: "sans-serif",
                     borderRadius: "25px",
@@ -250,20 +259,21 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                   }}
                 >
                   Continue with
-
-                    <img
-                      src={"/assets/icons8-google-48.png"}
-                      alt="google"
-                      style={{
-                        transform: "scale(0.58)",
-                        cursor: "pointer",
-                      }}
-                    />
-                    <img
-                      src={"/assets/icons8-facebook-48.png"}
-                      alt="facebook"
-                      style={{ transform: "scale(0.62)", cursor: "pointer" }}
-                    />
+                    <span>
+                      <img
+                        src={"/assets/icons8-google-48.png"}
+                        alt="google"
+                        style={{
+                          transform: "scale(0.58)",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <img
+                        src={"/assets/icons8-facebook-48.png"}
+                        alt="facebook"
+                        style={{ transform: "scale(0.61)", cursor: "pointer",position:"absolute",right:"90px" }}
+                      />
+                    </span>
                 </Typography>
               </form>
             </div>

@@ -41,16 +41,17 @@ const Register = ({ SetLogin }) => {
           display: "flex",
           justifyContent: "center",
           padding: "2%",
+          height:"100vh",
         }}
       >
         <Box
           sx={{
-            maxWidth: 450,
-            px: 3,
+            maxWidth: 400,
+            px: 4,
             py: "50px",
             width: "100%",
-            border: "3px #d4cfc5 solid",
-            borderRadius: "8px",
+            border: "1.5px gray solid",
+            borderRadius: "20px",
             position: "relative",
           }}
         >
@@ -82,29 +83,31 @@ const Register = ({ SetLogin }) => {
           </Typography>
 
           <div>
-            <Stack spacing={1} sx={{ mb: 3 }}>
-              <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
-                <Typography
-                  variant="h5"
-                  style={{
-                    fontFamily: "Soleil",
-                    sansSerif: "sans-serif",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Virtual Fitting Room
-                </Typography>
-              </Stack>
+            <Stack spacing={1} sx={{ mb: 3 , textAlign: "center"}}>
+              {/* <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
+              </Stack> */}
+              <Typography
+                variant="h5"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: "bold",
+                  transform:"scale(1.1)"
+                }}
+              >
+                Virtual Fitting Room
+              </Typography>
 
               <Typography
                 variant="h4"
                 style={{
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
-                  fontSize: "25px",
+                  fontSize: "20px",
+                  letterSpacing: "0.08rem"
                 }}
               >
-                Register
+                REGISTER
               </Typography>
               <Typography
                 color="text.secondary"
@@ -116,20 +119,24 @@ const Register = ({ SetLogin }) => {
                   underline="hover"
                   variant="subtitle2"
                   style={{
-                    color: "black",
+                    color: "#4663ac",
                     cursor: "pointer",
-                    underline: "hober",
+                    textDecoration: "underline",
+                   fontWeight:"bold",
                   }}
                   onClick={() => {
                     SetLogin(true);
                   }}
                 >
-                  Log in
+                  Log In
                 </span>
               </Typography>
             </Stack>
             <form noValidate onSubmit={formik.handleSubmit}>
-              <Stack spacing={3}>
+              <Stack 
+                spacing={3}
+                style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+              >
                 <TextField
                   error={!!(formik.touched.name && formik.errors.name)}
                   fullWidth
@@ -171,13 +178,21 @@ const Register = ({ SetLogin }) => {
               <Button
                 fullWidth
                 size="large"
-                sx={{ mt: 3 }}
+                sx={{
+                  backgroundColor: "black",
+                  '&:hover': {
+                    backgroundColor: '#272829',
+                    transform:"scale(1.01)",
+                  },
+                  transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                  mt:3,
+                }}
                 type="submit"
                 variant="contained"
                 style={{
-                  backgroundColor: "black",
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
+                  borderRadius:"25px",
                 }}
               >
                 Get started
@@ -203,7 +218,7 @@ const Register = ({ SetLogin }) => {
                   }}
                 ></div>
 
-                <h6 style={{ margin: "0 0px" }}>or</h6>
+                <h6 style={{ margin: "0 0px",color:"gray" }}>or</h6>
 
                 <div
                   style={{
@@ -229,30 +244,28 @@ const Register = ({ SetLogin }) => {
 
                   fontWeight: 200,
                   fontSize: "1rem",
-                  lineHeight: 1,
-                  letterSpacing: "0.00735em",
+                  // lineHeight: 1,
+                  letterSpacing: "0.00835em",
                   marginTop: "2%",
                   color: "black",
                 }}
               >
-                Continue with{" "}
+                Continue with
                 <span>
                   <img
                     src={"/assets/icons8-google-48.png"}
                     alt="google"
                     style={{
-                      transform: "scale(0.78)",
-                      marginLeft: "4%",
+                      transform: "scale(0.58)",
                       cursor: "pointer",
                     }}
                   />
-                </span>{" "}
-                <img
-                  src={"/assets/icons8-facebook-48.png"}
-                  alt="facebook"
-                  style={{ transform: "scale(0.8)", cursor: "pointer" }}
-                />
-                <span></span>
+                  <img
+                    src={"/assets/icons8-facebook-48.png"}
+                    alt="facebook"
+                    style={{ transform: "scale(0.61)", cursor: "pointer",position:"absolute" ,right:"90px"}}
+                  />
+                </span>
               </Typography>
             </form>
           </div>
