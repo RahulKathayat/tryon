@@ -23,7 +23,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
       >
         <Box
           sx={{
-            maxWidth: 350,
+            maxWidth: 380,
             width: "100%",
             border: "1.5px gray solid",
             borderRadius: "20px",
@@ -32,7 +32,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
             color: "#a19f99",
           }}
         >
-          <div style={{ height: "540px" }}>
+          <div style={{ }}>
             {selectedOptionProfile === "tryOn" && (
               <div>
                 <TryOn close={close} back={back} />

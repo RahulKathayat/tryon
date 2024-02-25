@@ -836,13 +836,23 @@ const Profile = ({ close, back }) => {
         <Button
           fullWidth
           size="large"
-          sx={{ mt: 3 }}
+          sx={{
+            backgroundColor: "black",
+            '&:hover': {
+              backgroundColor: '#2B2730',
+              transform:"scale(1.01)",
+            },
+            transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+            mt:3,
+            mb:2,
+          }}
           type="submit"
           variant="contained"
           style={{
-            backgroundColor: "black",
+            width:"150px",
             fontFamily: "Soleil",
             sansSerif: "sans-serif",
+            borderRadius:"25px",
           }}
         >
           NEXT
