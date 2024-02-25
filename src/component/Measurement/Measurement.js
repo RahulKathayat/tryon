@@ -92,6 +92,7 @@ const Measurement = ({
           display: "flex",
           justifyContent: "center",
           padding: "2%",
+          height: "100vh",
         }}
       >
         <Box
@@ -101,8 +102,8 @@ const Measurement = ({
             py: "50px",
             paddingBottom: "80px",
             width: "100%",
-            border: "3px #d4cfc5 solid",
-            borderRadius: "8px",
+            border: "1.5px gray solid",
+            borderRadius: "20px",
             position: "relative",
           }}
         >
@@ -418,7 +419,7 @@ const Measurement = ({
                     letterSpacing: "0.00735em",
                   }}
                 >
-                  <b>Your height</b>
+                  <b>Your Height</b>
                   <span style={{ color: "red" }}>*&nbsp;</span>
                 </div>
 
@@ -676,7 +677,7 @@ const Measurement = ({
                     letterSpacing: "0.00735em",
                   }}
                 >
-                  <b>Your height</b>
+                  <b>Your Height</b>
                   <span style={{ color: "red" }}>*&nbsp;</span>
                 </div>
 
@@ -871,13 +872,22 @@ const Measurement = ({
             <Button
               fullWidth
               size="large"
-              sx={{ mt: 3 }}
+              sx={{
+                backgroundColor: "black",
+                '&:hover': {
+                  backgroundColor: '#2B2730',
+                  transform:"scale(1.01)",
+                },
+                transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                mt:3,
+              }}
               type="submit"
               variant="contained"
               style={{
-                backgroundColor: "black",
+                // backgroundColor: "black",
                 fontFamily: "Soleil",
                 sansSerif: "sans-serif",
+                borderRadius:"25px",
               }}
               onClick={() => {
                 setMeasure(false);

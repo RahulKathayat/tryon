@@ -18,14 +18,15 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
           display: "flex",
           justifyContent: "center",
           padding: "2%",
+          height: "100vh",
         }}
       >
         <Box
           sx={{
             maxWidth: 350,
             width: "100%",
-            border: "3px #d4cfc5 solid",
-            borderRadius: "8px",
+            border: "1.5px gray solid",
+            borderRadius: "20px",
             fontFamily: "Soleil",
             sansSerif: "sans-serif",
             color: "#a19f99",

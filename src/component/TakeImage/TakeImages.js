@@ -9,6 +9,7 @@ import { Button, Typography, Tooltip } from "@mui/material";
 const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedImage2, setUploadedImage2] = useState(null);
+  const [instructionPopup,setInstructionPopup] = useState(false);
 
   if (uploadedImage2?.file?.path) {
     const encode = btoa(uploadedImage2?.file?.path);
@@ -20,13 +21,16 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
   }
 
   const onDrop = useCallback((acceptedFiles) => {
+    console.log( acceptedFiles);
     const file = acceptedFiles[0];
+    // console.log(URL.createObjectURL(file));
     setUploadedImage({
       file,
       preview: URL.createObjectURL(file),
     });
   }, []);
   const onDrop2 = useCallback((acceptedFiles) => {
+    console.log( acceptedFiles);
     const file = acceptedFiles[0];
     setUploadedImage2({
       file,
@@ -55,12 +59,238 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             flex: "1 1 auto",
             alignItems: "center",
             display: "flex",
+            // height: "100vh",
             justifyContent: "center",
-            padding: "2%",
-            height: "100vh",
+            padding:"2%",
           }}
         >
-          <Box
+          {instructionPopup ? (
+            <Box
+            sx={{
+              maxWidth: 450,
+              px: 4,
+              py: "30px",
+
+              // paddingBottom: "70px",
+              width: "100%",
+              border: "1.5px gray solid",
+              borderRadius: "20px",
+              position: "relative",
+            }}
+          >
+            <Typography
+              color="text.secondary"
+              variant="body2"
+              style={{
+                position: "absolute",
+                right: "10px",
+                bottom: "5px",
+                fontFamily: "Soleil",
+                sansSerif: "sans-serif",
+                fontWeight: 400,
+                fontSize: "12px",
+                lineHeight: 1,
+                letterSpacing: "0.00735em",
+                color: "black",
+              }}
+            >
+              Powered by Swap{" "}
+              <span>
+                <img
+                  src={"/assets/icons8-social-64.png"}
+                  alt="not found"
+                  style={{ height: "22px", cursor: "pointer" }}
+                />
+              </span>
+            </Typography>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div></div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginLeft: "40px",
+                }}
+              >
+                <Typography
+                  color="text.secondary"
+                  variant="body2"
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "1.8rem",
+                    // lineHeight: 1.135,
+                    letterSpacing: "0.01em",
+                    marginBottom: "10px",
+
+                    fontFamily: "Soleil",
+                    sansSerif: "sans-serif",
+                    color: "black",
+                  }}
+                >
+                  INSTRUCTIONS
+                </Typography>
+              </div>
+              <div>
+                <div>
+                  <img
+                    src={"/assets/icons8-x-50.png"}
+                    alt="not found"
+                    style={{
+                      transform: "scale(0.35)",
+                      cursor: "pointer",
+                      marginTop: "-50px",
+                      marginRight:"-35px"
+                    }}
+                    onClick={() => {
+                      setInstructionPopup(false)
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: "2%",
+                gap:"25px",
+              }}
+            >
+              {/* Add instructions Here  */}
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.4rem",
+                  lineHeight: 1,
+                  // letterSpacing: "0.00735em",
+                  color: "black",
+                  marginTop: "2%",
+                }}
+              >
+                 Photo help
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • To get the best result think smiley passport photo rather than a selfie.
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • Make sure to stand back, chin above the shoulders, body facing the camera to get the best results.
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • Make sure your face and neck are visible in the photo, wear something that shows your neck.
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • Don't have hair resting on your shoulders, keep the hair in front or tied back.
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • Make sure your face is evenly lit, try standing in front of the window.
+
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="h6"
+                style={{
+                  fontFamily: "Soleil",
+                  sansSerif: "sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1.2rem",
+                  lineHeight: 1,
+                  letterSpacing: "0.00735em",
+                  color: "black",
+                  textAlign: "center",
+                  maxWidth: "330px",
+                }}
+              >
+                • Don't stand too close or far from the camera, use timer on your phone to time the perfect click.
+
+              </Typography>
+            </div>
+
+            </Box>
+          ) : (
+            <Box
             sx={{
               maxWidth: 450,
               px: 4,
@@ -115,7 +345,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     fontWeight: "bold",
                     fontSize: "1.8rem",
                     lineHeight: 1.135,
-                    letterSpacing: "0.009em",
+                    letterSpacing: "0.01em",
                     marginBottom: "10px",
 
                     fontFamily: "Soleil",
@@ -132,9 +362,10 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     src={"/assets/icons8-x-50.png"}
                     alt="not found"
                     style={{
-                      transform: "scale(0.4)",
+                      transform: "scale(0.35)",
                       cursor: "pointer",
-                      marginTop: "-30px",
+                      marginTop: "-50px",
+                      marginRight:"-35px"
                     }}
                     onClick={() => {
                       setPhotoImage(false);
@@ -177,6 +408,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     src={"/assets/info_471662.png"}
                     alt="not found"
                     style={{ height: "20px", cursor: "pointer" }}
+                    onClick={ () => setInstructionPopup(true)}
                   />
                 </Tooltip>
               </div>
@@ -191,7 +423,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             >
               <Box
                 style={{
-                  border: "2px solid #cbd4ce",
+                  border: "1.2px solid #6554AF",
                   borderRadius: "20px",
                   width: "45%",
                 }}
@@ -203,8 +435,10 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     justifyContent: "center",
                     marginTop: "10px",
                     fontFamily: "Soleil",
-                    sansSerif: "sans-serif",
+                    // sansSerif: "sans-serif",
+                    fontWeight:"bold",
                     color: "black",
+                    letterSpacing:"0.03em",
                   }}
                 >
                   FRONT POSE
@@ -217,12 +451,20 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     position: "relative",
                   }}
                 >
-                  <img
-                    src={"/assets/blackgirl.jpeg"}
-                    alt="not found"
-                    className="Girl"
-                  />
-
+                  {uploadedImage ? (
+                    <img
+                      src={uploadedImage.preview}
+                      alt="not found"
+                      className="Girl"
+                      style={{objectFit:"contain"}}
+                    />
+                  ):(
+                    <img
+                      src={"/assets/female-front.png"}
+                      alt="not found"
+                      className="Girl"
+                    />
+                  )}
                   <div
                     style={{
                       position: "absolute",
@@ -433,24 +675,28 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     </Typography>
                   </span>
                 </div>
-                <hr />
+                <hr style={{border:"1.5px solid #6554AF"}}/>
 
                 <div
+                  {...getRootPropsFirst()}
                   style={{
                     paddingBottom: "10px",
                     justifyContent: "center",
                     display: "flex",
                     alignItems: "center",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    fontFamily:"sans-serif",
                   }}
                 >
-                  <span {...getRootPropsFirst()}>
+                  <span>
                     <img
-                      src={"/assets/upload-arrow.png"}
+                      src={"/assets/upload-cloud-icon.png"}
                       alt=""
                       style={{
                         height: "40px",
                         width: "40px",
-                        marginRight: "5px",
+                        marginRight: "5px",                    
                       }}
                     />
                   </span>
@@ -459,7 +705,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
               </Box>
               <Box
                 style={{
-                  border: "2px solid #cbd4ce",
+                  border: "1.2px solid #6554AF",
                   borderRadius: "20px",
                   width: "45%",
                 }}
@@ -470,10 +716,11 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     display: "flex",
                     justifyContent: "center",
                     marginTop: "10px",
-
-                    fontFamily: "Soleil",
+                    fontFamily:"Soheil",
+                    fontWeight: "bold",
                     sansSerif: "sans-serif",
                     color: "black",
+                    letterSpacing:"0.03em",
                   }}
                 >
                   SIDE POSE
@@ -485,24 +732,37 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     padding: "5%",
                   }}
                 >
-                  <img
-                    src={"/assets/boy.png"}
-                    alt="not found"
-                    className="Boy"
-                  />
+                  {uploadedImage2 ? (
+                    <img
+                      src={uploadedImage2.preview}
+                      alt="not found"
+                      className="Boy"
+                      style={{objectFit:"contain"}}
+                    />
+                  ) : (
+                    <img
+                      src={"/assets/fullbody-side.png"}
+                      alt="not found"
+                      className="Boy"
+                    />
+                  )}
                 </div>
-                <hr />
+                <hr style={{border:"1.5px solid #6554AF"}}/>
                 <div
+                  {...getRootPropsSecond()}
                   style={{
                     paddingBottom: "10px",
                     justifyContent: "center",
                     display: "flex",
                     alignItems: "center",
+                    fontWeight:"bold",
+                    cursor: "pointer",
+                    fontFamily:"sans-serif"
                   }}
                 >
-                  <span {...getRootPropsSecond()}>
+                  <span >
                     <img
-                      src={"/assets/upload-arrow.png"}
+                      src={"/assets/upload-cloud-icon.png"}
                       alt=""
                       style={{
                         height: "40px",
@@ -510,7 +770,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                         marginRight: "5px",
                       }}
                     />
-                  </span>
+                    </span>
                   UPLOAD
                 </div>
               </Box>
@@ -533,7 +793,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   textAlign: "center",
                 }}
               >
-                Your privacy is important all photos will be securely locked
+                Your privacy is very important and all photos will be securely locked
                 after we give you your size
               </Typography>
             </div>
@@ -544,7 +804,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 sx={{
                   backgroundColor: "black",
                   '&:hover': {
-                    backgroundColor: '#272829',
+                    backgroundColor: '#2B2730',
                     transform:"scale(1.01)",
                   },
                   transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
@@ -554,7 +814,6 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 type="submit"
                 variant="contained"
                 style={{
-                  backgroundColor: "black",
                   fontFamily: "Soleil",
                   sansSerif: "sans-serif",
                   borderRadius:"25px",
@@ -575,7 +834,9 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 NEXT
               </Button>
             </div>
-          </Box>
+            </Box>
+          )}
+          
         </Box>
       </ThemeProvider>
     </div>

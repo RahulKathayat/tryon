@@ -37,8 +37,8 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
             px: 3,
             py: "50px",
             width: "100%",
-            border: "3px #d4cfc5 solid",
-            borderRadius: "8px",
+            border: "1.5px gray solid",
+            borderRadius: "20px",
             position: "relative",
           }}
         >
@@ -217,14 +217,23 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
             <Button
               fullWidth
               size="large"
-              sx={{ mt: 3 }}
+              sx={{
+                backgroundColor: "black",
+                '&:hover': {
+                  backgroundColor: '#2B2730',
+                  transform:"scale(1.01)",
+                },
+                transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                mt:3,
+                mb:2,
+              }}
               type="submit"
               variant="contained"
               style={{
-                backgroundColor: "black",
                 fontFamily: "Soleil",
                 sansSerif: "sans-serif",
                 marginBottom: "20px",
+                borderRadius:"25px",
               }}
               onClick={() => {
                 setCongratulation(false);

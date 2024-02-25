@@ -17,6 +17,7 @@ const ImageFailed = () => {
               display: "flex",
               justifyContent: "center",
               padding: "2%",
+              height: "100vh",
             }}
           >
             <Box
@@ -25,8 +26,8 @@ const ImageFailed = () => {
                 py: "20px",
                 paddingBottom: "50px",
                 width: "100%",
-                border: "3px #d4cfc5 solid",
-                borderRadius: "8px",
+                border: "1.5px gray solid",
+                borderRadius: "20px",
                 position: "relative",
               }}
             >

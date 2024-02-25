@@ -47,8 +47,8 @@ const App = () => {
                 px: 3,
                 py: "50px",
                 width: "100%",
-                border: "3px #d4cfc5 solid",
-                borderRadius: "8px",
+                border: "1.5px gray solid",
+                borderRadius: "20px",
               }}
             >
               <div className="row ">
