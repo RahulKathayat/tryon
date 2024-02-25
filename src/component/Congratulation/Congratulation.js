@@ -190,7 +190,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
             </div>
             <div>
               <img
-                src={"/assets/135bbd59-1f58-496c-960f-300e1cd4feb1.jpg"}
+                src={"/assets/full_body_svg.svg"}
                 alt=""
               />
             </div>
