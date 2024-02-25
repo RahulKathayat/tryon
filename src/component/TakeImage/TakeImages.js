@@ -744,6 +744,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       src={"/assets/fullbody-side.png"}
                       alt="not found"
                       className="Boy"
+                      
                     />
                   )}
                 </div>

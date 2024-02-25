@@ -162,9 +162,9 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                   />
 
                   <FormControlLabel
-                    value="Leg lenght"
+                    value="Leg length"
                     control={<Radio style={{ color: "black" }} />}
-                    label="Leg lenght"
+                    label="Leg length"
                     style={{
                       marginRight: "10px",
                       marginBottom: "-8px",

@@ -165,34 +165,32 @@ a {
 }
 @media (max-width: 768px) {
   .Girl {
-    height: 200px;
-    width: 50%;
+    height: 230px;
+    width: 80%;
     transform: scale(0.95);
-    width: 80px;
   }
 }
 
 @media (min-width: 769px) {
   .Girl {
-    height: 250px;
-    width: 50%;
+    height: 280px;
+    width: 90%;
     transform: scale(0.95);
-    width: 120px;
   }
 }
 
 @media (max-width: 768px) {
   .Boy {
-    height: 200px;
-    width: 90%;
+    height: 230px;
+    width: 95%;
     transform: scale(0.95);
   }
 }
 
 @media (min-width: 769px) {
   .Boy {
-    height: 250px;
-    width: 90%;
+    height: 280px;
+    width: 100%;
     transform: scale(0.95);
   }
 }
