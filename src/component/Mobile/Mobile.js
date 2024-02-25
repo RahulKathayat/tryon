@@ -52,7 +52,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
 
           <hr
             style={{
-              border: "1px #d4cfc5 rgb(212, 207, 197)",
+              border: "1px solid gray",
               marginBottom: "0px",
             }}
           />

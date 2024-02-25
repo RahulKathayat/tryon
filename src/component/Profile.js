@@ -116,7 +116,7 @@ const Profile = ({ close, back }) => {
           </div>
         </div>
 
-        <hr style={{ border: "1px #d4cfc5 solid", marginTop: "-8px" }} />
+        <hr style={{ border: "1px solid gray", marginTop: "-8px" }} />
 
         <div
           style={{
