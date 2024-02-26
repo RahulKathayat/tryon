@@ -114,7 +114,7 @@ const Measurement = ({
               position: "absolute",
               right: "10px",
               bottom: "5px",
-              fontFamily: "Soleil",
+              fontFamily: "SoleilRegular",
               sansSerif: "sans-serif",
               fontWeight: 400,
               fontSize: "12px",
@@ -885,7 +885,7 @@ const Measurement = ({
               variant="contained"
               style={{
                 // backgroundColor: "black",
-                fontFamily: "Soleil",
+                fontFamily: "SoleilBold",
                 sansSerif: "sans-serif",
                 borderRadius:"25px",
               }}

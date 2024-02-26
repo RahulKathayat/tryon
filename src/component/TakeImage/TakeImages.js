@@ -85,7 +85,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 position: "absolute",
                 right: "10px",
                 bottom: "5px",
-                fontFamily: "Soleil",
+                fontFamily: "SoleilLight",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 fontSize: "12px",
@@ -123,7 +123,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     letterSpacing: "0.01em",
                     marginBottom: "10px",
 
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
                     color: "black",
                   }}
@@ -165,7 +165,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.4rem",
@@ -182,7 +182,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -200,7 +200,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -218,7 +218,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -236,7 +236,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -254,7 +254,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -272,7 +272,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="h6"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "1.2rem",
@@ -310,7 +310,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 position: "absolute",
                 right: "10px",
                 bottom: "5px",
-                fontFamily: "Soleil",
+                fontFamily: "SoleilLight",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 fontSize: "12px",
@@ -343,12 +343,12 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   variant="body2"
                   style={{
                     fontWeight: "bold",
-                    fontSize: "1.8rem",
-                    lineHeight: 1.135,
+                    fontSize: "1.7rem",
+                    // lineHeight: 1.135,
                     letterSpacing: "0.01em",
                     marginBottom: "10px",
 
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilBold",
                     sansSerif: "sans-serif",
                     color: "black",
                   }}
@@ -434,7 +434,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     display: "flex",
                     justifyContent: "center",
                     marginTop: "10px",
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     // sansSerif: "sans-serif",
                     fontWeight:"bold",
                     color: "black",
@@ -478,7 +478,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         marginTop: "-10px",
                         color: "black",
@@ -515,7 +515,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -549,7 +549,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -576,7 +576,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       className="CLOTHEST"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -604,7 +604,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -639,7 +639,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -666,7 +666,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       variant="body2"
                       style={{
                         fontSize: "8.9px",
-                        fontFamily: "Soleil",
+                        fontFamily: "SoleilLight",
                         sansSerif: "sans-serif",
                         color: "black",
                       }}
@@ -686,7 +686,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     alignItems: "center",
                     fontWeight: "bold",
                     cursor: "pointer",
-                    fontFamily:"sans-serif",
+                    fontFamily:"SoleilBold",
                   }}
                 >
                   <span>
@@ -716,7 +716,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     display: "flex",
                     justifyContent: "center",
                     marginTop: "10px",
-                    fontFamily:"Soheil",
+                    fontFamily:"SoleilBold",
                     fontWeight: "bold",
                     sansSerif: "sans-serif",
                     color: "black",
@@ -758,7 +758,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     alignItems: "center",
                     fontWeight:"bold",
                     cursor: "pointer",
-                    fontFamily:"sans-serif"
+                    fontFamily:"SoleilBold"
                   }}
                 >
                   <span >
@@ -782,14 +782,14 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 color="text.secondary"
                 variant="body2"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilLight",
                   sansSerif: "sans-serif",
                   marginRight: "40px",
                   marginLeft: "40px",
                   justifyContent: "center",
                   // color:"black",
                   // fontSize:"bold",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: "bold",
                   textAlign: "center",
                 }}
@@ -815,7 +815,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 type="submit"
                 variant="contained"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilBold",
                   sansSerif: "sans-serif",
                   borderRadius:"25px",
                 }}

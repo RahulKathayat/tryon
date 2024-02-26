@@ -10,6 +10,7 @@ const VTO = ({ setStatus, SetLogin }) => {
               marginTop: "20px",
               fontWeight: "bold",
               fontSize: "30px",
+              fontFamily:"SoleilBold"
             }}
           >
             VTO

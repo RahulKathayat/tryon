@@ -850,7 +850,7 @@ const Profile = ({ close, back }) => {
           variant="contained"
           style={{
             width:"150px",
-            fontFamily: "Soleil",
+            fontFamily: "SoleilBold",
             sansSerif: "sans-serif",
             borderRadius:"25px",
           }}

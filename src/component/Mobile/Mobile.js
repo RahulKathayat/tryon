@@ -27,7 +27,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
             width: "100%",
             border: "1.5px gray solid",
             borderRadius: "20px",
-            fontFamily: "Soleil",
+            fontFamily: "SoleilRegular",
             sansSerif: "sans-serif",
             color: "#a19f99",
           }}

@@ -62,7 +62,7 @@ const Register = ({ SetLogin }) => {
               position: "absolute",
               right: "10px",
               bottom: "5px",
-              fontFamily: "Soleil",
+              fontFamily: "SoleilLight",
               sansSerif: "sans-serif",
               fontWeight: 400,
               // fontSize: "1rem",
@@ -89,7 +89,7 @@ const Register = ({ SetLogin }) => {
               <Typography
                 variant="h5"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: "bold",
                   transform:"scale(1.1)"
@@ -101,10 +101,10 @@ const Register = ({ SetLogin }) => {
               <Typography
                 variant="h4"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontSize: "20px",
-                  letterSpacing: "0.08rem"
+                  // letterSpacing: "0.08rem"
                 }}
               >
                 REGISTER
@@ -112,7 +112,7 @@ const Register = ({ SetLogin }) => {
               <Typography
                 color="text.secondary"
                 variant="body2"
-                style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}
               >
                 Already have an account? &nbsp;
                 <span
@@ -135,7 +135,7 @@ const Register = ({ SetLogin }) => {
             <form noValidate onSubmit={formik.handleSubmit}>
               <Stack 
                 spacing={3}
-                style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}
               >
                 <TextField
                   error={!!(formik.touched.name && formik.errors.name)}
@@ -190,7 +190,7 @@ const Register = ({ SetLogin }) => {
                 type="submit"
                 variant="contained"
                 style={{
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilBold",
                   sansSerif: "sans-serif",
                   borderRadius:"25px",
                 }}
@@ -212,20 +212,20 @@ const Register = ({ SetLogin }) => {
                     position: "absolute",
                     top: "50%",
                     left: 0,
-                    height: "2px",
+                    height: "1px",
                     width: "45%",
                     backgroundColor: "#a6baac",
                   }}
                 ></div>
 
-                <h6 style={{ margin: "0 0px",color:"gray" }}>or</h6>
+                <h6 style={{ margin: "0 0px",color:"gray",transform:"scale(0.9)" }}>or</h6>
 
                 <div
                   style={{
                     position: "absolute",
                     top: "50%",
                     right: 0,
-                    height: "2px",
+                    height: "1px",
                     width: "45%",
                     backgroundColor: "#a6baac",
                   }}
@@ -239,11 +239,11 @@ const Register = ({ SetLogin }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilLight",
                   sansSerif: "sans-serif",
 
                   fontWeight: 200,
-                  fontSize: "1rem",
+                  fontSize: "0.9rem",
                   // lineHeight: 1,
                   letterSpacing: "0.00835em",
                   marginTop: "2%",

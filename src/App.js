@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+    <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
       {!status && (
         <>
           <VTO SetLogin={SetLogin} setStatus={setStatus} />
@@ -81,7 +81,7 @@ const Login = () => {
       {ImageFailed && <ImageFail />}
 
       {Congratulation && (
-        <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+        <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
           <div>
             <ThemeProvider theme={theme}>
               <CongratulationCom
@@ -96,7 +96,7 @@ const Login = () => {
 
       {confirm && (
         <>
-          <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+          <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
             <ThemeProvider theme={theme}>
               <ConfirmBox />
             </ThemeProvider>

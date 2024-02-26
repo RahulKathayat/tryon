@@ -34,7 +34,7 @@ const ConfirmBox = () => {
               right: "10px",
               bottom: "5px",
 
-              fontFamily: "Soleil",
+              fontFamily: "SoleilRegular",
               sansSerif: "sans-serif",
               fontWeight: 400,
               fontSize: "12px",
@@ -70,7 +70,7 @@ const ConfirmBox = () => {
               color="text.secondary"
               variant="body2"
               style={{
-                fontFamily: "Soleil",
+                fontFamily: "SoleilRegular",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 fontSize: "1rem",
@@ -87,7 +87,7 @@ const ConfirmBox = () => {
               color="text.secondary"
               variant="body2"
               style={{
-                fontFamily: "Soleil",
+                fontFamily: "SoleilRegular",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 fontSize: "1rem",

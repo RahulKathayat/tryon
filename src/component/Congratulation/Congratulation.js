@@ -49,7 +49,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
               position: "absolute",
               right: "10px",
               bottom: "5px",
-              fontFamily: "Soleil",
+              fontFamily: "SoleilRegular",
               sansSerif: "sans-serif",
               fontWeight: 400,
               fontSize: "12px",
@@ -95,7 +95,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -107,7 +107,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -119,7 +119,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -132,7 +132,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -144,7 +144,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -156,7 +156,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -169,7 +169,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -181,7 +181,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                       marginRight: "10px",
                       marginBottom: "-8px",
                       fontSize: "10px",
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -230,7 +230,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
               type="submit"
               variant="contained"
               style={{
-                fontFamily: "Soleil",
+                fontFamily: "SoleilBold",
                 sansSerif: "sans-serif",
                 marginBottom: "20px",
                 borderRadius:"25px",

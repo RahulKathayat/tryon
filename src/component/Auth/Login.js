@@ -62,7 +62,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 position: "absolute",
                 right: "10px",
                 bottom: "5px",
-                fontFamily: "Soleil",
+                fontFamily: "SoleilRegular",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 // fontSize: "1rem",
@@ -88,7 +88,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 <Typography
                   variant="h5"
                   style={{
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilBold",
                     fontWeight: "bold",
                     transform:"scale(1.1)"
                   }}
@@ -99,7 +99,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 <Typography
                   variant="h4"
                   style={{
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
                     fontSize: "20px",
                     // fontWeight: "bold",
@@ -111,7 +111,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 <Typography
                   color="text.secondary"
                   variant="body2"
-                  style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                  style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}
                 >
                   Don&apos;t have an account? &nbsp;
                   <span
@@ -135,7 +135,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               <form noValidate onSubmit={formik1.handleSubmit}>
                 <Stack
                   spacing={3}
-                  style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}
+                  style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}
                 >
                   <TextField
                     error={!!(formik1.touched.email && formik1.errors.email)}
@@ -148,7 +148,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     type="email"
                     value={formik1.values.email}
                     style={{
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                   />
@@ -163,7 +163,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     label="Password"
                     name="password"
                     style={{
-                      fontFamily: "Soleil",
+                      fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
                     }}
                     onBlur={formik1.handleBlur}
@@ -193,7 +193,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                   type="submit"
                   variant="contained"
                   style={{
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilBold",
                     sansSerif: "sans-serif",
                     borderRadius: "25px",
                   }}
@@ -221,20 +221,20 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                       position: "absolute",
                       top: "50%",
                       left: 0,
-                      height: "2px",
+                      height: "1px",
                       width: "45%",
                       backgroundColor: "#a6baac",
                     }}
                   ></div>
 
-                  <h6 style={{ margin: "0 0px",color:"gray" }}>or</h6>
+                  <h6 style={{ margin: "0 0px",color:"gray",transform:"scale(0.9)" }}>or</h6>
 
                   <div
                     style={{
                       position: "absolute",
                       top: "50%",
                       right: 0,
-                      height: "2px",
+                      height: "1px",
                       width: "45%",
                       backgroundColor: "#a6baac",
                     }}
@@ -248,10 +248,10 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilLight",
                     sansSerif: "sans-serif",
                     fontWeight: 200,
-                    fontSize: "1rem",
+                    fontSize: "0.9rem",
                     // lineHeight: 1,
                     letterSpacing: "0.00835em",
                     marginTop: "2%",

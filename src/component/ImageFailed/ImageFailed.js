@@ -8,7 +8,7 @@ const theme = createTheme();
 const ImageFailed = () => {
   return (
     <div>
-      <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+      <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
         <ThemeProvider theme={theme}>
           <Box
             sx={{
@@ -39,7 +39,7 @@ const ImageFailed = () => {
                   right: "10px",
                   bottom: "5px",
 
-                  fontFamily: "Soleil",
+                  fontFamily: "SoleilRegular",
                   sansSerif: "sans-serif",
                   fontWeight: 400,
                   fontSize: "12px",
@@ -64,7 +64,7 @@ const ImageFailed = () => {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
                     fontWeight: 400,
                     fontSize: "2rem",
@@ -86,7 +86,7 @@ const ImageFailed = () => {
                   color="text.secondary"
                   variant="body2"
                   style={{
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
                     fontWeight: 400,
                     fontSize: "1rem",
@@ -103,7 +103,7 @@ const ImageFailed = () => {
                   color="text.secondary"
                   variant="body2"
                   style={{
-                    fontFamily: "Soleil",
+                    fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
                     fontWeight: 400,
                     fontSize: "1rem",

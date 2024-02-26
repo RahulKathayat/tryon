@@ -29,7 +29,7 @@ const App = () => {
     setSelectedButton(btnType);
   };
   return (
-    <div style={{ fontFamily: "Soleil", sansSerif: "sans-serif" }}>
+    <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
       <div>
         <ThemeProvider theme={theme}>
           <Box

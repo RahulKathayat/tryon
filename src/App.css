@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'SoleilBold';
+  src: url('../public/fonts/SoleilBold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SoleilBook';
+  src: url('../public/fonts/SoleilBook.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SoleilLight';
+  src: url('../public/fonts/SoleilLight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SoleilRegular';
+  src: url('../public/fonts/SoleilRegular.otf') format('opentype');
+}
+
 .App {
   text-align: center;
 }
