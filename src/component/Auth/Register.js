@@ -20,7 +20,11 @@ const Register = ({ SetLogin }) => {
         .max(255)
         .required("Email is required"),
       name: Yup.string().max(255).required("Name is required"),
-      password: Yup.string().max(255).required("Password is required"),
+      password: Yup.string().max(255).required("Password is required")
+      .matches(/[A-Z]/, 'At least one Uppercase letter')
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, 'At least one special character')
+      .matches(/\d/, 'At least one number')
+      .min(8, 'Must be at least 8 characters'),
     }),
     onSubmit: async (values, helpers) => {
       try {
