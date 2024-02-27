@@ -63,6 +63,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
+              transform:"scale(1)"
             }}
           >
             <Typography
@@ -72,7 +73,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                 position: "absolute",
                 right: "10px",
                 bottom: "5px",
-                fontFamily: "SoleilRegular",
+                fontFamily: "SoleilLight",
                 sansSerif: "sans-serif",
                 fontWeight: 400,
                 // fontSize: "1rem",
@@ -92,7 +93,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               </span>
             </Typography>
             <div>
-              <Stack spacing={1} sx={{ mb: 4, textAlign: "center" }}>
+              <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
                 {/* <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
                 </Stack> */}
                 <Typography
@@ -248,7 +249,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                         SetLogin(false);
                       }}
                     >
-                      Register
+                      Sign up
                     </span>
                   </Typography>
                 </Stack>
@@ -339,7 +340,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     fontFamily: "SoleilLight",
                     sansSerif: "sans-serif",
                     fontWeight: 200,
-                    fontSize: "0.9rem",
+                    fontSize: "0.8rem",
                     // lineHeight: 1,
                     letterSpacing: "0.00835em",
                     marginTop: "2%",
