@@ -58,7 +58,7 @@ const Register = ({ SetLogin }) => {
             border: "1.5px gray solid",
             borderRadius: "20px",
             position: "relative",
-            transform: "scale(0.9)"
+            transform: "scale(0.97)"
           }}
         >
           <Typography
@@ -93,30 +93,37 @@ const Register = ({ SetLogin }) => {
               {/* <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
               </Stack> */}
               <Typography
-                variant="h5"
+                variant="h6"
                 style={{
                   fontFamily: "SoleilBold",
                   sansSerif: "sans-serif",
                   fontWeight: "bold",
-                  transform:"scale(1.1)"
+                  transform:"scale(1.1)",
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection:"column",
+                  alignItems: "center",
                 }}
               >
-                Virtual Fitting Room
+                Join Our Exclusive Community!
                 <br />
-                  <span
+                  <div
                     style={{
                       fontFamily: "SoleilRegular",
                       fontWeight: "normal",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       position: "relative",
                       bottom: "10px",
+                      maxWidth:"300px",
+                      lineHeight:"16px",marginTop: "10px",
+                      color:"gray",
                     }}
                   >
-                    Find your choice and see it on you
-                  </span>
+                    Become a member to enjoy special content and offers. Sign up now and get 10% off your first purchase with us.
+                  </div>
               </Typography>
 
-              <Typography
+              {/* <Typography
                 variant="h4"
                 style={{
                   fontFamily: "SoleilRegular",
@@ -126,7 +133,7 @@ const Register = ({ SetLogin }) => {
                 }}
               >
                 Sign Up
-              </Typography>
+              </Typography> */}
               <Typography
                   variant="h6"
                   style={{
@@ -318,7 +325,7 @@ const Register = ({ SetLogin }) => {
                   fontSize: "0.8rem",
                   // lineHeight: 1,
                   letterSpacing: "0.00835em",
-                  marginTop: "2%",
+                  // marginTop: "0",
                   color: "black",
                 }}
               >
@@ -338,6 +345,9 @@ const Register = ({ SetLogin }) => {
                     style={{ transform: "scale(0.61)", cursor: "pointer",position:"absolute" ,right:"90px"}}
                   />
                 </span>
+              </Typography>
+              <Typography sx={{textAlign:"center",marginBottom:"10px",fontFamily:"SoleilLight",fontSize:"13px",color:"gray"}}>
+                Your privacy matters. We keep your data secure and never share it.
               </Typography>
             </form>
           </div>
