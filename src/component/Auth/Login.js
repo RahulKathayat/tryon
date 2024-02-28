@@ -63,7 +63,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
-              transform:"scale(1)"
+              transform:"scale(1.05)"
             }}
           >
             <Typography
@@ -113,12 +113,13 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                       fontSize: "14px",
                       position: "relative",
                       bottom: "10px",
+                      color:"gray",
                     }}
                   >
                     Find your choice and see it on you
                   </span>
                 </Typography>
-                <Typography
+                {/* <Typography
                   variant="h4"
                   style={{
                     fontFamily: "SoleilRegular",
@@ -129,7 +130,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                   }}
                 >
                   Sign In
-                </Typography>
+                </Typography> */}
                 <Typography
                   variant="h6"
                   style={{
@@ -143,7 +144,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
 
               <form noValidate onSubmit={formik1.handleSubmit}>
                 <Stack
-                  spacing={2}
+                  spacing={3}
                   style={{
                     fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",

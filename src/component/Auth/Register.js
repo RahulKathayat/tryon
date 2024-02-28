@@ -111,7 +111,7 @@ const Register = ({ SetLogin }) => {
                     style={{
                       fontFamily: "SoleilRegular",
                       fontWeight: "normal",
-                      fontSize: "12px",
+                      fontSize: "14px",
                       position: "relative",
                       bottom: "10px",
                       maxWidth:"300px",
@@ -119,7 +119,7 @@ const Register = ({ SetLogin }) => {
                       color:"gray",
                     }}
                   >
-                    Become a member to enjoy special content and offers. Sign up now and get 10% off your first purchase with us.
+                    Find your choice and see it on you
                   </div>
               </Typography>
 
@@ -212,7 +212,7 @@ const Register = ({ SetLogin }) => {
                             marginTop: "4px",
                           }}
                         >
-                          I agree to vto's
+                          I agree to
                         </Typography>
                       }
                     />
