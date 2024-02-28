@@ -63,7 +63,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
-              transform:"scale(1.05)"
+              transform:"scale(1)"
             }}
           >
             <Typography
