@@ -16,7 +16,7 @@ const Favorite = ({ close, back }) => {
             // color: "#a19f99",
             display: "flex",
             justifyContent: "center",
-            fontSize: "20px",
+            fontSize: "25px",
             fontWeight: "bold",
             fontFamily: "SoleilBold",
           }}
@@ -38,7 +38,7 @@ const Favorite = ({ close, back }) => {
             <img
               src={"/assets/firstimage.jpg"}
               alt=""
-              style={{ height: "70px", marginLeft: "10px", marginTop: "2px" }}
+              style={{ height: "70px" }}
             />
           </div>
           <div
@@ -48,7 +48,7 @@ const Favorite = ({ close, back }) => {
             <img
               src={"/assets/icons8-dress-48.png"}
               alt=""
-              style={{ height: "80px", marginLeft: "5px" }}
+              style={{ height: "80px" }}
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ const Favorite = ({ close, back }) => {
             <img
               src={"/assets/icons8-dress-48 (1).png"}
               alt=""
-              style={{ height: "70px", marginLeft: "10px", marginTop: "2px" }}
+              style={{ height: "70px"}}
             />
           </div>
           <div
@@ -77,7 +77,7 @@ const Favorite = ({ close, back }) => {
             <img
               src={"/assets/icons8-dress-48 (2).png"}
               alt=""
-              style={{ height: "80px", marginLeft: "5px" }}
+              style={{ height: "80px" }}
             />
           </div>
         </div>
