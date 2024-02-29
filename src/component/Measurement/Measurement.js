@@ -97,7 +97,7 @@ const Measurement = ({
       >
         <Box
           sx={{
-            maxWidth: 450,
+            maxWidth: 400,
             px: 3,
             py: "50px",
             paddingBottom: "80px",
@@ -137,7 +137,8 @@ const Measurement = ({
             style={{
               display: "flex",
               justifyContent: "space-between",
-              marginTop: "-40px",
+              marginTop: "-55px",
+              width: "100%",
             }}
           >
             <div>
@@ -145,10 +146,12 @@ const Measurement = ({
                 src={"/assets/icons8-less-than-30.png"}
                 alt="not found"
                 style={{
-                  transform: "scale(0.6)",
+                  transform: "scale(0.5)",
                   cursor: "pointer",
                   marginTop: "10px",
-                  marginLeft: "2px",
+                  marginLeft: "0px",
+                  position:"relative",
+                  right:"10px"
                 }}
                 onClick={() => {
                   setMeasure(false);
@@ -160,7 +163,7 @@ const Measurement = ({
               <img
                 src={"/assets/icons8-x-50.png"}
                 alt="not found"
-                style={{ transform: "scale(0.4)", cursor: "pointer" }}
+                style={{ transform: "scale(0.3)", cursor: "pointer",position:"relative",left:"15px" }}
                 onClick={() => {
                   setMeasure(false);
                   setStatus(false);
@@ -201,7 +204,7 @@ const Measurement = ({
                   gridTemplateColumns: "repeat(2, 1fr)",
                   width: "fit-content",
                   border: "2px solid #343434",
-                  borderRadius: "10px",
+                  borderRadius: "25px",
                   background: "#343434",
                   fontWeight: "bold",
                   color: "#343434",
@@ -216,7 +219,7 @@ const Measurement = ({
                     background: !isChecked ? "#343434" : "white",
                     color: !isChecked ? "white" : "#343434",
                     transition: "all 0.3s",
-                    borderRadius: "10px",
+                    borderRadius: "25px",
                     fontSize: "13px",
                     // padding: "10px",
                   }}
@@ -231,7 +234,7 @@ const Measurement = ({
                     background: isChecked ? "#343434" : "white",
                     color: isChecked ? "white" : "#343434",
                     transition: "all 0.3s",
-                    borderRadius: "10px",
+                    borderRadius: "25px",
                     fontSize: "13px",
                     paddingRight: "10px",
                     paddingLeft: "10px",
@@ -296,7 +299,7 @@ const Measurement = ({
                 onChange={handleSelectChange}
                 style={{
                   borderColor: "#bfc7c7",
-                  borderRadius: "3px",
+                  borderRadius: "20px",
                   border: "2px solid #bfc7c7",
                   width: "60px",
                   padding: "2px",
@@ -336,7 +339,7 @@ const Measurement = ({
                   gridTemplateColumns: "repeat(2, 1fr)",
                   width: "fit-content",
                   border: "2px solid #343434",
-                  borderRadius: "10px",
+                  borderRadius: "25px",
                   background: "#343434",
                   fontWeight: "bold",
                   color: "#343434",
@@ -351,7 +354,7 @@ const Measurement = ({
                     background: !isChecked1 ? "#343434" : "white",
                     color: !isChecked1 ? "white" : "#343434",
                     transition: "all 0.3s",
-                    borderRadius: "10px",
+                    borderRadius: "20px",
                     fontSize: "13px", // Adjusted font size
                   }}
                 >
@@ -365,7 +368,7 @@ const Measurement = ({
                     background: isChecked1 ? "#343434" : "white",
                     color: isChecked1 ? "white" : "#343434",
                     transition: "all 0.3s",
-                    borderRadius: "10px",
+                    borderRadius: "20px",
                     fontSize: "13px", // Adjusted font size
                   }}
                 >
@@ -438,7 +441,7 @@ const Measurement = ({
                           onChange={handleSelectChange1}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -456,7 +459,7 @@ const Measurement = ({
                           onChange={handleSelectChange2}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -523,7 +526,7 @@ const Measurement = ({
                     onChange={handleSelectChange3}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",
@@ -566,7 +569,7 @@ const Measurement = ({
                     onChange={handleSelectChange4}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",
@@ -609,7 +612,7 @@ const Measurement = ({
                       onChange={handleSelectChange5}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -646,7 +649,7 @@ const Measurement = ({
                       onChange={handleSelectChange6}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -696,7 +699,7 @@ const Measurement = ({
                           onChange={handleSelectChange11}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -714,7 +717,7 @@ const Measurement = ({
                           onChange={handleSelectChange22}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -778,7 +781,7 @@ const Measurement = ({
                       onChange={handleSelectChange55}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -803,7 +806,7 @@ const Measurement = ({
                       onChange={handleSelectChange66}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -848,7 +851,7 @@ const Measurement = ({
                     onChange={handleSelectChange33}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",

@@ -59,7 +59,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             flex: "1 1 auto",
             alignItems: "center",
             display: "flex",
-            // height: "100vh",
+            height: "100vh",
             justifyContent: "center",
             padding:"2%",
           }}
@@ -137,10 +137,10 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     src={"/assets/icons8-x-50.png"}
                     alt="not found"
                     style={{
-                      transform: "scale(0.35)",
+                      transform: "scale(0.3)",
                       cursor: "pointer",
                       marginTop: "-50px",
-                      marginRight:"-35px"
+                      marginRight:"-35px",
                     }}
                     onClick={() => {
                       setInstructionPopup(false)
@@ -301,6 +301,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
+              transform: "scale(0.9)",
             }}
           >
             <Typography
@@ -362,7 +363,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     src={"/assets/icons8-x-50.png"}
                     alt="not found"
                     style={{
-                      transform: "scale(0.35)",
+                      transform: "scale(0.3)",
                       cursor: "pointer",
                       marginTop: "-50px",
                       marginRight:"-35px"

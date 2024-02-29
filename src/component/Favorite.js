@@ -19,9 +19,10 @@ const Favorite = ({ close, back }) => {
             fontSize: "25px",
             fontWeight: "bold",
             fontFamily: "SoleilBold",
+            letterSpacing:"1px"
           }}
         >
-          Favorites
+          FAVORITES
         </h4>
         <div
           style={{
@@ -33,7 +34,7 @@ const Favorite = ({ close, back }) => {
           <div
             className="col-md-5 handleImgBorder"
             style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",
-            alignItems: "center" }}
+            alignItems: "center",boxShadow:"5px 5px 10px gray" }}
           >
             <img
               src={"/assets/firstimage.jpg"}
@@ -43,7 +44,7 @@ const Favorite = ({ close, back }) => {
           </div>
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px" ,display: "flex",justifyContent: "center",alignItems: "center" }}
+            style={{ marginRight: "0px", padding: "20px" ,display: "flex",justifyContent: "center",alignItems: "center",boxShadow:"5px 5px 10px gray" }}
           >
             <img
               src={"/assets/icons8-dress-48.png"}
@@ -62,7 +63,7 @@ const Favorite = ({ close, back }) => {
         >
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center"  }}
+            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"5px 5px 10px gray" }}
           >
             <img
               src={"/assets/icons8-dress-48 (1).png"}
@@ -72,7 +73,7 @@ const Favorite = ({ close, back }) => {
           </div>
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center"  }}
+            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"5px 5px 10px gray" }}
           >
             <img
               src={"/assets/icons8-dress-48 (2).png"}

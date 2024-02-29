@@ -192,6 +192,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
               <img
                 src={"/assets/full_body_svg.svg"}
                 alt=""
+                style={{filter:"drop-shadow(0px 0px 6px #555)"}}
               />
             </div>
           </div>

@@ -98,7 +98,7 @@ const Profile = ({ close, back }) => {
             fontSize: "1rem",
             lineHeight: 2,
             letterSpacing: "0.00735em",
-            marginTop: "25px",
+            marginTop: "-20px",
           }}
         >
           <b style={{ color: "black" }}>Gender</b>
@@ -121,7 +121,7 @@ const Profile = ({ close, back }) => {
                 gridTemplateColumns: "repeat(2, 1fr)",
                 width: "fit-content",
                 border: "2px solid #343434",
-                borderRadius: "10px",
+                borderRadius: "20px",
                 background: "#343434",
                 fontWeight: "bold",
                 color: "#343434",
@@ -136,7 +136,7 @@ const Profile = ({ close, back }) => {
                   background: !isChecked ? "#343434" : "white",
                   color: !isChecked ? "white" : "#343434",
                   transition: "all 0.3s",
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   fontSize: "13px",
                 }}
               >
@@ -150,7 +150,7 @@ const Profile = ({ close, back }) => {
                   background: isChecked ? "#343434" : "white",
                   color: isChecked ? "white" : "#343434",
                   transition: "all 0.3s",
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   fontSize: "13px",
                   paddingRight: "10px",
                   paddingLeft: "10px",
@@ -215,7 +215,7 @@ const Profile = ({ close, back }) => {
               onChange={handleSelectChange}
               style={{
                 borderColor: "#bfc7c7",
-                borderRadius: "3px",
+                borderRadius: "20px",
                 border: "2px solid #bfc7c7",
                 width: "60px",
                 padding: "2px",
@@ -255,7 +255,7 @@ const Profile = ({ close, back }) => {
                 gridTemplateColumns: "repeat(2, 1fr)",
                 width: "fit-content",
                 border: "2px solid #343434",
-                borderRadius: "10px",
+                borderRadius: "20px",
                 background: "#343434",
                 fontWeight: "bold",
                 color: "#343434",
@@ -270,7 +270,7 @@ const Profile = ({ close, back }) => {
                   background: !isChecked1 ? "#343434" : "white",
                   color: !isChecked1 ? "white" : "#343434",
                   transition: "all 0.3s",
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   fontSize: "13px", // Adjusted font size
                 }}
               >
@@ -284,7 +284,7 @@ const Profile = ({ close, back }) => {
                   background: isChecked1 ? "#343434" : "white",
                   color: isChecked1 ? "white" : "#343434",
                   transition: "all 0.3s",
-                  borderRadius: "10px",
+                  borderRadius: "20px",
                   fontSize: "13px", // Adjusted font size
                 }}
               >
@@ -358,7 +358,7 @@ const Profile = ({ close, back }) => {
                           onChange={handleSelectChange1}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -376,7 +376,7 @@ const Profile = ({ close, back }) => {
                           onChange={handleSelectChange2}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -444,7 +444,7 @@ const Profile = ({ close, back }) => {
                     onChange={handleSelectChange3}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",
@@ -488,7 +488,7 @@ const Profile = ({ close, back }) => {
                     onChange={handleSelectChange4}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",
@@ -532,7 +532,7 @@ const Profile = ({ close, back }) => {
                       onChange={handleSelectChange5}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -569,7 +569,7 @@ const Profile = ({ close, back }) => {
                       onChange={handleSelectChange6}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -620,7 +620,7 @@ const Profile = ({ close, back }) => {
                           onChange={handleSelectChange11}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -638,7 +638,7 @@ const Profile = ({ close, back }) => {
                           onChange={handleSelectChange22}
                           style={{
                             borderColor: "#bfc7c7",
-                            borderRadius: "3px",
+                            borderRadius: "20px",
                             border: "2px solid #bfc7c7",
                             width: "60px",
                             padding: "2px",
@@ -703,7 +703,7 @@ const Profile = ({ close, back }) => {
                       onChange={handleSelectChange55}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -725,7 +725,7 @@ const Profile = ({ close, back }) => {
                       onChange={handleSelectChange66}
                       style={{
                         borderColor: "#bfc7c7",
-                        borderRadius: "3px",
+                        borderRadius: "20px",
                         border: "2px solid #bfc7c7",
                         width: "60px",
                         padding: "2px",
@@ -771,7 +771,7 @@ const Profile = ({ close, back }) => {
                     onChange={handleSelectChange33}
                     style={{
                       borderColor: "#bfc7c7",
-                      borderRadius: "3px",
+                      borderRadius: "20px",
                       border: "2px solid #bfc7c7",
                       width: "60px",
                       padding: "2px",
