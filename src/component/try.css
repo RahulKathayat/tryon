@@ -39,7 +39,7 @@
   .handleImgBorder{
     border: 2px solid #d4cfc5;
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 25px;
     /* margin-left: 15px; */
     /* margin-right: 25px; */
     /* margin-bottom: 15px; */
@@ -49,6 +49,12 @@
   .setInlineImg{
     display: flex !important;
   
+  }
+  .hoverBgChange{
+    transition: background-color 0.2s ease;
+  }
+  .hoverBgChange:hover{ 
+    background-color : #F1EAFF;
   }
   .handleFavTxt{
     color: #000;

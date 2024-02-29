@@ -9,6 +9,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
   const handleOptionClick = (option) => {
     setSelectedOptionProfile(option);
   };
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div>
       <Box
@@ -23,16 +24,58 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
       >
         <Box
           sx={{
-            maxWidth: 380,
+            maxWidth: 400,
             width: "100%",
             border: "1.5px gray solid",
             borderRadius: "20px",
             fontFamily: "SoleilRegular",
             sansSerif: "sans-serif",
             color: "#a19f99",
+            height: "640px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            transform: "scale(0.96)",
+            padding: "1px",
           }}
         >
-          <div style={{ }}>
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div>
+                <img
+                  src={"/assets/icons8-less-than-30.png"}
+                  alt="not found"
+                  style={{
+                    transform: "scale(0.45)",
+                    cursor: "pointer",
+                    marginTop: "7px",
+                    marginLeft: "2px",
+                  }}
+                  onClick={() => {
+                    back(true)
+                  }}
+                />
+              </div>
+              <div>
+                <img
+                  src={"/assets/icons8-x-50.png"}
+                  alt="not found"
+                  style={{ transform: "scale(0.25)", cursor: "pointer",position:"relative",bottom: "4px",left:"2px" }}
+                  onClick={() => {
+                    close(true);
+                  }}
+                />
+              </div>
+            </div>
+            <hr style={{ 
+              border: "1px solid gray", 
+              marginTop: "-8px" ,
+              boxShadow:"0px 2px 8px black"
+              }} />
+          </div>
+
+
+          <div style={{ maxHeight:"520px"}}>
             {selectedOptionProfile === "tryOn" && (
               <div>
                 <TryOn close={close} back={back} />
@@ -49,121 +92,152 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
               </div>
             )}
           </div>
+          <div>
+            <hr
+              style={{
+                marginBottom:"1px",
+                border:"1px solid gray",
+                boxShadow:"0px 2px 8px black"
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                fontWeight: "bold",
+                fontSize: "15px",
+              }}
+              >
+              <div
+              className="hoverBgChange"
+                style={{
+                  border:
+                    selectedOptionProfile === "tryOn"
+                      ? "2px gray solid"
+                      : "2px white solid",
+                  borderRadius: "20px",
+                  padding: "10px",
+                  cursor: "pointer",
+                  backgroundColor : selectedOptionProfile === "tryOn" ? "#F1EAFF":""
+                }}
+                onClick={() => handleOptionClick("tryOn")}
+              >
+                <img
+                  src={"/assets/icons8-cloakroom-100.png"}
+                  alt=""
+                  style={{
+                    height: "25px",
+                    width: "25px",
+                    marginLeft: "9px",
+                  }}
+                />
+                <div style={{ 
+                  color : selectedOptionProfile === "tryOn"
+                  ? "black" : "gray" ,
+                  fontFamily : selectedOptionProfile === "tryOn" ? "SoleilBold" : "SoleilLight" , 
+                 }}>Try-on</div>
+              </div>
+              <div
+                className="hoverBgChange"
+                style={{
+                  border:
+                    selectedOptionProfile === "favorite"
+                      ? "2px gray solid"
+                      : "2px white solid",
+                  borderRadius: "20px",
+                  padding: "10px",
+                  cursor: "pointer",
+                  backgroundColor : selectedOptionProfile === "favorite" ? "#F1EAFF":""
+                }}
+                onClick={() => handleOptionClick("favorite")}
+              >
+                <img
+                  src={"/assets/icons8-favorite-100.png"}
+                  alt=""
+                  style={{
+                    height: "25px",
+                    width: "25px",
+                    marginLeft: "15px",
+                  }}
+                />
+                <div style={{ 
+                  color : selectedOptionProfile === "favorite"
+                  ? "black" : "gray" ,
+                  fontFamily : selectedOptionProfile === "favorite" ? "SoleilBold" : "SoleilLight" ,
+                 }}>Favorite</div>
+              </div>
+              <div
+              className="hoverBgChange"
+                style={{
+                  border:
+                    selectedOptionProfile === "profile"
+                      ? "2px gray solid"
+                      : "2px white solid",
+                  borderRadius: "20px",
+                  padding: "10px",
+                  cursor: "pointer",
+                  backgroundColor : selectedOptionProfile === "profile" ? "#F1EAFF":""
+                }}
+                onClick={() => handleOptionClick("profile")}
+              >
+                <img
+                  src={"/assets/icons8-customer-100.png"}
+                  alt=""
+                  style={{
+                    height: "25px",
+                    width: "25px",
+                    marginLeft: "9px",
+                  }}
+                />
+                <div style={{ 
+                  color : selectedOptionProfile === "profile"
+                  ? "black" : "gray" ,
+                  fontFamily : selectedOptionProfile === "profile" ? "SoleilBold" : "SoleilLight" ,
+                 }}
+                 
+                 >
+                  Profile
+                </div>
+              </div>
 
-          <hr
-            style={{
-              border: "1px solid gray",
-              marginBottom: "0px",
-            }}
-          />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-around",
-              fontWeight: "bold",
-              fontSize: "15px",
-            }}
-          >
-            <div
-              style={{
-                border:
-                  selectedOptionProfile === "tryOn"
-                    ? "2px #d4cfc5 solid"
-                    : "2px white solid",
-                borderRadius: "15px",
-                padding: "10px",
-                cursor: "pointer",
-              }}
-              onClick={() => handleOptionClick("tryOn")}
-            >
-              <img
-                src={"/assets/icons8-cloakroom-100.png"}
-                alt=""
+              <div
+                className="hoverBgChange"
                 style={{
-                  height: "25px",
-                  width: "25px",
-                  marginLeft: "9px",
+                  border:
+                    selectedOptionProfile === "logout"
+                      ? "2px #d4cfc5 solid"
+                      : "2px white solid",
+                  borderRadius: "20px",
+                  padding: "10px",
+                  cursor: "pointer",
+                  backgroundColor : selectedOptionProfile === "logout" ? "#F1EAFF":""
                 }}
-              />
-              <div style={{ color: "black" }}>Try on</div>
-            </div>
-            <div
-              style={{
-                border:
-                  selectedOptionProfile === "favorite"
-                    ? "2px #d4cfc5 solid"
-                    : "2px white solid",
-                borderRadius: "15px",
-                padding: "10px",
-                cursor: "pointer",
-              }}
-              onClick={() => handleOptionClick("favorite")}
-            >
-              <img
-                src={"/assets/icons8-favorite-100.png"}
-                alt=""
-                style={{
-                  height: "25px",
-                  width: "25px",
-                  marginLeft: "15px",
-                }}
-              />
-              <div style={{ color: "black" }}>Favorite</div>
-            </div>
-            <div
-              style={{
-                border:
-                  selectedOptionProfile === "profile"
-                    ? "2px #d4cfc5 solid"
-                    : "2px white solid",
-                borderRadius: "15px",
-                padding: "10px",
-                cursor: "pointer",
-              }}
-              onClick={() => handleOptionClick("profile")}
-            >
-              <img
-                src={"/assets/icons8-customer-100.png"}
-                alt=""
-                style={{
-                  height: "25px",
-                  width: "25px",
-                  marginLeft: "9px",
-                }}
-              />
-              <div style={{ color: "black" }}>Profile</div>
-            </div>
+                onClick={() => {
+                  const confirm = window.confirm("Are you sure to logout?");
+                  if (confirm) {
+                    setMobiledata(false);
+                    setStatus(false);
 
-            <div
-              style={{
-                border:
-                  selectedOptionProfile === "logout"
-                    ? "2px #d4cfc5 solid"
-                    : "2px white solid",
-                borderRadius: "15px",
-                padding: "10px",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                const confirm = window.confirm("Are you sure to logout?");
-                if (confirm) {
-                  setMobiledata(false);
-                  setStatus(false);
-
-                  window.location.reload();
-                }
-              }}
-            >
-              <img
-                src={"/assets/icons8-logout-50.png"}
-                alt=""
-                style={{
-                  height: "21px",
-                  width: "21px",
-                  marginLeft: "13px",
+                    window.location.reload();
+                  }
                 }}
-              />
-              <div style={{ color: "black" }}>Logout</div>
+              >
+                <img
+                  src={"/assets/icons8-logout-50.png"}
+                  alt=""
+                  style={{
+                    height: "21px",
+                    width: "21px",
+                    marginLeft: "13px",
+                  }}
+                />
+                <div style={{ 
+                  color : selectedOptionProfile === "logout"
+                  ? "black" : "gray" ,
+                  fontFamily : selectedOptionProfile === "logout" ? "SoleilBold" : "SoleilLight" ,
+                 }}
+                >Logout</div>
+              </div>
             </div>
           </div>
         </Box>
