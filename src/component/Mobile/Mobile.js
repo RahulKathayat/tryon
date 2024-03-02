@@ -24,7 +24,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
       >
         <Box
           sx={{
-            maxWidth: 400,
+            maxWidth: 350,
             width: "100%",
             border: "1.5px gray solid",
             borderRadius: "20px",
@@ -35,7 +35,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            transform: "scale(0.96)",
+            transform: "scale(0.97)",
             padding: "1px",
           }}
         >
