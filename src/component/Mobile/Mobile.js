@@ -113,22 +113,25 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 style={{
                   border:
                     selectedOptionProfile === "tryOn"
-                      ? "2px gray solid"
+                      ? "2px #B4B4B8 solid"
                       : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "tryOn" ? "#F1EAFF":""
+                  backgroundColor : selectedOptionProfile === "tryOn" ? "#F1EAFF":"",
+                  display: "flex",
+                  flexDirection:"column",
+                  alignItems:"center",
+                  justifyContent:"center",
                 }}
                 onClick={() => handleOptionClick("tryOn")}
               >
                 <img
-                  src={"/assets/icons8-cloakroom-100.png"}
+                  src={"/assets/fashion.png"}
                   alt=""
                   style={{
-                    height: "25px",
-                    width: "25px",
-                    marginLeft: "9px",
+                    height: "20px",
+                    width: "20px",
                   }}
                 />
                 <div style={{ 
@@ -142,22 +145,25 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 style={{
                   border:
                     selectedOptionProfile === "favorite"
-                      ? "2px gray solid"
+                      ? "2px #B4B4B8 solid"
                       : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "favorite" ? "#F1EAFF":""
+                  backgroundColor : selectedOptionProfile === "favorite" ? "#F1EAFF":"",
+                  display: "flex",
+                  flexDirection:"column",
+                  alignItems:"center",
+                  justifyContent:"center",
                 }}
                 onClick={() => handleOptionClick("favorite")}
               >
                 <img
-                  src={"/assets/icons8-favorite-100.png"}
+                  src={"/assets/bookmark.png"}
                   alt=""
                   style={{
-                    height: "25px",
-                    width: "25px",
-                    marginLeft: "15px",
+                    height: "18px",
+                    width: "18px",
                   }}
                 />
                 <div style={{ 
@@ -171,22 +177,25 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 style={{
                   border:
                     selectedOptionProfile === "profile"
-                      ? "2px gray solid"
+                      ? "2px #B4B4B8 solid"
                       : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "profile" ? "#F1EAFF":""
+                  backgroundColor : selectedOptionProfile === "profile" ? "#F1EAFF":"",
+                  display: "flex",
+                  flexDirection:"column",
+                  alignItems:"center",
+                  justifyContent:"center",
                 }}
                 onClick={() => handleOptionClick("profile")}
               >
                 <img
-                  src={"/assets/icons8-customer-100.png"}
+                  src={"/assets/avatar.png"}
                   alt=""
                   style={{
-                    height: "25px",
-                    width: "25px",
-                    marginLeft: "9px",
+                    height: "18px",
+                    width: "18px",
                   }}
                 />
                 <div style={{ 
@@ -205,7 +214,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 style={{
                   border:
                     selectedOptionProfile === "logout"
-                      ? "2px #d4cfc5 solid"
+                      ? "2px #B4B4B8 solid"
                       : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
@@ -223,7 +232,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 }}
               >
                 <img
-                  src={"/assets/icons8-logout-50.png"}
+                  src={"/assets/sign-out-option.png"}
                   alt=""
                   style={{
                     height: "21px",
