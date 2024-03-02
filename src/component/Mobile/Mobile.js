@@ -109,16 +109,18 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
               }}
               >
               <div
-              className="hoverBgChange"
+              // className="hoverBgChange"
                 style={{
-                  border:
-                    selectedOptionProfile === "tryOn"
-                      ? "2px #B4B4B8 solid"
-                      : "2px white solid",
+                  // border:
+                  //   selectedOptionProfile === "tryOn"
+                  //     ? "2px #B4B4B8 solid"
+                  //     : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
+                  paddingBottom:selectedOptionProfile === "tryOn" ? "10px":"0px",
+                  transition:"all 0.15s ease-in",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "tryOn" ? "#F1EAFF":"",
+                  // backgroundColor : selectedOptionProfile === "tryOn" ? "#F1EAFF":"",
                   display: "flex",
                   flexDirection:"column",
                   alignItems:"center",
@@ -141,16 +143,18 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                  }}>Try-on</div>
               </div>
               <div
-                className="hoverBgChange"
+                // className="hoverBgChange"
                 style={{
-                  border:
-                    selectedOptionProfile === "favorite"
-                      ? "2px #B4B4B8 solid"
-                      : "2px white solid",
+                  // border:
+                  //   selectedOptionProfile === "favorite"
+                  //     ? "2px #B4B4B8 solid"
+                  //     : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
+                  paddingBottom:selectedOptionProfile === "favorite" ? "10px":"0px",
+                  transition:"all 0.15s ease-in",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "favorite" ? "#F1EAFF":"",
+                  // backgroundColor : selectedOptionProfile === "favorite" ? "#F1EAFF":"",
                   display: "flex",
                   flexDirection:"column",
                   alignItems:"center",
@@ -173,20 +177,22 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                  }}>Favorite</div>
               </div>
               <div
-              className="hoverBgChange"
+              // className="hoverBgChange"
                 style={{
-                  border:
-                    selectedOptionProfile === "profile"
-                      ? "2px #B4B4B8 solid"
-                      : "2px white solid",
+                  // border:
+                  //   selectedOptionProfile === "profile"
+                  //     ? "2px #B4B4B8 solid"
+                  //     : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "profile" ? "#F1EAFF":"",
+                  // backgroundColor : selectedOptionProfile === "profile" ? "#F1EAFF":"",
                   display: "flex",
                   flexDirection:"column",
                   alignItems:"center",
                   justifyContent:"center",
+                  paddingBottom:selectedOptionProfile === "profile" ? "10px":"0px",
+                  transition:"all 0.15s ease-in",
                 }}
                 onClick={() => handleOptionClick("profile")}
               >
@@ -210,16 +216,18 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
               </div>
 
               <div
-                className="hoverBgChange"
+                // className="hoverBgChange"
                 style={{
-                  border:
-                    selectedOptionProfile === "logout"
-                      ? "2px #B4B4B8 solid"
-                      : "2px white solid",
+                  // border:
+                  //   selectedOptionProfile === "logout"
+                  //     ? "2px #B4B4B8 solid"
+                  //     : "2px white solid",
                   borderRadius: "20px",
                   padding: "10px",
                   cursor: "pointer",
-                  backgroundColor : selectedOptionProfile === "logout" ? "#F1EAFF":""
+                  paddingBottom:selectedOptionProfile === "logout" ? "10px":"0px",
+                  transition:"all 0.15s ease-in",
+                  // backgroundColor : selectedOptionProfile === "logout" ? "#F1EAFF":""
                 }}
                 onClick={() => {
                   const confirm = window.confirm("Are you sure to logout?");
