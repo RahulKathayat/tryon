@@ -34,20 +34,20 @@ const Favorite = ({ close, back }) => {
           <div
             className="col-md-5 handleImgBorder"
             style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",
-            alignItems: "center",boxShadow:"5px 5px 10px gray" }}
+            alignItems: "center",boxShadow:"0px 0px 8px gray" }}
           >
             <img
-              src={"/assets/firstimage.jpg"}
+              src={"/assets/pants.png"}
               alt=""
-              style={{ height: "70px" }}
+              style={{ height: "80px" }}
             />
           </div>
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px" ,display: "flex",justifyContent: "center",alignItems: "center",boxShadow:"5px 5px 10px gray" }}
+            style={{ marginRight: "0px", padding: "20px" ,display: "flex",justifyContent: "center",alignItems: "center",boxShadow:"0px 0px 8px gray" }}
           >
             <img
-              src={"/assets/icons8-dress-48.png"}
+              src={"/assets/dress.png"}
               alt=""
               style={{ height: "80px" }}
             />
@@ -63,20 +63,20 @@ const Favorite = ({ close, back }) => {
         >
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"5px 5px 10px gray" }}
+            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"0px 0px 8px gray" }}
           >
             <img
-              src={"/assets/icons8-dress-48 (1).png"}
+              src={"/assets/shirt.png"}
               alt=""
-              style={{ height: "70px"}}
+              style={{ height: "80px"}}
             />
           </div>
           <div
             className="col-md-5 handleImgBorder"
-            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"5px 5px 10px gray" }}
+            style={{ marginRight: "0px", padding: "20px",display: "flex",justifyContent: "center",alignItems: "center" ,boxShadow:"0px 0px 8px gray"}}
           >
             <img
-              src={"/assets/icons8-dress-48 (2).png"}
+              src={"/assets/hoodie.png"}
               alt=""
               style={{ height: "80px" }}
             />

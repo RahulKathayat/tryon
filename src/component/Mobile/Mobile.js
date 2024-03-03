@@ -138,7 +138,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 />
                 <div style={{ 
                   color : selectedOptionProfile === "tryOn"
-                  ? "black" : "gray" ,
+                  ? "black" : "#B4B4B8" ,
                   fontFamily : selectedOptionProfile === "tryOn" ? "SoleilBold" : "SoleilLight" , 
                  }}>Try-on</div>
               </div>
@@ -172,7 +172,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 />
                 <div style={{ 
                   color : selectedOptionProfile === "favorite"
-                  ? "black" : "gray" ,
+                  ? "black" : "#B4B4B8" ,
                   fontFamily : selectedOptionProfile === "favorite" ? "SoleilBold" : "SoleilLight" ,
                  }}>Favorite</div>
               </div>
@@ -206,7 +206,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 />
                 <div style={{ 
                   color : selectedOptionProfile === "profile"
-                  ? "black" : "gray" ,
+                  ? "black" : "#B4B4B8" ,
                   fontFamily : selectedOptionProfile === "profile" ? "SoleilBold" : "SoleilLight" ,
                  }}
                  
@@ -250,7 +250,7 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
                 />
                 <div style={{ 
                   color : selectedOptionProfile === "logout"
-                  ? "black" : "gray" ,
+                  ? "black" : "#B4B4B8" ,
                   fontFamily : selectedOptionProfile === "logout" ? "SoleilBold" : "SoleilLight" ,
                  }}
                 >Logout</div>
