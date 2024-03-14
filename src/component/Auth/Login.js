@@ -1,12 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Box, FormControlLabel } from "@mui/material";
 import { useFormik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Stack, TextField, Typography, Checkbox } from "@mui/material";
 import * as Yup from "yup";
+import axios from "axios";
+import {auth,provider,facebookProvider} from "../../firebaseConfig";
+import { signInWithPopup } from "firebase/auth";
 
 const Login = ({ SetLogin, setPhotoImage }) => {
+  const [user,setUser] = useState(null);
   const theme = createTheme();
   const formik1 = useFormik({
     initialValues: {
@@ -24,7 +28,25 @@ const Login = ({ SetLogin, setPhotoImage }) => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        // await auth.signIn(values.email, values.password);
+          console.log(values);
+          const user = {email: values.email, password: values.password}
+          await axios
+          .post(`${process.env.REACT_APP_BASE_URL}/v1/auth/login`, user)
+          .then((response) => {
+            console.log(response);
+            const refreshToken = response.data.tokens.refresh.token;
+            const accessToken = response.data.tokens.access.token;
+            localStorage.setItem("refreshTok", refreshToken);
+            localStorage.setItem("accessTok", accessToken);
+            SetLogin(null);
+            setPhotoImage(true);
+            alert('success', 'logged in successfully');
+          })
+          .catch((e) => {
+            console.log(e);
+            alert( 'Invalid email or password');
+            console.log("Invalid email or password");
+          });
       } catch (err) {
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
@@ -32,6 +54,63 @@ const Login = ({ SetLogin, setPhotoImage }) => {
       }
     },
   });
+  const handleGoogleSignIn = () => {
+     signInWithPopup(auth,provider).
+     then(
+        async (result) => {
+          console.log(result);
+          setUser(result.user);
+          const googleUser = {email:result.user.email,name:result.user.displayName};
+          await axios
+          .post(`${process.env.REACT_APP_BASE_URL}/v1/auth/loginWithGoogle`, googleUser)
+          .then((response) => {
+            console.log(response);
+            const refreshToken = response.data.tokens.refresh.token;
+            const accessToken = response.data.tokens.access.token;
+            localStorage.setItem("refreshTok", refreshToken);
+            localStorage.setItem("accessTok", accessToken);
+            SetLogin(null);
+            setPhotoImage(true);
+            alert('Google Sign in success');
+          })
+          .catch((e) => {
+            console.log(e);
+            alert( 'Error in google sign in');
+            console.log("Error in google sign in");
+          });
+      })
+      .catch((err) =>{
+        console.log(err);
+      });
+  };
+  const handleFacebookSignIn = () => {
+    signInWithPopup(auth,facebookProvider)
+    .then(
+      async (result) => {
+        console.log(result);
+        setUser(result.user);
+        const fbUser = {email:result._tokenResponse.email,name:result.user.displayName};
+        await axios
+        .post(`${process.env.REACT_APP_BASE_URL}/v1/auth/loginWithFacebook`, fbUser)
+        .then((response) => {
+          console.log(response);
+          const refreshToken = response.data.tokens.refresh.token;
+          const accessToken = response.data.tokens.access.token;
+          localStorage.setItem("refreshTok", refreshToken);
+          localStorage.setItem("accessTok", accessToken);
+          SetLogin(null);
+          setPhotoImage(true);
+          alert('Facebook sign in success');
+        })
+        .catch((e) => {
+          console.log(e);
+          alert( 'Error in Facebook sign in');
+          console.log("Error in Facebook sign in");
+        });
+    }).catch((err) =>{
+      console.log(err);
+    });
+  };
   const handleResetPassword = async () => {
     try{
       console.log("reset password clicked");
@@ -279,12 +358,6 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     sansSerif: "sans-serif",
                     borderRadius: "25px",
                   }}
-                  onClick={() => {
-                    setTimeout(() => {
-                      SetLogin(null);
-                      setPhotoImage(true);
-                    }, [0]);
-                  }}
                 >
                   Continue
                 </Button>
@@ -353,6 +426,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     <img
                       src={"/assets/icons8-google-48.png"}
                       alt="google"
+                      onClick={handleGoogleSignIn}
                       style={{
                         transform: "scale(0.58)",
                         cursor: "pointer",
@@ -361,6 +435,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                     <img
                       src={"/assets/icons8-facebook-48.png"}
                       alt="facebook"
+                      onClick={handleFacebookSignIn}
                       style={{
                         transform: "scale(0.61)",
                         cursor: "pointer",

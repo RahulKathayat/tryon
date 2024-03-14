@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
-
+import axios from "axios";
 import * as Yup from "yup";
 import { Button, Stack, TextField, Typography } from "@mui/material";
 
@@ -28,8 +28,28 @@ const Register = ({ SetLogin }) => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        // await auth.signUp(values.email, values.name, values.password);
-        // router.push("/");
+        console.log(values);
+        if(values.checkboxField){
+              axios
+            .post(`${process.env.REACT_APP_BASE_URL}/v1/auth/register`, values)
+            .then((response) => {
+              console.log(response);
+              formik.resetForm();
+              SetLogin(true);
+              alert(
+                "Registered Successfully",
+                "You have been registered successfully"
+              );
+            })
+            .catch((error) => {
+              console.log("Error registering the user ", error);
+              alert(
+                "Registration Failed",
+                "An error occured while registering"
+              );
+            });
+        }
+        else{ alert('please agree to privacy policy');}
       } catch (err) {
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
