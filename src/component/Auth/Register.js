@@ -30,7 +30,7 @@ const Register = ({ SetLogin }) => {
       try {
         console.log(values);
         if(values.checkboxField){
-              axios
+            await  axios
             .post(`${process.env.REACT_APP_BASE_URL}/v1/auth/register`, values)
             .then((response) => {
               console.log(response);
