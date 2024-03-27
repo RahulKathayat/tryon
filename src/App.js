@@ -24,17 +24,12 @@ const Login = () => {
     const receiveDataFromParent = (event) => {
       // Handle data received from the parent
       console.log('Received data from parent:', event.data);
-      const data = event.data;
-      setApparelUrl("new value");
+      const data = JSON.stringify(event.data);
+      setApparelUrl(data);
     };
 
     // Add event listener to listen for messages from the parent window
     window.addEventListener('message', receiveDataFromParent);
-
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener('message', receiveDataFromParent);
-    };
   }, []);
   const [login, SetLogin] = useState("");
   const [PhotoImage, setPhotoImage] = useState(false);
