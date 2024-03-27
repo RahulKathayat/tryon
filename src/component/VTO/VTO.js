@@ -1,6 +1,20 @@
 import React from "react";
 
 const VTO = ({ setStatus, SetLogin }) => {
+  useEffect(() => {
+    const receiveDataFromParent = (event) => {
+      // Handle data received from the parent
+      console.log('Received data from parent:', event.data);
+    };
+
+    // Add event listener to listen for messages from the parent window
+    window.addEventListener('message', receiveDataFromParent);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('message', receiveDataFromParent);
+    };
+  }, []);
   return (
     <div>
       <div className="container">
