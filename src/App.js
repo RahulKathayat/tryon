@@ -59,7 +59,6 @@ const Login = () => {
 
   return (
     <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
-      <p>Current text: {apparelUrl}</p>
       {!status && (
         <>
           <VTO SetLogin={SetLogin} setStatus={setStatus} />
