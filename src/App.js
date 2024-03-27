@@ -13,15 +13,19 @@ import ImageFail from "./component/ImageFailed/ImageFailed";
 import CongratulationCom from "./component/Congratulation/Congratulation";
 import ConfirmBox from "./component/ConfirmBox/ConfirmBox";
 import Mobile from "./component/Mobile/Mobile";
+import useStore from './vtoStore';
 
 const theme = createTheme();
 
 const Login = () => {
+  const { apparelUrl, setApparelUrl } = useStore();
   useEffect(() => {
     console.log("hello");
     const receiveDataFromParent = (event) => {
       // Handle data received from the parent
       console.log('Received data from parent:', event.data);
+      setApparelUrl(event.data);
+      console.log(apparelUrl);
     };
 
     // Add event listener to listen for messages from the parent window
