@@ -23,7 +23,7 @@ const Login = () => {
     console.log("hello");
     const receiveDataFromParent = (event) => {
       // Handle data received from the parent
-      console.log('Received data from parent:', event.data);
+      console.log('Received data from parent:', event);
       // setApparelUrl(event.data);
     };
 
