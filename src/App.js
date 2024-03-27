@@ -24,9 +24,7 @@ const Login = () => {
     console.log("hello");
 
     const receiveDataFromParent = (event) => {
-      if(event.origin === window.parent){
-        console.log('Received data from parent:', event.data);
-      }
+      console.log('Received data from parent:', event.data);
       // setApparelUrl(event.data);
     };
 
