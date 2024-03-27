@@ -24,7 +24,7 @@ const Login = () => {
     const receiveDataFromParent = (event) => {
       // Handle data received from the parent
       console.log('Received data from parent:', event.data);
-      const data = JSON.stringify(event.data);
+      const data = event.data;
       setApparelUrl(data);
     };
 
