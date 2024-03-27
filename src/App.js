@@ -27,7 +27,7 @@ const Login = () => {
       setApparelUrl(event.data);
       setTimeout(() => {
         console.log(apparelUrl);
-      }, 300);
+      }, 3000);
     };
 
     // Add event listener to listen for messages from the parent window
