@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./component/Login.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +17,21 @@ import Mobile from "./component/Mobile/Mobile";
 const theme = createTheme();
 
 const Login = () => {
+  useEffect(() => {
+    console.log("hello");
+    const receiveDataFromParent = (event) => {
+      // Handle data received from the parent
+      console.log('Received data from parent:', event.data);
+    };
+
+    // Add event listener to listen for messages from the parent window
+    window.addEventListener('message', receiveDataFromParent);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('message', receiveDataFromParent);
+    };
+  }, []);
   const [login, SetLogin] = useState("");
   const [PhotoImage, setPhotoImage] = useState(false);
   const [Measure, setMeasure] = useState(false);
