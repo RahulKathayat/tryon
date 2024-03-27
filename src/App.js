@@ -19,13 +19,15 @@ const theme = createTheme();
 
 const Login = () => {
   const { apparelUrl, setApparelUrl } = useStore();
+
   useEffect(() => {
     console.log("hello");
+
     const receiveDataFromParent = (event) => {
-      // Handle data received from the parent
+      
       console.log('Received data from parent:', event.data);
       const data = event.data;
-      setApparelUrl(data);
+      // setApparelUrl(data);
     };
 
     // Add event listener to listen for messages from the parent window
@@ -35,6 +37,8 @@ const Login = () => {
       window.removeEventListener('message', receiveDataFromParent);
     };
   }, []);
+
+
   const [login, SetLogin] = useState("");
   const [PhotoImage, setPhotoImage] = useState(false);
   const [Measure, setMeasure] = useState(false);
