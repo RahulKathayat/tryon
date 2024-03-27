@@ -24,10 +24,7 @@ const Login = () => {
     const receiveDataFromParent = (event) => {
       // Handle data received from the parent
       console.log('Received data from parent:', event.data);
-      setApparelUrl(event.data);
-      setTimeout(() => {
-        console.log(apparelUrl);
-      }, 3000);
+      // setApparelUrl(event.data);
     };
 
     // Add event listener to listen for messages from the parent window
@@ -60,6 +57,7 @@ const Login = () => {
 
   return (
     <div style={{ fontFamily: "SoleilRegular", sansSerif: "sans-serif" }}>
+      <p>Current text: {apparelUrl}</p>
       {!status && (
         <>
           <VTO SetLogin={SetLogin} setStatus={setStatus} />
