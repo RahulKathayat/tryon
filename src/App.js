@@ -25,6 +25,9 @@ const Login = () => {
       // Handle data received from the parent
       console.log('Received data from parent:', event.data);
       setApparelUrl(event.data);
+      setTimeout(() => {
+        
+      }, 300);
       console.log(apparelUrl);
     };
 
