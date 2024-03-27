@@ -24,10 +24,10 @@ const Login = () => {
     console.log("hello");
 
     const receiveDataFromParent = (event) => {
-      
-      console.log('Received data from parent:', event.data);
-      const data = event.data;
-      // setApparelUrl(data);
+      if(event.origin === window.parent){
+        console.log('Received data from parent:', event.data);
+      }
+      // setApparelUrl(event.data);
     };
 
     // Add event listener to listen for messages from the parent window
