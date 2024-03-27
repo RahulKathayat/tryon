@@ -30,6 +30,10 @@ const Login = () => {
 
     // Add event listener to listen for messages from the parent window
     window.addEventListener('message', receiveDataFromParent);
+
+    return () => {
+      window.removeEventListener('message', receiveDataFromParent);
+    };
   }, []);
   const [login, SetLogin] = useState("");
   const [PhotoImage, setPhotoImage] = useState(false);

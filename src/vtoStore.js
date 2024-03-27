@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const useStore = create((set) => ({
-    apparelUrl: "initvalue",
+    apparelUrl: "",
     setApparelUrl: (newUrl) => set({ apparelUrl: newUrl }),
   }));
   
