@@ -8,17 +8,7 @@ import { Button, Typography, Tooltip } from "@mui/material";
 
 const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [uploadedImage2, setUploadedImage2] = useState(null);
   const [instructionPopup,setInstructionPopup] = useState(false);
-
-  if (uploadedImage2?.file?.path) {
-    const encode = btoa(uploadedImage2?.file?.path);
-    console.log("2", encode);
-  }
-  if (uploadedImage?.file?.path) {
-    const encode = btoa(uploadedImage?.file?.path);
-    console.log("1", encode);
-  }
 
   const onDrop = useCallback((acceptedFiles) => {
     console.log( acceptedFiles);
@@ -29,28 +19,25 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
       preview: URL.createObjectURL(file),
     });
   }, []);
-  const onDrop2 = useCallback((acceptedFiles) => {
-    console.log( acceptedFiles);
-    const file = acceptedFiles[0];
-    setUploadedImage2({
-      file,
-      preview: URL.createObjectURL(file),
-    });
-  }, []);
   const theme = createTheme();
   const {
-    getRootProps: getRootPropsFirst,
-    getInputProps: getInputPropsFirst,
-    isDragActive: isDragActiveFirst,
-  } = useDropzone({ onDrop: onDrop });
-  const {
-    getRootProps: getRootPropsSecond,
-    getInputProps: getInputPropsSecond,
-    isDragActive: isDragActiveSecond,
-  } = useDropzone({ onDrop: onDrop2 });
+    getRootProps,
+    getInputProps,
+    isDragActive,
+  } = useDropzone(
+  { 
+    accept:{
+      'image/jpeg': ['.jpeg'],
+      'image/jpg': ['.jpg'],
+    },
+    maxSize: 1048576,  // 1 MB in bytes
+    onDrop:onDrop,
+    onDropRejected: rejectedFiles => {
+      console.log('Rejected files:', rejectedFiles);
+    },
+  });
 
-  const [ImageError, setImageError] = useState("");
-  const [Image2Error, setImage2Error] = useState("");
+  const [ImageError, setImageError] = useState(null);
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -354,7 +341,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     color: "black",
                   }}
                 >
-                  Upload 2 Images
+                  Upload an Image
                 </Typography>
               </div>
               <div>
@@ -393,11 +380,8 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   role="progressbar"
                   style={{
                     width:
-                      uploadedImage2?.file?.path && uploadedImage?.file?.path
+                         uploadedImage?.file?.path
                         ? "100%"
-                        : uploadedImage?.file?.path ||
-                          uploadedImage2?.file?.path
-                        ? "50%"
                         : "0%",
                   }}
                 ></div>
@@ -418,7 +402,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
                 marginTop: "20px",
               }}
             >
@@ -679,7 +663,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 <hr style={{border:"1.5px solid #6554AF"}}/>
 
                 <div
-                  {...getRootPropsFirst()}
+                  {...getRootProps()}
                   style={{
                     paddingBottom: "10px",
                     justifyContent: "center",
@@ -701,10 +685,10 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       }}
                     />
                   </span>
-                  UPLOAD
+                  {isDragActive ? (<div>Drop here..</div>) : (<div>UPLOAD</div>)}
                 </div>
               </Box>
-              <Box
+              {/* <Box
                 style={{
                   border: "1.2px solid #6554AF",
                   borderRadius: "20px",
@@ -775,7 +759,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     </span>
                   UPLOAD
                 </div>
-              </Box>
+              </Box> */}
             </div>
 
             <div style={{ marginTop: "20px" }}>
@@ -821,16 +805,12 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   borderRadius:"25px",
                 }}
                 onClick={() => {
-                  if (uploadedImage2?.file?.path == null) {
-                    setImage2Error("Please Upload a image");
-                  }
                   if (uploadedImage?.file?.path == null) {
                     setImageError("Please Upload a image");
+                  }else{
+                    setPhotoImage(false);
+                    setMeasure(true);
                   }
-                  if (uploadedImage2?.file?.path && uploadedImage?.file?.path) {
-                  }
-                  setPhotoImage(false);
-                  setMeasure(true);
                 }}
               >
                 NEXT
