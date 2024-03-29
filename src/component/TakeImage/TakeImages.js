@@ -14,10 +14,21 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
     console.log( acceptedFiles);
     const file = acceptedFiles[0];
     // console.log(URL.createObjectURL(file));
-    setUploadedImage({
-      file,
-      preview: URL.createObjectURL(file),
-    });
+    if (file) {
+      convertImageToBase64(file)
+        .then((base64String) => {
+          // Do something with the base64String
+          console.log("Base64 string:", base64String);
+          sessionStorage.setItem("uploadedImage", base64String);
+          setUploadedImage({
+            file,
+            preview: URL.createObjectURL(file),
+          });
+        })
+        .catch((error) => {
+          console.error("Error converting image to base64:", error);
+        });
+    }
   }, []);
   const theme = createTheme();
   const {
@@ -36,6 +47,22 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
       console.log('Rejected files:', rejectedFiles);
     },
   });
+
+  const convertImageToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+  
+      reader.onerror = (error) => {
+        reject(error);
+      };
+  
+      reader.readAsDataURL(file);
+    });
+  }; 
 
   const [ImageError, setImageError] = useState(null);
   return (
