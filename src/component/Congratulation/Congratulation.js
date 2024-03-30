@@ -1,11 +1,13 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, CircularProgress } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Button, Typography, Slider } from "@mui/material";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 function valueLabelFormat(value) {
   const units = ["cm", "MB", "GB", "TB"];
 
@@ -20,6 +22,58 @@ function valueLabelFormat(value) {
   return `${scaledValue} ${units[unitIndex]}`;
 }
 const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
+  const [loading, setLoading] = useState(false);
+  const [base64String, setBase64String] = useState('');
+
+  const getBase64FromUrl = async () =>{
+    const url = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQlwffeqV908iY5kmhdHswwipDw5jmPxdmuRRD9XjVOwldNJFM3";
+    const response = await fetch(url);
+    const buffer = await response.arrayBuffer();
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+    setBase64String(base64);
+  }
+  useEffect(()=>{
+    getBase64FromUrl();
+  },[]);
+  const performVTO = async () => {
+    try{
+      setLoading(true);
+      const decodedToken = jwtDecode(localStorage.getItem("refreshTok"));
+      const userId = decodedToken.sub.toString();
+      const payload = {
+        "apparel_image": base64String,
+        "apparel_type": "upper_body",
+        "sku_id": "123",
+        "product_id": "123",
+        "human_image": localStorage.getItem("AIImage"),
+        "seed": 5541
+      };
+      console.log("payload: ",payload);
+      const headers = {
+        'user-id': userId,
+      };
+      await axios.post(`${process.env.REACT_APP_AI_URL}/fashionAI/virtual-try-on`,payload,{headers})
+      .then((response) => {
+        console.log(response);
+        sessionStorage.setItem("vtoImage",response.data.payload.images[0]);
+        setLoading(false);
+        setCongratulation(false);
+        setconfirm(true);
+        setTimeout(() => {
+          setconfirm(false);
+          setMobiledata(true);
+        }, [2000]);
+      })
+      .catch((e) => {
+        console.log("error while making ai api call",e);
+        setLoading(false);
+      });
+    }
+    catch(err){
+      console.error("something went wrong while performing vto",err);
+      setLoading(false);
+    }
+  }
   return (
     <div>
       <Box
@@ -190,9 +244,10 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
             </div>
             <div>
               <img
-                src={"/assets/full_body_svg.svg"}
-                alt=""
+                src={`data:image/jpeg;base64,${localStorage.getItem("AIImage")}`}
+                alt="AI base64 Image"
                 style={{filter:"drop-shadow(0px 0px 6px #555)"}}
+                width={"170"}
               />
             </div>
           </div>
@@ -237,15 +292,16 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                 borderRadius:"25px",
               }}
               onClick={() => {
-                setCongratulation(false);
-                setconfirm(true);
-                setTimeout(() => {
-                  setconfirm(false);
-                  setMobiledata(true);
-                }, [2000]);
+                performVTO();
               }}
             >
-              Confirm
+              {loading ?  (
+
+              <CircularProgress />
+              ) :(
+              <Typography>CONTINUE</Typography>
+
+              )}
             </Button>
           </div>
         </Box>

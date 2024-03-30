@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { Button, Typography, Slider } from "@mui/material";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 function valueLabelFormat(value) {
   const units = ["cm", "MB", "GB", "TB"];
@@ -23,66 +25,67 @@ const Measurement = ({
   setCongratulation,
 }) => {
   const [isChecked, setChecked] = useState(false);
-  const [isChecked1, setChecked1] = useState(false);
-
+  const [isChecked1, setChecked1] = useState(true);
+  const [loading, setLoading] = useState(false);
   const toggleSwitch = () => {
     setChecked(!isChecked);
   };
   const toggleSwitch1 = () => {
-    setChecked1(!isChecked1);
+    // setChecked1(!isChecked1);
   };
 
   const [selectedOption, setSelectedOption] = useState("");
   const handleSelectChange = (e) => {
+    console.log(e.target.value);
     setSelectedOption(e.target.value);
   };
 
+  // State to store the value of the slider
+  const [sliderValue, setSliderValue] = useState(170); // Initial value
+
+  // Handler function to update the slider value
+  const handleSliderChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
+
   const [selectedOption1, setSelectedOption1] = useState("");
-  const [selectedOption11, setSelectedOption11] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
-  const [selectedOption22, setSelectedOption22] = useState("");
-  const [selectedOption3, setSelectedOption3] = useState("");
-  const [selectedOption33, setSelectedOption33] = useState("");
-  const [selectedOption4, setSelectedOption4] = useState("");
-  const [selectedOption5, setSelectedOption5] = useState("");
-  const [selectedOption55, setSelectedOption55] = useState("");
-  const [selectedOption6, setSelectedOption6] = useState("");
-  const [selectedOption66, setSelectedOption66] = useState("");
 
   const handleSelectChange1 = (e) => {
+    console.log(e.target.value);
     setSelectedOption1(e.target.value);
   };
-  const handleSelectChange11 = (e) => {
-    setSelectedOption11(e.target.value);
-  };
-  const handleSelectChange2 = (e) => {
-    setSelectedOption2(e.target.value);
-  };
-  const handleSelectChange22 = (e) => {
-    setSelectedOption22(e.target.value);
-  };
-  const handleSelectChange3 = (e) => {
-    setSelectedOption3(e.target.value);
-  };
-  const handleSelectChange33 = (e) => {
-    setSelectedOption33(e.target.value);
-  };
-  const handleSelectChange4 = (e) => {
-    setSelectedOption4(e.target.value);
-  };
-  const handleSelectChange5 = (e) => {
-    setSelectedOption5(e.target.value);
-  };
-  const handleSelectChange55 = (e) => {
-    setSelectedOption55(e.target.value);
-  };
-  const handleSelectChange6 = (e) => {
-    setSelectedOption6(e.target.value);
-  };
-  const handleSelectChange66 = (e) => {
-    setSelectedOption66(e.target.value);
-  };
-
+  const callAiApi = async ()=>{
+    try{
+      setLoading(true);
+      const decodedToken = jwtDecode(localStorage.getItem("refreshTok"));
+      const userId = decodedToken.sub.toString();
+      const payload = {
+        "image" : sessionStorage.getItem("uploadedImage"),
+        "gender" : isChecked ? "male" : "female",
+        "height" : sliderValue,
+      };
+      console.log(payload);
+      const headers = {
+        'user-id': userId,
+      };
+      await axios.post(`${process.env.REACT_APP_AI_URL}/fashionAI/invocations`,payload,{headers})
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("AIImage", response.data.payload.image);
+        localStorage.setItem("Measurements", JSON.stringify(response.data.payload.measurements));
+        setLoading(false);
+        setMeasure(false);
+        setCongratulation(true);
+      })
+      .catch((e) => {
+        console.log("error while making ai api call",e);
+        setLoading(false);
+      });
+    }catch(err){
+      console.log("something went wrong while making ai api call",err);
+    }
+  }
   return (
     <div>
       <Box
@@ -404,472 +407,42 @@ const Measurement = ({
               </style>
             </div>
           </div>
-
-          {isChecked ? (
-            <div style={{ padding: "20px" }}>
+          <div style={{ padding: "20px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: "5%",
+              }}
+            >
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
+                  // fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "1rem",
+                  lineHeight: 2,
+                  letterSpacing: "0.00735em",
                 }}
               >
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Your Height</b>
-                  <span style={{ color: "red" }}>*&nbsp;</span>
-                </div>
-
-                {!isChecked1 ? (
-                  <>
-                    {" "}
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <div>
-                        <select
-                          value={selectedOption1}
-                          onChange={handleSelectChange1}
-                          style={{
-                            borderColor: "#bfc7c7",
-                            borderRadius: "20px",
-                            border: "2px solid #bfc7c7",
-                            width: "60px",
-                            padding: "2px",
-                          }}
-                        >
-                          <option value="">-</option>
-                          <option value="option1">4ft</option>
-                          <option value="option2">5ft</option>
-                          <option value="option3">6ft</option>
-                        </select>
-                      </div>
-                      <div style={{ marginLeft: "30px" }}>
-                        <select
-                          value={selectedOption2}
-                          onChange={handleSelectChange2}
-                          style={{
-                            borderColor: "#bfc7c7",
-                            borderRadius: "20px",
-                            border: "2px solid #bfc7c7",
-                            width: "60px",
-                            padding: "2px",
-                          }}
-                        >
-                          <option value="">-</option>
-                          <option value="option0">0in</option>
-                          <option value="option1">1in</option>
-                          <option value="option2">2in</option>
-                          <option value="option3">3in</option>
-                          <option value="option4">4in</option>
-                          <option value="option5">5in</option>
-                          <option value="option6">6in</option>
-                          <option value="option7">7in</option>
-                          <option value="option8">8in</option>
-                          <option value="option9">9in</option>
-                          <option value="option10">10in</option>
-                          <option value="option11">11in</option>
-                        </select>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <Box sx={{ width: 145 }}>
-                      <Slider
-                        min={140}
-                        step={1}
-                        max={200}
-                        getAriaValueText={valueLabelFormat}
-                        valueLabelFormat={valueLabelFormat}
-                        valueLabelDisplay="auto"
-                        aria-labelledby="non-linear-slider"
-                        style={{ color: "black" }}
-                      />
-                    </Box>
-                  </>
-                )}
+                <b>Your Height</b>
+                <span style={{ color: "red" }}>*&nbsp;</span>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Your shirt size</b>
-                  <span style={{ color: "red" }}>
-                    *&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </div>
-
-                <div>
-                  <select
-                    value={selectedOption3}
-                    onChange={handleSelectChange3}
-                    style={{
-                      borderColor: "#bfc7c7",
-                      borderRadius: "20px",
-                      border: "2px solid #bfc7c7",
-                      width: "60px",
-                      padding: "2px",
-                    }}
-                  >
-                    <option value="">-</option>
-                    <option value="option1">XS</option>
-                    <option value="option2">S</option>
-                    <option value="option3">M</option>
-                    <option value="option4">L</option>
-                    <option value="option5">XL</option>
-                    <option value="option6">2XL</option>
-                    <option value="option7">3XL</option>
-                  </select>
-                </div>
-                {/* <div></div> */}
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    // fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Your waist size</b>
-                  <span style={{ color: "red" }}>*&nbsp;&nbsp;&nbsp;</span>
-                </div>
-                <div>
-                  <select
-                    value={selectedOption4}
-                    onChange={handleSelectChange4}
-                    style={{
-                      borderColor: "#bfc7c7",
-                      borderRadius: "20px",
-                      border: "2px solid #bfc7c7",
-                      width: "60px",
-                      padding: "2px",
-                    }}
-                  >
-                    <option value="">-</option>
-                    <option value="option1">28</option>
-                    <option value="option2">30</option>
-                    <option value="option3">32</option>
-                    <option value="option1">34</option>
-                    <option value="option2">36</option>
-                    <option value="option3">38</option>
-                    <option value="option1">40</option>
-                    <option value="option2">42</option>
-                    <option value="option3">44</option>
-                  </select>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Your weight &nbsp;</b>
-                </div>
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <select
-                      value={selectedOption5}
-                      onChange={handleSelectChange5}
-                      style={{
-                        borderColor: "#bfc7c7",
-                        borderRadius: "20px",
-                        border: "2px solid #bfc7c7",
-                        width: "60px",
-                        padding: "2px",
-                      }}
-                    >
-                      <option value="">-</option>
-
-                      <option value="option1">50</option>
-                      <option value="option2">51</option>
-                      <option value="option3">52</option>
-                      <option value="option1">53</option>
-                      <option value="option2">54</option>
-                      <option value="option3">55</option>
-                      <option value="option1">56</option>
-                      <option value="option2">57</option>
-                      <option value="option3">58</option>
-                      <option value="option1">59</option>
-                      <option value="option1">60</option>
-                      <option value="option2">61</option>
-                      <option value="option3">62</option>
-                      <option value="option1">63</option>
-                      <option value="option2">64</option>
-                      <option value="option3">65</option>
-                      <option value="option1">66</option>
-                      <option value="option2">67</option>
-                      <option value="option3">68</option>
-                      <option value="option1">69</option>
-                      <option value="option1">70</option>
-                    </select>
-                  </div>
-                  <div style={{ marginLeft: "30px" }}>
-                    <select
-                      value={selectedOption6}
-                      onChange={handleSelectChange6}
-                      style={{
-                        borderColor: "#bfc7c7",
-                        borderRadius: "20px",
-                        border: "2px solid #bfc7c7",
-                        width: "60px",
-                        padding: "2px",
-                      }}
-                    >
-                      <option value="">-</option>
-                      <option value="option1">.5</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+              <Box sx={{ width: 145 }}>
+                <Slider
+                  value={sliderValue}
+                  onChange={handleSliderChange}
+                  min={140}
+                  step={1}
+                  max={200}
+                  getAriaValueText={valueLabelFormat}
+                  valueLabelFormat={valueLabelFormat}
+                  valueLabelDisplay="auto"
+                  aria-labelledby="non-linear-slider"
+                  style={{ color: "black" }}
+                />
+              </Box>
             </div>
-          ) : (
-            <div style={{ padding: "20px" }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    // fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Your Height</b>
-                  <span style={{ color: "red" }}>*&nbsp;</span>
-                </div>
-
-                {!isChecked1 ? (
-                  <>
-                    {" "}
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <div>
-                        <select
-                          value={selectedOption11}
-                          onChange={handleSelectChange11}
-                          style={{
-                            borderColor: "#bfc7c7",
-                            borderRadius: "20px",
-                            border: "2px solid #bfc7c7",
-                            width: "60px",
-                            padding: "2px",
-                          }}
-                        >
-                          <option value="">-</option>
-                          <option value="option1">4ft</option>
-                          <option value="option2">5ft</option>
-                          <option value="option3">6ft</option>
-                        </select>
-                      </div>
-                      <div style={{ marginLeft: "30px" }}>
-                        <select
-                          value={selectedOption22}
-                          onChange={handleSelectChange22}
-                          style={{
-                            borderColor: "#bfc7c7",
-                            borderRadius: "20px",
-                            border: "2px solid #bfc7c7",
-                            width: "60px",
-                            padding: "2px",
-                          }}
-                        >
-                          <option value="">-</option>
-                          <option value="option0">0in</option>
-                          <option value="option1">1in</option>
-                          <option value="option2">2in</option>
-                          <option value="option3">3in</option>
-                          <option value="option4">4in</option>
-                          <option value="option5">5in</option>
-                          <option value="option6">6in</option>
-                          <option value="option7">7in</option>
-                          <option value="option8">8in</option>
-                          <option value="option9">9in</option>
-                          <option value="option10">10in</option>
-                          <option value="option11">11in</option>
-                        </select>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <Box sx={{ width: 145 }}>
-                    <Slider
-                      min={140}
-                      step={1}
-                      max={200}
-                      getAriaValueText={valueLabelFormat}
-                      valueLabelFormat={valueLabelFormat}
-                      valueLabelDisplay="auto"
-                      aria-labelledby="non-linear-slider"
-                      style={{ color: "black" }}
-                    />
-                  </Box>
-                )}
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Bra Size</b>
-                  <span style={{ color: "red" }}>*&nbsp;</span>
-                </div>
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <select
-                      value={selectedOption55}
-                      onChange={handleSelectChange55}
-                      style={{
-                        borderColor: "#bfc7c7",
-                        borderRadius: "20px",
-                        border: "2px solid #bfc7c7",
-                        width: "60px",
-                        padding: "2px",
-                      }}
-                    >
-                      <option value="">-</option>
-
-                      <option value="option1">26</option>
-                      {/* <option value="option2">2</option> */}
-                      <option value="option3">28</option>
-                      {/* <option value="option4">2</option> */}
-                      <option value="option5">30</option>
-                      {/* <option value="option6">31</option> */}
-                      <option value="option7">32</option>
-                      <option value="option8">34</option>
-                      <option value="option9">36</option>
-                    </select>
-                  </div>
-                  <div style={{ marginLeft: "30px" }}>
-                    <select
-                      value={selectedOption66}
-                      onChange={handleSelectChange66}
-                      style={{
-                        borderColor: "#bfc7c7",
-                        borderRadius: "20px",
-                        border: "2px solid #bfc7c7",
-                        width: "60px",
-                        padding: "2px",
-                      }}
-                    >
-                      <option value="">-</option>
-                      <option value="option1">AA</option>
-                      <option value="option1">A</option>
-                      <option value="option1">B</option>
-                      <option value="option1">C</option>
-                      <option value="option1">D</option>
-                      <option value="option1">DD</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "5%",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "1rem",
-                    lineHeight: 2,
-                    letterSpacing: "0.00735em",
-                  }}
-                >
-                  <b>Dress Size</b>
-                  <span style={{ color: "red" }}>
-                    *&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </div>
-
-                <div>
-                  <select
-                    value={selectedOption33}
-                    onChange={handleSelectChange33}
-                    style={{
-                      borderColor: "#bfc7c7",
-                      borderRadius: "20px",
-                      border: "2px solid #bfc7c7",
-                      width: "60px",
-                      padding: "2px",
-                    }}
-                  >
-                    <option value="">-</option>
-                    <option value="option1">4</option>
-                    <option value="option2">6</option>
-                    <option value="option3">8</option>
-                    <option value="option1">10</option>
-                    <option value="option2">12</option>
-                    <option value="option3">14</option>
-                    <option value="option3">16</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Button
@@ -893,11 +466,16 @@ const Measurement = ({
                 borderRadius:"25px",
               }}
               onClick={() => {
-                setMeasure(false);
-                setCongratulation(true);
+                callAiApi();
               }}
             >
-              NEXT
+              {loading ?  (
+
+                <CircularProgress />
+              ) :(
+                <Typography>NEXT</Typography>
+
+              )}
             </Button>
           </div>
         </Box>

@@ -25,6 +25,7 @@ const Login = () => {
 
     const receiveDataFromParent = (event) => {
       console.log('Received data from parent:', event.data);
+      sessionStorage.setItem('apparelURL', event.data);
       setApparelUrl(event.data);
     };
 
