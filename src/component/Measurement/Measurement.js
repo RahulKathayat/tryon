@@ -103,9 +103,11 @@ const Measurement = ({
       // });
       await sagemaker.send(command)
       .then((response) => {
-        console.log('Response from endpoint:', response.Body.read());
-        localStorage.setItem("AIImage", response.data.payload.image);
-        localStorage.setItem("Measurements", JSON.stringify(response.data.payload.measurements));
+        const string = new TextDecoder().decode(response.Body);
+        const data = JSON.parse(string);
+        console.log('Response from endpoint:', data);
+        localStorage.setItem("AIImage", data.payload.image);
+        localStorage.setItem("Measurements", JSON.stringify(data.payload.measurements));
         setLoading(false);
         setMeasure(false);
         setCongratulation(true);

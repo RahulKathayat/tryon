@@ -24,7 +24,7 @@ function valueLabelFormat(value) {
 const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
   const [loading, setLoading] = useState(false);
   const [base64String, setBase64String] = useState('');
-  const [measurements,setMeasurements] = useState(null);
+  const [measurements,setMeasurements] = useState('');
   const getBase64FromUrl = async () =>{
     const url = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQlwffeqV908iY5kmhdHswwipDw5jmPxdmuRRD9XjVOwldNJFM3";
     const response = await fetch(url);
@@ -126,7 +126,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
           <div style={{ display: "flex", justifyContent: "space-around" }}>
             <div style={{ margin: "5px",display:"flex",flexDirection:"column",gap:"6px" }}>
               <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
-                Ankle : {measurements.ankle} cm
+                Ankle : {measurements.belly} cm
               </Typography>
               <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
                 Arm-length : {measurements.arm_length} cm
@@ -279,7 +279,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
             <img
               src={`data:image/jpeg;base64,${localStorage.getItem("AIImage")}`}
               alt="AI base64 Image"
-              style={{filter:"drop-shadow(0px 0px 6px #555)"}}
+              style={{filter:"drop-shadow(0px 0px 6px #555)",objectFit:"contain"}}
               width={"170"}
             />
           </div>
