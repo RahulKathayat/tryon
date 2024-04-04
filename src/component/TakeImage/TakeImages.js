@@ -700,7 +700,8 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     cursor: "pointer",
                     fontFamily:"SoleilBold",
                   }}
-                >
+                > 
+                  <input {...getInputProps()} />
                   <span>
                     <img
                       src={"/assets/upload-cloud-icon.png"}
