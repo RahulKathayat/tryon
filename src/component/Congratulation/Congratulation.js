@@ -24,7 +24,7 @@ function valueLabelFormat(value) {
 const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
   const [loading, setLoading] = useState(false);
   const [base64String, setBase64String] = useState('');
-
+  const [measurements,setMeasurements] = useState(null);
   const getBase64FromUrl = async () =>{
     const url = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQlwffeqV908iY5kmhdHswwipDw5jmPxdmuRRD9XjVOwldNJFM3";
     const response = await fetch(url);
@@ -34,6 +34,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
   }
   useEffect(()=>{
     getBase64FromUrl();
+    setMeasurements(JSON.parse(localStorage.getItem('Measurements')));
   },[]);
   const performVTO = async () => {
     try{
@@ -123,8 +124,41 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
           </Typography>
 
           <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <div style={{ margin: "10px" }}>
-              <FormControl>
+            <div style={{ margin: "5px",display:"flex",flexDirection:"column",gap:"6px" }}>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Ankle : {measurements.ankle} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Arm-length : {measurements.arm_length} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Belly : {measurements.belly} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Chest : {measurements.chest} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Height : {measurements.height} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Hips : {measurements.hips} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Neck : {measurements.neck} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Shoulders : {measurements.shoulder_width} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Thigh : {measurements.thigh} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Waist : {measurements.waist} cm
+              </Typography>
+              <Typography style={{fontFamily:"SoleilRegular",fontSize:"20px"}}>
+                Wrist : {measurements.wrist} cm
+              </Typography>
+              {/* <FormControl>
                 <FormLabel
                   id="demo-radio-buttons-group-label"
                   style={{
@@ -240,35 +274,16 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                     }}
                   />
                 </RadioGroup>
-              </FormControl>
+              </FormControl> */}
             </div>
-            <div>
-              <img
-                src={`data:image/jpeg;base64,${localStorage.getItem("AIImage")}`}
-                alt="AI base64 Image"
-                style={{filter:"drop-shadow(0px 0px 6px #555)"}}
-                width={"170"}
-              />
-            </div>
+            <img
+              src={`data:image/jpeg;base64,${localStorage.getItem("AIImage")}`}
+              alt="AI base64 Image"
+              style={{filter:"drop-shadow(0px 0px 6px #555)"}}
+              width={"170"}
+            />
           </div>
 
-          <div className="row handleSlider">
-            <hr style={{ border: "2px solid #d4cfc5" }}></hr>
-
-            <Box sx={{ width: 400 }}>
-              <Slider
-                min={140}
-                step={1}
-                max={200}
-                // getAriaValueText={valueLabelFormat}
-                valueLabelFormat={valueLabelFormat}
-                // valueLabelDisplay="auto"
-                // aria-labelledby="non-linear-slider"
-                style={{ color: "black" }}
-              />
-            </Box>
-            <hr style={{ border: "2px #d4cfc5 solid" }}></hr>
-          </div>
           <div className="btnCenter">
             <Button
               fullWidth

@@ -3,6 +3,7 @@ import { Box, CircularProgress } from "@mui/material";
 import { Button, Typography, Slider } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime";
 
 function valueLabelFormat(value) {
   const units = ["cm", "MB", "GB", "TB"];
@@ -27,6 +28,17 @@ const Measurement = ({
   const [isChecked, setChecked] = useState(false);
   const [isChecked1, setChecked1] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const config = {
+    credentials: {
+      accessKeyId: `${process.env.REACT_APP_ACCESS_KEY_ID}`,
+      secretAccessKey: `${process.env.REACT_APP_SECRET_ACCESS_KEY}`,
+    },
+    region: `${process.env.REACT_APP_REGION}` // e.g., 'us-west-2'
+  }
+  const sagemaker = new SageMakerRuntimeClient(config);
+
+
   const toggleSwitch = () => {
     setChecked(!isChecked);
   };
@@ -69,9 +81,29 @@ const Measurement = ({
       const headers = {
         'user-id': userId,
       };
-      await axios.post(`${process.env.REACT_APP_AI_URL}/fashionAI/invocations`,payload,{headers})
+      const params = {
+        EndpointName: `${process.env.REACT_APP_PREPROCESS_ENDPOINT}`, // Specify the name of your SageMaker endpoint
+        Body: JSON.stringify(payload), // Specify the input data for inference
+        ContentType: 'application/json', // Specify the content type of the input data
+        CustomAttributes : `user_id = ${userId}`,
+      };
+      const command = new InvokeEndpointCommand(params);
+      // await axios.post(`${process.env.REACT_APP_AI_URL}/fashionAI/invocations`,payload,{headers})
+      // .then((response) => {
+      //   console.log(response);
+      //   localStorage.setItem("AIImage", response.data.payload.image);
+      //   localStorage.setItem("Measurements", JSON.stringify(response.data.payload.measurements));
+      //   setLoading(false);
+      //   setMeasure(false);
+      //   setCongratulation(true);
+      // })
+      // .catch((e) => {
+      //   console.log("error while making ai api call",e);
+      //   setLoading(false);
+      // });
+      await sagemaker.send(command)
       .then((response) => {
-        console.log(response);
+        console.log('Response from endpoint:', response.Body.read());
         localStorage.setItem("AIImage", response.data.payload.image);
         localStorage.setItem("Measurements", JSON.stringify(response.data.payload.measurements));
         setLoading(false);
@@ -79,8 +111,8 @@ const Measurement = ({
         setCongratulation(true);
       })
       .catch((e) => {
-        console.log("error while making ai api call",e);
-        setLoading(false);
+          console.error('Error invoking endpoint:', e);
+          setLoading(false);
       });
     }catch(err){
       console.log("something went wrong while making ai api call",err);
