@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Stack, TextField, Typography, Checkbox } from "@mui/material";
 import * as Yup from "yup";
 import axios from "axios";
+import toast from "react-hot-toast";
 import {auth,provider,facebookProvider} from "../../firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 
@@ -28,6 +29,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
     }),
     onSubmit: async (values, helpers) => {
       try {
+          toast.loading("Signing in");
           console.log(values);
           const user = {email: values.email, password: values.password}
           await axios
@@ -40,12 +42,13 @@ const Login = ({ SetLogin, setPhotoImage }) => {
             localStorage.setItem("accessTok", accessToken);
             SetLogin(null);
             setPhotoImage(true);
-            alert('success', 'logged in successfully');
+            toast.dismiss();
+            toast.success("Signed in successfully");
           })
           .catch((e) => {
             console.log(e);
-            alert( 'Invalid email or password');
-            console.log("Invalid email or password");
+            toast.dismiss();
+            toast.error("Error occured invalid credentials");
           });
       } catch (err) {
         helpers.setStatus({ success: false });
@@ -71,15 +74,16 @@ const Login = ({ SetLogin, setPhotoImage }) => {
             localStorage.setItem("accessTok", accessToken);
             SetLogin(null);
             setPhotoImage(true);
-            alert('Google Sign in success');
+            toast.success('Signed in with Google');
           })
           .catch((e) => {
             console.log(e);
-            alert( 'Error in google sign in');
+            toast.error('Error in google sign in');
             console.log("Error in google sign in");
           });
-      })
-      .catch((err) =>{
+        })
+        .catch((err) =>{
+        toast.error('Error in google sign in');
         console.log(err);
       });
   };
@@ -100,11 +104,11 @@ const Login = ({ SetLogin, setPhotoImage }) => {
           localStorage.setItem("accessTok", accessToken);
           SetLogin(null);
           setPhotoImage(true);
-          alert('Facebook sign in success');
+          toast.success('Signed in with Facebook');
         })
         .catch((e) => {
           console.log(e);
-          alert( 'Error in Facebook sign in');
+          toast.error( 'Error in Facebook sign in');
           console.log("Error in Facebook sign in");
         });
     }).catch((err) =>{

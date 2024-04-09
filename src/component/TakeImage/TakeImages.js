@@ -471,221 +471,223 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                       style={{objectFit:"contain"}}
                     />
                   ):(
-                    <img
-                      src={"/assets/female-front.png"}
-                      alt="not found"
-                      className="Girl"
-                    />
-                  )}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 30,
-                      // left: 40,
-                    }}
-                    className="HAIR"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        marginTop: "-10px",
-                        color: "black",
-                      }}
-                    >
-                      {" "}
-                      HAIR UP
-                      <span>
+                    <>
+                      <img
+                        src={"/assets/female-front.png"}
+                        alt="not found"
+                        className="Girl"
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: 30,
+                          // left: 40,
+                        }}
+                        className="HAIR"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            marginTop: "-10px",
+                            color: "black",
+                          }}
+                        >
+                          {" "}
+                          HAIR UP
+                          <span>
+                            <img
+                              src={"/assets/icons8-dot-24.png"}
+                              alt=""
+                              className="Hairimage"
+                            />
+                          </span>
+                        </Typography>
+                      </div>
+
+                      <span
+                        style={{
+                          position: "absolute",
+                          // top: 80,
+                          // right: 15,
+                          color: "black",
+                          fontWeight: 200,
+                          fontSize: "0.7rem",
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                          // color:"black"
+                        }}
+                        className="TIGHT"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          TIGHT
+                        </Typography>
+                      </span>
+
+                      <span style={{ position: "absolute" }} className="icons8">
                         <img
                           src={"/assets/icons8-dot-24.png"}
                           alt=""
-                          className="Hairimage"
+                          style={{ height: "10px", cursor: "pointer" }}
                         />
                       </span>
-                    </Typography>
-                  </div>
+                      <span
+                        style={{
+                          position: "absolute",
+                          // top: 95,
+                          // right: 15,
+                          color: "black",
+                          fontWeight: 200,
+                          fontSize: "0.7rem",
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                        }}
+                        className="FITTED"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          FITTED
+                        </Typography>
+                      </span>
+                      <span
+                        style={{
+                          position: "absolute",
+                          // top: 110,
 
-                  <span
-                    style={{
-                      position: "absolute",
-                      // top: 80,
-                      // right: 15,
-                      color: "black",
-                      fontWeight: 200,
-                      fontSize: "0.7rem",
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                      // color:"black"
-                    }}
-                    className="TIGHT"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      TIGHT
-                    </Typography>
-                  </span>
+                          color: "black",
+                          fontWeight: 200,
 
-                  <span style={{ position: "absolute" }} className="icons8">
-                    <img
-                      src={"/assets/icons8-dot-24.png"}
-                      alt=""
-                      style={{ height: "10px", cursor: "pointer" }}
-                    />
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      // top: 95,
-                      // right: 15,
-                      color: "black",
-                      fontWeight: 200,
-                      fontSize: "0.7rem",
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                    }}
-                    className="FITTED"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      FITTED
-                    </Typography>
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      // top: 110,
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                        }}
+                        className="CLOTHES"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          className="CLOTHEST"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          CLOTHES
+                        </Typography>
+                      </span>
 
-                      color: "black",
-                      fontWeight: 200,
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: 40,
+                          left: 0,
+                          color: "black",
+                          fontWeight: 200,
+                          fontSize: "0.7rem",
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                          // marginLeft:"2px"
+                        }}
+                        className="FLAT"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          FLAT SHOES
+                        </Typography>
 
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                    }}
-                    className="CLOTHES"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      className="CLOTHEST"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      CLOTHES
-                    </Typography>
-                  </span>
-
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: 40,
-                      left: 0,
-                      color: "black",
-                      fontWeight: 200,
-                      fontSize: "0.7rem",
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                      // marginLeft:"2px"
-                    }}
-                    className="FLAT"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      FLAT SHOES
-                    </Typography>
-
-                    <span style={{ position: "absolute" }} className="Shoes">
-                      <img
-                        src={"/assets/icons8-dot-24.png"}
-                        alt=""
-                        style={{ height: "10px", cursor: "pointer" }}
-                      />
-                    </span>
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: 25,
-                      left: 0,
-                      color: "black",
-                      fontWeight: 200,
-                      fontSize: "0.7rem",
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                      // marginLeft:"2px"
-                    }}
-                    className="BARE"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      OR BARE
-                    </Typography>
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: 10,
-                      left: 0,
-                      color: "black",
-                      fontWeight: 200,
-                      fontSize: "0.8rem",
-                      lineHeight: 1,
-                      letterSpacing: "0.00735em",
-                      // marginLeft:"2px"
-                    }}
-                    className="FEET"
-                  >
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      style={{
-                        fontSize: "8.9px",
-                        fontFamily: "SoleilLight",
-                        sansSerif: "sans-serif",
-                        color: "black",
-                      }}
-                    >
-                      FEET
-                    </Typography>
-                  </span>
+                        <span style={{ position: "absolute" }} className="Shoes">
+                          <img
+                            src={"/assets/icons8-dot-24.png"}
+                            alt=""
+                            style={{ height: "10px", cursor: "pointer" }}
+                          />
+                        </span>
+                      </span>
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: 25,
+                          left: 0,
+                          color: "black",
+                          fontWeight: 200,
+                          fontSize: "0.7rem",
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                          // marginLeft:"2px"
+                        }}
+                        className="BARE"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          OR BARE
+                        </Typography>
+                      </span>
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: 10,
+                          left: 0,
+                          color: "black",
+                          fontWeight: 200,
+                          fontSize: "0.8rem",
+                          lineHeight: 1,
+                          letterSpacing: "0.00735em",
+                          // marginLeft:"2px"
+                        }}
+                        className="FEET"
+                      >
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                          style={{
+                            fontSize: "8.9px",
+                            fontFamily: "SoleilLight",
+                            sansSerif: "sans-serif",
+                            color: "black",
+                          }}
+                        >
+                          FEET
+                        </Typography>
+                      </span>
+                    </>
+                  )}
                 </div>
                 <hr style={{border:"1.5px solid #6554AF"}}/>
 

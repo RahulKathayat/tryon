@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, CircularProgress } from "@mui/material";
 import { Button, Typography, Slider } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime";
 
@@ -70,6 +71,7 @@ const Measurement = ({
   const callAiApi = async ()=>{
     try{
       setLoading(true);
+      toast.loading("Generating Avatar...");
       const decodedToken = jwtDecode(localStorage.getItem("refreshTok"));
       const userId = decodedToken.sub.toString();
       const payload = {
@@ -78,9 +80,6 @@ const Measurement = ({
         "height" : sliderValue,
       };
       console.log(payload);
-      const headers = {
-        'user-id': userId,
-      };
       const params = {
         EndpointName: `${process.env.REACT_APP_PREPROCESS_ENDPOINT}`, // Specify the name of your SageMaker endpoint
         Body: JSON.stringify(payload), // Specify the input data for inference
@@ -88,19 +87,7 @@ const Measurement = ({
         CustomAttributes : `user_id = ${userId}`,
       };
       const command = new InvokeEndpointCommand(params);
-      // await axios.post(`${process.env.REACT_APP_AI_URL}/fashionAI/invocations`,payload,{headers})
-      // .then((response) => {
-      //   console.log(response);
-      //   localStorage.setItem("AIImage", response.data.payload.image);
-      //   localStorage.setItem("Measurements", JSON.stringify(response.data.payload.measurements));
-      //   setLoading(false);
-      //   setMeasure(false);
-      //   setCongratulation(true);
-      // })
-      // .catch((e) => {
-      //   console.log("error while making ai api call",e);
-      //   setLoading(false);
-      // });
+
       await sagemaker.send(command)
       .then((response) => {
         const string = new TextDecoder().decode(response.Body);
@@ -108,15 +95,21 @@ const Measurement = ({
         console.log('Response from endpoint:', data);
         localStorage.setItem("AIImage", data.payload.image);
         localStorage.setItem("Measurements", JSON.stringify(data.payload.measurements));
+        toast.dismiss();
+        toast.success("Avatar Created");
         setLoading(false);
         setMeasure(false);
         setCongratulation(true);
       })
       .catch((e) => {
+          toast.dismiss();
+          toast.error(e);
           console.error('Error invoking endpoint:', e);
           setLoading(false);
       });
     }catch(err){
+      toast.dismiss();
+      toast.error(err);
       console.log("something went wrong while making ai api call",err);
     }
   }

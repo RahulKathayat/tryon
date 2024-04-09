@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
 import axios from "axios";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 import { Button, Stack, TextField, Typography } from "@mui/material";
 
 const Register = ({ SetLogin }) => {
@@ -28,6 +29,7 @@ const Register = ({ SetLogin }) => {
     }),
     onSubmit: async (values, helpers) => {
       try {
+        toast.loading("Registering...");
         console.log(values);
         if(values.checkboxField){
             await  axios
@@ -36,21 +38,22 @@ const Register = ({ SetLogin }) => {
               console.log(response);
               formik.resetForm();
               SetLogin(true);
-              alert(
-                "Registered Successfully",
-                "You have been registered successfully"
-              );
+              toast.dismiss();
+              toast.success("Registered Successfully");
             })
             .catch((error) => {
               console.log("Error registering the user ", error);
-              alert(
-                "Registration Failed",
-                "An error occured while registering"
-              );
+              toast.dismiss();
+              toast.success("Error Registering the user");
             });
         }
-        else{ alert('please agree to privacy policy');}
+        else{ 
+          toast.dismiss();
+          toast.error('Agree to privacy policy');
+        }
       } catch (err) {
+        toast.dismiss();
+        toast.success("Error Registering the user");
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
         helpers.setSubmitting(false);
@@ -297,7 +300,7 @@ const Register = ({ SetLogin }) => {
                 Get started
               </Button>
 
-              <div
+              {/* <div
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -365,8 +368,8 @@ const Register = ({ SetLogin }) => {
                     style={{ transform: "scale(0.61)", cursor: "pointer",position:"absolute" ,right:"90px"}}
                   />
                 </span>
-              </Typography>
-              <Typography sx={{textAlign:"center",marginBottom:"10px",fontFamily:"SoleilLight",fontSize:"13px",color:"gray"}}>
+              </Typography> */}
+              <Typography sx={{textAlign:"center",marginTop:"20px",marginBottom:"10px",fontFamily:"SoleilLight",fontSize:"13px",color:"gray"}}>
                 Your privacy matters. We keep your data secure and never share it.
               </Typography>
             </form>
