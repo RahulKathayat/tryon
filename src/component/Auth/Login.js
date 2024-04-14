@@ -140,13 +140,15 @@ const Login = ({ SetLogin, setPhotoImage }) => {
           <Box
             sx={{
               maxWidth: 400,
+              minHeight:"100vh",
               px: 4,
               py: "25px",
               width: "100%",
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
-              transform:"scale(1)"
+              transform:"scale(0.9)",
+              backgroundImage:"linear-gradient(to bottom, #00050B 50% ,#ffffff 50%)",
             }}
           >
             <Typography
@@ -154,302 +156,330 @@ const Login = ({ SetLogin, setPhotoImage }) => {
               variant="body2"
               style={{
                 position: "absolute",
-                right: "10px",
-                bottom: "5px",
-                fontFamily: "SoleilLight",
-                sansSerif: "sans-serif",
+                right: "30%",
+                bottom: "10px",
+                fontFamily: "SoleilRegular",
                 fontWeight: 400,
                 // fontSize: "1rem",
                 fontSize: "12px",
                 lineHeight: 1,
                 letterSpacing: "0.00735em",
                 color: "black",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              Powered by Swap{" "}
+              <span style={{position:"relative",right:"2%",top:"7px"}}>Powered by</span>
               <span>
                 <img
-                  src={"/assets/icons8-social-64.png"}
+                  src={"/assets/swaplogoblack.png"}
                   alt="not found"
-                  style={{ height: "22px", cursor: "pointer" }}
+                  style={{ height: "45px", cursor: "pointer"}}
                 />
               </span>
             </Typography>
             <div>
               <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
-                {/* <Stack spacing={1} sx={{ mb: 3, textAlign: "center" }}>
-                </Stack> */}
                 <Typography
                   variant="h5"
                   style={{
                     fontFamily: "SoleilBold",
                     fontWeight: "bold",
                     transform: "scale(1.1)",
+                    color:"white",
                   }}
                 >
                   Virtual Fitting Room
                   <br />
                   <span
                     style={{
-                      fontFamily: "SoleilRegular",
+                      fontFamily: "SoleilLight",
                       fontWeight: "normal",
                       fontSize: "14px",
                       position: "relative",
                       bottom: "10px",
-                      color:"gray",
+                      color:"white",
                     }}
                   >
-                    Find your choice and see it on you
+                    Find what suits you best
                   </span>
                 </Typography>
-                {/* <Typography
-                  variant="h4"
-                  style={{
-                    fontFamily: "SoleilRegular",
-                    sansSerif: "sans-serif",
-                    fontSize: "18px",
-                    // fontWeight: "bold",
-                    // letterSpacing: "0.08rem"
-                  }}
-                >
-                  Sign In
-                </Typography> */}
+              </Stack>
+              <Box sx={{
+                backgroundColor:"#FFF9F9",
+                borderRadius:"20px",
+                padding:"30px",
+              }}>
                 <Typography
                   variant="h6"
                   style={{
                     fontFamily: "SoleilBook",
                     fontWeight: "",
+                    textAlign: "center",
+                    position: "relative",
+                    bottom: "10px",
+                    marginBottom: "10px",
                   }}
                 >
                   Welcome back!
                 </Typography>
-              </Stack>
 
-              <form noValidate onSubmit={formik1.handleSubmit}>
-                <Stack
-                  spacing={3}
-                  style={{
-                    fontFamily: "SoleilRegular",
-                    sansSerif: "sans-serif",
-                    textAlign: "center",
-                  }}
-                >
-                  <TextField
-                    error={!!(formik1.touched.email && formik1.errors.email)}
-                    fullWidth
-                    helperText={formik1.touched.email && formik1.errors.email}
-                    label="Email Address"
-                    name="email"
-                    onBlur={formik1.handleBlur}
-                    onChange={formik1.handleChange}
-                    type="email"
-                    value={formik1.values.email}
+                <form noValidate onSubmit={formik1.handleSubmit}>
+                  <Stack
+                    spacing={2}
                     style={{
                       fontFamily: "SoleilRegular",
                       sansSerif: "sans-serif",
+                      textAlign: "center",
                     }}
-                  />
-                  <TextField
-                    error={
-                      !!(formik1.touched.password && formik1.errors.password)
-                    }
+                  >
+                    <TextField
+                      error={!!(formik1.touched.email && formik1.errors.email)}
+                      fullWidth
+                      helperText={formik1.touched.email && formik1.errors.email}
+                      label="Email Address"
+                      name="email"
+                      onBlur={formik1.handleBlur}
+                      onChange={formik1.handleChange}
+                      type="email"
+                      value={formik1.values.email}
+                      style={{
+                        fontFamily: "SoleilRegular",
+                        sansSerif: "sans-serif",
+                      }}
+                    />
+                    <TextField
+                      error={
+                        !!(formik1.touched.password && formik1.errors.password)
+                      }
+                      fullWidth
+                      helperText={
+                        formik1.touched.password && formik1.errors.password
+                      }
+                      label="Password"
+                      name="password"
+                      style={{
+                        fontFamily: "SoleilRegular",
+                        sansSerif: "sans-serif",
+                      }}
+                      onBlur={formik1.handleBlur}
+                      onChange={formik1.handleChange}
+                      type="password"
+                      value={formik1.values.password}
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        width: "100%",
+                        marginTop: "0px",
+                      }}
+                    >
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            name="checkboxField"
+                            checked={formik1.values.checkboxField}
+                            onChange={formik1.handleChange}
+                            sx={{ "& .MuiSvgIcon-root": { fontSize: 17 } }}
+                          />
+                        }
+                        label={
+                          <Typography
+                            sx={{
+                              fontSize: "13px",
+                              fontFamily: "SoleilRegular",
+                              marginTop: "4px",
+                            }}
+                          >
+                            Remember me
+                          </Typography>
+                        }
+                      />
+                      <div onClick={handleResetPassword}>
+                        <Typography
+                          sx={{
+                            fontFamily: "SoleilRegular",
+                            fontSize: "13px",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Forgot password
+                        </Typography>
+                      </div>
+                    </div>
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                      style={{
+                        fontFamily: "SoleilLight",
+                        sansSerif: "sans-serif",
+                      }}
+                    >
+                      Don&apos;t have an account? &nbsp;
+                      <span
+                        underline="hover"
+                        variant="subtitle2"
+                        style={{
+                          color: "#4285F4",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                        onClick={() => {
+                          SetLogin(false);
+                        }}
+                      >
+                        Sign up
+                      </span>
+                    </Typography>
+                  </Stack>
+                  {formik1.errors.submit && (
+                    <Typography color="error" sx={{ mt: 3 }} variant="body2">
+                      {formik1.errors.submit}
+                    </Typography>
+                  )}
+                  <Button
                     fullWidth
-                    helperText={
-                      formik1.touched.password && formik1.errors.password
-                    }
-                    label="Password"
-                    name="password"
-                    style={{
-                      fontFamily: "SoleilRegular",
-                      sansSerif: "sans-serif",
+                    size="large"
+                    // sx={{ mt: 3 }}
+                    sx={{
+                      backgroundColor: "black",
+                      "&:hover": {
+                        backgroundColor: "#272829",
+                        transform: "scale(1.01)",
+                      },
+                      transition: "backgroundColor 0.3s ease,transform 0.3s ease",
+                      mt: 3,
                     }}
-                    onBlur={formik1.handleBlur}
-                    onChange={formik1.handleChange}
-                    type="password"
-                    value={formik1.values.password}
-                  />
+                    type="submit"
+                    variant="contained"
+                    style={{
+                      fontFamily: "SoleilBold",
+                      sansSerif: "sans-serif",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    Continue
+                  </Button>
+
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "row",
                       alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                      marginTop: "0px",
+                      justifyContent: "center",
+                      marginTop: "2%",
+                      position: "relative",
                     }}
                   >
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          name="checkboxField"
-                          checked={formik1.values.checkboxField}
-                          onChange={formik1.handleChange}
-                          sx={{ "& .MuiSvgIcon-root": { fontSize: 17 } }}
-                        />
-                      }
-                      label={
-                        <Typography
-                          sx={{
-                            fontSize: "13px",
-                            fontFamily: "SoleilRegular",
-                            marginTop: "4px",
-                          }}
-                        >
-                          Remember me
-                        </Typography>
-                      }
-                    />
-                    <div onClick={handleResetPassword}>
-                      <Typography
-                        sx={{
-                          fontFamily: "SoleilRegular",
-                          fontSize: "13px",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Reset password
-                      </Typography>
-                    </div>
-                  </div>
-                  <Typography
-                    color="text.secondary"
-                    variant="body2"
-                    style={{
-                      fontFamily: "SoleilLight",
-                      sansSerif: "sans-serif",
-                    }}
-                  >
-                    Don&apos;t have an account? &nbsp;
-                    <span
-                      underline="hover"
-                      variant="subtitle2"
+                    <div
                       style={{
-                        color: "#4663ac",
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                        fontWeight: "bold",
+                        position: "absolute",
+                        top: "50%",
+                        left: 0,
+                        height: "0.5px",
+                        width: "45%",
+                        backgroundColor: "#a6baac",
                       }}
-                      onClick={() => {
-                        SetLogin(false);
+                    ></div>
+
+                    <h6
+                      style={{
+                        margin: "0 0px",
+                        color: "gray",
+                        transform: "scale(0.85)",
                       }}
                     >
-                      Sign up
-                    </span>
-                  </Typography>
-                </Stack>
-                {formik1.errors.submit && (
-                  <Typography color="error" sx={{ mt: 3 }} variant="body2">
-                    {formik1.errors.submit}
-                  </Typography>
-                )}
-                <Button
-                  fullWidth
-                  size="large"
-                  // sx={{ mt: 3 }}
-                  sx={{
-                    backgroundColor: "black",
-                    "&:hover": {
-                      backgroundColor: "#272829",
-                      transform: "scale(1.01)",
-                    },
-                    transition: "backgroundColor 0.3s ease,transform 0.3s ease",
-                    mt: 3,
-                  }}
-                  type="submit"
-                  variant="contained"
-                  style={{
-                    fontFamily: "SoleilBold",
-                    sansSerif: "sans-serif",
-                    borderRadius: "25px",
-                  }}
-                >
-                  Continue
-                </Button>
+                      or
+                    </h6>
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginTop: "2%",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: 0,
-                      height: "0.5px",
-                      width: "45%",
-                      backgroundColor: "#a6baac",
-                    }}
-                  ></div>
-
-                  <h6
-                    style={{
-                      margin: "0 0px",
-                      color: "gray",
-                      transform: "scale(0.85)",
-                    }}
-                  >
-                    or
-                  </h6>
-
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      right: 0,
-                      height: "0.5px",
-                      width: "45%",
-                      backgroundColor: "#a6baac",
-                    }}
-                  ></div>
-                </div>
-
-                <Typography
-                  color="text.secondary"
-                  variant="body2"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    fontFamily: "SoleilLight",
-                    sansSerif: "sans-serif",
-                    fontWeight: 200,
-                    fontSize: "0.8rem",
-                    // lineHeight: 1,
-                    letterSpacing: "0.00835em",
-                    marginTop: "2%",
-                    color: "black",
-                  }}
-                >
-                  Continue with
-                  <span>
-                    <img
-                      src={"/assets/icons8-google-48.png"}
-                      alt="google"
-                      onClick={handleGoogleSignIn}
+                    <div
                       style={{
-                        transform: "scale(0.58)",
-                        cursor: "pointer",
-                      }}
-                    />
-                    <img
-                      src={"/assets/icons8-facebook-48.png"}
-                      alt="facebook"
-                      onClick={handleFacebookSignIn}
-                      style={{
-                        transform: "scale(0.61)",
-                        cursor: "pointer",
                         position: "absolute",
-                        right: "90px",
+                        top: "50%",
+                        right: 0,
+                        height: "0.5px",
+                        width: "45%",
+                        backgroundColor: "#a6baac",
                       }}
-                    />
-                  </span>
-                </Typography>
-              </form>
+                    ></div>
+                  </div>
+                  <div onClick={handleGoogleSignIn}>
+
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontFamily: "SoleilRegular",
+                        sansSerif: "sans-serif",
+                        fontWeight: 200,
+                        fontSize: "0.8rem",
+                        letterSpacing: "0.00835em",
+                        marginTop: "2%",
+                        color: "black",
+                        backgroundColor: "white",
+                        borderRadius:"10px",
+                        filter:"drop-shadow(0px 0px 1px #555)",
+                        marginTop:"20px",
+                        cursor:"pointer",
+                      }}
+                    >
+                      <span>
+                        <img
+                          src={"/assets/icons8-google-48.png"}
+                          alt="google"
+                          style={{
+                            transform: "scale(0.58)",
+                            cursor: "pointer",
+                          }}
+                        />
+                      </span>
+                      Continue with Google
+                    </Typography>
+                  </div>
+                  <div onClick={handleFacebookSignIn}>
+                    <Typography
+                      color="text.secondary"
+                      variant="body2"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontFamily: "SoleilRegular",
+                        fontWeight: 200,
+                        fontSize: "0.8rem",
+                        // lineHeight: 1,
+                        letterSpacing: "0.00835em",
+                        marginTop: "2%",
+                        color: "black",
+                        backgroundColor: "white",
+                        borderRadius:"10px",
+                        marginTop:"20px",
+                        cursor:"pointer",
+                        filter:"drop-shadow(0px 0px 1px #555)",
+                      }}
+                    >
+                      <span>
+                        <img
+                          src={"/assets/icons8-facebook-48.png"}
+                          alt="facebook"
+                          onClick={handleFacebookSignIn}
+                          style={{
+                            transform: "scale(0.61)",
+                            cursor: "pointer",
+                          }}
+                        />
+                      </span>
+                      Continue with Facebook
+                    </Typography>
+                  </div>
+                </form>
+              </Box>
             </div>
           </Box>
         </Box>

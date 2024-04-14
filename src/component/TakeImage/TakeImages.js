@@ -81,15 +81,16 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
           {instructionPopup ? (
             <Box
             sx={{
-              maxWidth: 450,
+              maxWidth: 400,
+              minHeight:"100vh",
               px: 4,
               py: "30px",
-
-              // paddingBottom: "70px",
               width: "100%",
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
+              transform: "scale(0.9)",
+              backgroundImage:"linear-gradient(to bottom, #00050B 10%, #ffffff 10%)",
             }}
           >
             <Typography
@@ -132,14 +133,15 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   variant="body2"
                   style={{
                     fontWeight: "bold",
-                    fontSize: "1.8rem",
+                    fontSize: "1.6rem",
                     // lineHeight: 1.135,
                     letterSpacing: "0.01em",
                     marginBottom: "10px",
-
+                    position: "relative",
+                    bottom: "20%",
                     fontFamily: "SoleilRegular",
                     sansSerif: "sans-serif",
-                    color: "black",
+                    color: "white",
                   }}
                 >
                   INSTRUCTIONS
@@ -306,16 +308,16 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
           ) : (
             <Box
             sx={{
-              maxWidth: 450,
+              maxWidth: 400,
+              minHeight:"100vh",
               px: 4,
               py: "30px",
-
-              // paddingBottom: "70px",
               width: "100%",
               border: "1.5px gray solid",
               borderRadius: "20px",
               position: "relative",
               transform: "scale(0.9)",
+              backgroundImage:"linear-gradient(to bottom, #00050B 10%, #ffffff 10%)",
             }}
           >
             <Typography
@@ -357,15 +359,13 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   color="text.secondary"
                   variant="body2"
                   style={{
-                    fontWeight: "bold",
-                    fontSize: "1.7rem",
-                    // lineHeight: 1.135,
+                    fontSize: "1.6rem", 
                     letterSpacing: "0.01em",
                     marginBottom: "10px",
-
                     fontFamily: "SoleilBold",
-                    sansSerif: "sans-serif",
-                    color: "black",
+                    color: "white",
+                    position: "relative",
+                    bottom: "20%",
                   }}
                 >
                   Upload an Image
@@ -436,8 +436,8 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
               <Box
                 style={{
                   border: "1.2px solid #6554AF",
-                  borderRadius: "20px",
-                  width: "45%",
+                  borderRadius: "15px",
+                  width: "100%",
                 }}
               >
                 <Typography
@@ -445,7 +445,8 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "10px",
+                    marginTop: "12px",
+                    marginBottom: "12px",
                     fontFamily: "SoleilRegular",
                     // sansSerif: "sans-serif",
                     fontWeight:"bold",
@@ -461,6 +462,9 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     justifyContent: "center",
                     padding: "5%",
                     position: "relative",
+                    height:"300px",
+                    display:"flex",
+                    justifyContent:"space-between"
                   }}
                 >
                   {uploadedImage ? (
@@ -472,225 +476,25 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     />
                   ):(
                     <>
+                    
                       <img
                         src={"/assets/female-front.png"}
                         alt="not found"
-                        className="Girl"
-                      />
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: 30,
-                          // left: 40,
-                        }}
-                        className="HAIR"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            marginTop: "-10px",
-                            color: "black",
-                          }}
-                        >
-                          {" "}
-                          HAIR UP
-                          <span>
-                            <img
-                              src={"/assets/icons8-dot-24.png"}
-                              alt=""
-                              className="Hairimage"
-                            />
-                          </span>
-                        </Typography>
-                      </div>
-
-                      <span
-                        style={{
-                          position: "absolute",
-                          // top: 80,
-                          // right: 15,
-                          color: "black",
-                          fontWeight: 200,
-                          fontSize: "0.7rem",
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                          // color:"black"
-                        }}
-                        className="TIGHT"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          TIGHT
-                        </Typography>
-                      </span>
-
-                      <span style={{ position: "absolute" }} className="icons8">
-                        <img
-                          src={"/assets/icons8-dot-24.png"}
-                          alt=""
-                          style={{ height: "10px", cursor: "pointer" }}
+                        objectFit="contain"
                         />
-                      </span>
-                      <span
-                        style={{
-                          position: "absolute",
-                          // top: 95,
-                          // right: 15,
-                          color: "black",
-                          fontWeight: 200,
-                          fontSize: "0.7rem",
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                        }}
-                        className="FITTED"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          FITTED
-                        </Typography>
-                      </span>
-                      <span
-                        style={{
-                          position: "absolute",
-                          // top: 110,
-
-                          color: "black",
-                          fontWeight: 200,
-
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                        }}
-                        className="CLOTHES"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          className="CLOTHEST"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          CLOTHES
-                        </Typography>
-                      </span>
-
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: 40,
-                          left: 0,
-                          color: "black",
-                          fontWeight: 200,
-                          fontSize: "0.7rem",
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                          // marginLeft:"2px"
-                        }}
-                        className="FLAT"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          FLAT SHOES
-                        </Typography>
-
-                        <span style={{ position: "absolute" }} className="Shoes">
-                          <img
-                            src={"/assets/icons8-dot-24.png"}
-                            alt=""
-                            style={{ height: "10px", cursor: "pointer" }}
-                          />
-                        </span>
-                      </span>
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: 25,
-                          left: 0,
-                          color: "black",
-                          fontWeight: 200,
-                          fontSize: "0.7rem",
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                          // marginLeft:"2px"
-                        }}
-                        className="BARE"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          OR BARE
-                        </Typography>
-                      </span>
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: 10,
-                          left: 0,
-                          color: "black",
-                          fontWeight: 200,
-                          fontSize: "0.8rem",
-                          lineHeight: 1,
-                          letterSpacing: "0.00735em",
-                          // marginLeft:"2px"
-                        }}
-                        className="FEET"
-                      >
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                          style={{
-                            fontSize: "8.9px",
-                            fontFamily: "SoleilLight",
-                            sansSerif: "sans-serif",
-                            color: "black",
-                          }}
-                        >
-                          FEET
-                        </Typography>
-                      </span>
+                        <div style={{fontSize:"10px" ,letterSpacing:"0.04em"}}>
+                           <span style={{fontFamily:"SoleilRegular",textAlign:"center"}}>Guidelines to upload photo for better results:</span>
+                           <ul >
+                            <br/>
+                              <li style={{fontFamily:"SoleilLight"}}>Tight fitted clothes</li><br/>
+                              <li style={{fontFamily:"SoleilLight"}}>Hair tied up.</li> <br/>
+                              <li style={{fontFamily:"SoleilLight"}}>Flat Shoes/Bare feet</li> 
+                           </ul>
+                        </div>
                     </>
                   )}
                 </div>
-                <hr style={{border:"1.5px solid #6554AF"}}/>
-
+                <hr style={{border:"1.5px solid #6554AF",position:"relative",top:"8px"}}/>
                 <div
                   {...getRootProps()}
                   style={{
@@ -718,78 +522,6 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   {isDragActive ? (<div>Drop here..</div>) : (<div>UPLOAD</div>)}
                 </div>
               </Box>
-              {/* <Box
-                style={{
-                  border: "1.2px solid #6554AF",
-                  borderRadius: "20px",
-                  width: "45%",
-                }}
-              >
-                <Typography
-                  color="text.secondary"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "10px",
-                    fontFamily:"SoleilBold",
-                    fontWeight: "bold",
-                    sansSerif: "sans-serif",
-                    color: "black",
-                    letterSpacing:"0.03em",
-                  }}
-                >
-                  SIDE POSE
-                </Typography>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    padding: "5%",
-                  }}
-                >
-                  {uploadedImage2 ? (
-                    <img
-                      src={uploadedImage2.preview}
-                      alt="not found"
-                      className="Boy"
-                      style={{objectFit:"contain"}}
-                    />
-                  ) : (
-                    <img
-                      src={"/assets/fullbody-side.png"}
-                      alt="not found"
-                      className="Boy"
-                      
-                    />
-                  )}
-                </div>
-                <hr style={{border:"1.5px solid #6554AF"}}/>
-                <div
-                  {...getRootPropsSecond()}
-                  style={{
-                    paddingBottom: "10px",
-                    justifyContent: "center",
-                    display: "flex",
-                    alignItems: "center",
-                    fontWeight:"bold",
-                    cursor: "pointer",
-                    fontFamily:"SoleilBold"
-                  }}
-                >
-                  <span >
-                    <img
-                      src={"/assets/upload-cloud-icon.png"}
-                      alt=""
-                      style={{
-                        height: "40px",
-                        width: "40px",
-                        marginRight: "5px",
-                      }}
-                    />
-                    </span>
-                  UPLOAD
-                </div>
-              </Box> */}
             </div>
 
             <div style={{ marginTop: "20px" }}>
@@ -799,8 +531,8 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 style={{
                   fontFamily: "SoleilLight",
                   sansSerif: "sans-serif",
-                  marginRight: "40px",
-                  marginLeft: "40px",
+                  marginRight: "30px",
+                  marginLeft: "30px",
                   justifyContent: "center",
                   // color:"black",
                   // fontSize:"bold",
@@ -810,7 +542,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 }}
               >
                 Your privacy is very important and all photos will be securely locked
-                after we give you your size
+                after we generate your measurements
               </Typography>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -832,7 +564,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 style={{
                   fontFamily: "SoleilBold",
                   sansSerif: "sans-serif",
-                  borderRadius:"25px",
+                  borderRadius:"10px",
                 }}
                 onClick={() => {
                   if (uploadedImage?.file?.path == null) {

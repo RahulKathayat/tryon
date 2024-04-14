@@ -138,30 +138,33 @@ const Measurement = ({
           }}
         >
           <Typography
-            color="text.secondary"
-            variant="body2"
-            style={{
-              position: "absolute",
-              right: "10px",
-              bottom: "5px",
-              fontFamily: "SoleilRegular",
-              sansSerif: "sans-serif",
-              fontWeight: 400,
-              fontSize: "12px",
-              lineHeight: 1,
-              letterSpacing: "0.00735em",
-              color: "black",
-            }}
-          >
-            Powered by Swap{" "}
-            <span>
-              <img
-                src={"/assets/icons8-social-64.png"}
-                alt="not found"
-                style={{ height: "22px", cursor: "pointer" }}
-              />
-            </span>
-          </Typography>
+              color="text.secondary"
+              variant="body2"
+              style={{
+                position: "absolute",
+                right: "30%",
+                bottom: "10px",
+                fontFamily: "SoleilRegular",
+                fontWeight: 400,
+                // fontSize: "1rem",
+                fontSize: "12px",
+                lineHeight: 1,
+                letterSpacing: "0.00735em",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span style={{position:"relative",right:"2%",top:"7px"}}>Powered by</span>
+              <span>
+                <img
+                  src={"/assets/swaplogoblack.png"}
+                  alt="not found"
+                  style={{ height: "45px", cursor: "pointer"}}
+                />
+              </span>
+            </Typography>
 
           <div
             style={{
