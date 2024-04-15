@@ -44,7 +44,7 @@ const Register = ({ SetLogin }) => {
             .catch((error) => {
               console.log("Error registering the user ", error);
               toast.dismiss();
-              toast.success("Error Registering the user");
+              toast.error("Error Registering the user");
             });
         }
         else{ 

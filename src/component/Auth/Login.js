@@ -290,7 +290,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                         label={
                           <Typography
                             sx={{
-                              fontSize: "13px",
+                              fontSize: "12px",
                               fontFamily: "SoleilRegular",
                               marginTop: "4px",
                             }}
@@ -303,7 +303,7 @@ const Login = ({ SetLogin, setPhotoImage }) => {
                         <Typography
                           sx={{
                             fontFamily: "SoleilRegular",
-                            fontSize: "13px",
+                            fontSize: "12px",
                             cursor: "pointer",
                           }}
                         >

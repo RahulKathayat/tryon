@@ -400,7 +400,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
             >
               <div
                 className="progress"
-                style={{ width: "300px", height: "5px" }}
+                style={{ width: "300px", height: "5px" ,marginTop:"1em"}}
               >
                 <div
                   className="progress-bar bg-pink"
@@ -414,7 +414,7 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                 ></div>
               </div>
 
-              <div style={{ marginLeft: "20px" }}>
+              <div style={{ marginLeft: "10px" ,position:"relative",top:"7px"}}>
                 <Tooltip title="Instructions" placement="top">
                   <img
                     src={"/assets/info_471662.png"}
@@ -468,12 +468,12 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                   }}
                 >
                   {uploadedImage ? (
-                    <img
-                      src={uploadedImage.preview}
-                      alt="not found"
-                      className="Girl"
-                      style={{objectFit:"contain"}}
-                    />
+                      <img
+                        src={uploadedImage.preview}
+                        alt="not found"
+                        className="Girl"
+                        style={{objectFit:"contain",position:"relative",left:"1.6em"}}
+                      />
                   ):(
                     <>
                     
