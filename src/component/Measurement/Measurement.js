@@ -128,13 +128,15 @@ const Measurement = ({
         <Box
           sx={{
             maxWidth: 400,
-            px: 3,
-            py: "50px",
-            paddingBottom: "80px",
+            minHeight:"90vh",
+            px: 4,
+            py: "25px",
             width: "100%",
             border: "1.5px gray solid",
             borderRadius: "20px",
             position: "relative",
+            transform:"scale(0.9)",
+            backgroundImage:"linear-gradient(to bottom, #00050B 10%, #ffffff 10%)",
           }}
         >
           <Typography
@@ -176,15 +178,15 @@ const Measurement = ({
           >
             <div>
               <img
-                src={"/assets/icons8-less-than-30.png"}
+                src={"/assets/whiteback.png"}
                 alt="not found"
                 style={{
-                  transform: "scale(0.5)",
+                  transform: "scale(0.4)",
                   cursor: "pointer",
-                  marginTop: "10px",
                   marginLeft: "0px",
                   position:"relative",
-                  right:"10px"
+                  top:"1.2em",
+                  right:"3em",
                 }}
                 onClick={() => {
                   setMeasure(false);
@@ -194,9 +196,9 @@ const Measurement = ({
             </div>
             <div>
               <img
-                src={"/assets/icons8-x-50.png"}
+                src={"/assets/cross.png"}
                 alt="not found"
-                style={{ transform: "scale(0.3)", cursor: "pointer",position:"relative",left:"15px" }}
+                style={{ transform: "scale(0.2)", cursor: "pointer",position:"relative",left:"3.5em",top:"0.3em" }}
                 onClick={() => {
                   setMeasure(false);
                   setStatus(false);
@@ -204,309 +206,327 @@ const Measurement = ({
               />
             </div>
           </div>
-          <div
+          <Typography
+            color="text.secondary"
+            variant="body2"
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "20px",
-
-              fontWeight: 400,
-              fontSize: "1rem",
-              lineHeight: 2,
-              letterSpacing: "0.00735em",
-              marginTop: "30px",
+              fontSize: "1.4rem", 
+              letterSpacing: "0.01em",
+              marginBottom: "10px",
+              fontFamily: "SoleilBold",
+              color: "white",
+              position: "relative",
+              bottom:"1.7em",
+              textAlign: "center",
             }}
           >
-            <b style={{ color: "black" }}>Gender</b>
-
-            <div>
-              <input
-                type="checkbox"
-                id="toggle"
-                className="toggleCheckbox"
-                checked={isChecked}
-                onChange={toggleSwitch}
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="toggle"
-                className="toggleContainer"
-                style={{
-                  position: "relative",
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, 1fr)",
-                  width: "fit-content",
-                  border: "2px solid #343434",
-                  borderRadius: "25px",
-                  background: "#343434",
-                  fontWeight: "bold",
-                  color: "#343434",
-                  cursor: "pointer",
-                }}
-              >
-                <div
-                  style={{
-                    padding: "3px",
-                    textAlign: "center",
-                    zIndex: "1",
-                    background: !isChecked ? "#343434" : "white",
-                    color: !isChecked ? "white" : "#343434",
-                    transition: "all 0.3s",
-                    borderRadius: "25px",
-                    fontSize: "13px",
-                    // padding: "10px",
-                  }}
-                >
-                  MALE
-                </div>
-                <div
-                  style={{
-                    padding: "3px",
-                    textAlign: "center",
-                    zIndex: "1",
-                    background: isChecked ? "#343434" : "white",
-                    color: isChecked ? "white" : "#343434",
-                    transition: "all 0.3s",
-                    borderRadius: "25px",
-                    fontSize: "13px",
-                    paddingRight: "10px",
-                    paddingLeft: "10px",
-                  }}
-                >
-                  FEMALE
-                </div>
-              </label>
-              <style>
-                {`
-          #toggle:checked + .toggleContainer::before {
-            left: 50%;
-          }
-
-          #toggle:checked + .toggleContainer div:first-child {
-            color: white;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle:checked + .toggleContainer div:last-child {
-            color: #343434;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle + .toggleContainer div:first-child {
-            color: #343434;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle + .toggleContainer div:last-child {
-            color: white;
-            transition: color 0.3s, background 0.3s;
-          }
-        `}
-              </style>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              paddingRight: "20px",
-              paddingLeft: "20px",
-              marginTop: "10px",
-            }}
-          >
-            <div
-              style={{
-                fontWeight: 400,
-                fontSize: "1rem",
-                lineHeight: 2,
-                letterSpacing: "0.00735em",
-              }}
-            >
-              <b style={{ color: "black" }}>Enter your measurements</b>
-            </div>
-
-            <div>
-              <select
-                value={selectedOption}
-                onChange={handleSelectChange}
-                style={{
-                  borderColor: "#bfc7c7",
-                  borderRadius: "20px",
-                  border: "2px solid #bfc7c7",
-                  width: "60px",
-                  padding: "2px",
-                }}
-              >
-                <option value="">UK</option>
-                <option value="option1">IN</option>
-                <option value="option2">US</option>
-                <option value="option3">NZ</option>
-              </select>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginLeft: "15px",
-              marginTop: "10px",
-            }}
-          >
-            <div>
-              <input
-                type="checkbox"
-                id="toggle1"
-                className="toggleCheckbox"
-                checked={isChecked1}
-                onChange={toggleSwitch1}
-                style={{ display: "none" }}
-              />
-              <label
-                htmlFor="toggle1"
-                className="toggleContainer"
-                style={{
-                  position: "relative",
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, 1fr)",
-                  width: "fit-content",
-                  border: "2px solid #343434",
-                  borderRadius: "25px",
-                  background: "#343434",
-                  fontWeight: "bold",
-                  color: "#343434",
-                  cursor: "pointer",
-                }}
-              >
-                <div
-                  style={{
-                    padding: "3px",
-                    textAlign: "center",
-                    zIndex: "1",
-                    background: !isChecked1 ? "#343434" : "white",
-                    color: !isChecked1 ? "white" : "#343434",
-                    transition: "all 0.3s",
-                    borderRadius: "20px",
-                    fontSize: "13px", // Adjusted font size
-                  }}
-                >
-                  CM
-                </div>
-                <div
-                  style={{
-                    padding: "3px",
-                    textAlign: "center",
-                    zIndex: "1",
-                    background: isChecked1 ? "#343434" : "white",
-                    color: isChecked1 ? "white" : "#343434",
-                    transition: "all 0.3s",
-                    borderRadius: "20px",
-                    fontSize: "13px", // Adjusted font size
-                  }}
-                >
-                  IN
-                </div>
-              </label>
-              <style>
-                {`
-          #toggle1:checked + .toggleContainer::before {
-            left: 50%;
-          }
-
-          #toggle1:checked + .toggleContainer div:first-child {
-            color: white;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle1:checked + .toggleContainer div:last-child {
-            color: #343434;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle1 + .toggleContainer div:first-child {
-            color: #343434;
-            transition: color 0.3s, background 0.3s;
-          }
-
-          #toggle1 + .toggleContainer div:last-child {
-            color: white;
-            transition: color 0.3s, background 0.3s;
-          }
-        `}
-              </style>
-            </div>
-          </div>
-          <div style={{ padding: "20px" }}>
+            Enter your Measurements
+          </Typography>
+          <div style={{display:"flex" , flexDirection:"column",gap:"1em"}}>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                marginTop: "5%",
+                padding: "20px",
+
+                fontWeight: 400,
+                fontSize: "1rem",
+                lineHeight: 2,
+                letterSpacing: "0.00735em",
+                marginTop: "30px",
+              }}
+            >
+              <b style={{ color: "black" }}>Gender</b>
+
+              <div>
+                <input
+                  type="checkbox"
+                  id="toggle"
+                  className="toggleCheckbox"
+                  checked={isChecked}
+                  onChange={toggleSwitch}
+                  style={{ display: "none" }}
+                />
+                <label
+                  htmlFor="toggle"
+                  className="toggleContainer"
+                  style={{
+                    position: "relative",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    width: "fit-content",
+                    border: "2px solid #343434",
+                    borderRadius: "25px",
+                    background: "#343434",
+                    fontWeight: "bold",
+                    color: "#343434",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "3px",
+                      textAlign: "center",
+                      zIndex: "1",
+                      background: !isChecked ? "#343434" : "white",
+                      color: !isChecked ? "white" : "#343434",
+                      transition: "all 0.3s",
+                      borderRadius: "25px",
+                      fontSize: "13px",
+                      // padding: "10px",
+                    }}
+                  >
+                    MALE
+                  </div>
+                  <div
+                    style={{
+                      padding: "3px",
+                      textAlign: "center",
+                      zIndex: "1",
+                      background: isChecked ? "#343434" : "white",
+                      color: isChecked ? "white" : "#343434",
+                      transition: "all 0.3s",
+                      borderRadius: "25px",
+                      fontSize: "13px",
+                      paddingRight: "10px",
+                      paddingLeft: "10px",
+                    }}
+                  >
+                    FEMALE
+                  </div>
+                </label>
+                <style>
+                  {`
+            #toggle:checked + .toggleContainer::before {
+              left: 50%;
+            }
+
+            #toggle:checked + .toggleContainer div:first-child {
+              color: white;
+              transition: color 0.3s, background 0.3s;
+            }
+
+            #toggle:checked + .toggleContainer div:last-child {
+              color: #343434;
+              transition: color 0.3s, background 0.3s;
+            }
+
+            #toggle + .toggleContainer div:first-child {
+              color: #343434;
+              transition: color 0.3s, background 0.3s;
+            }
+
+            #toggle + .toggleContainer div:last-child {
+              color: white;
+              transition: color 0.3s, background 0.3s;
+            }
+          `}
+                </style>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingRight: "20px",
+                paddingLeft: "20px",
+                marginTop: "10px",
               }}
             >
               <div
                 style={{
-                  // fontFamily: "Roboto, Helvetica, Arial, sans-serif",
                   fontWeight: 400,
                   fontSize: "1rem",
                   lineHeight: 2,
                   letterSpacing: "0.00735em",
                 }}
               >
-                <b>Your Height</b>
-                <span style={{ color: "red" }}>*&nbsp;</span>
+                <b style={{ color: "black" }}>Size Type</b>
               </div>
-              <Box sx={{ width: 145 }}>
-                <Slider
-                  value={sliderValue}
-                  onChange={handleSliderChange}
-                  min={140}
-                  step={1}
-                  max={200}
-                  getAriaValueText={valueLabelFormat}
-                  valueLabelFormat={valueLabelFormat}
-                  valueLabelDisplay="auto"
-                  aria-labelledby="non-linear-slider"
-                  style={{ color: "black" }}
-                />
-              </Box>
-            </div>
-          </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Button
-              fullWidth
-              size="large"
-              sx={{
-                backgroundColor: "black",
-                '&:hover': {
-                  backgroundColor: '#2B2730',
-                  transform:"scale(1.01)",
-                },
-                transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
-                mt:3,
-              }}
-              type="submit"
-              variant="contained"
+              <div>
+                <select
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  style={{
+                    borderColor: "#bfc7c7",
+                    borderRadius: "20px",
+                    border: "2px solid #bfc7c7",
+                    width: "60px",
+                    padding: "2px",
+                  }}
+                >
+                  <option value="">UK</option>
+                  <option value="option1">IN</option>
+                  <option value="option2">US</option>
+                  <option value="option3">NZ</option>
+                </select>
+              </div>
+            </div>
+
+            <div
               style={{
-                // backgroundColor: "black",
-                fontFamily: "SoleilBold",
-                sansSerif: "sans-serif",
-                borderRadius:"25px",
-              }}
-              onClick={() => {
-                callAiApi();
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "15px",
+                marginTop: "10px",
               }}
             >
-              {loading ?  (
+              <div>
+                <input
+                  type="checkbox"
+                  id="toggle1"
+                  className="toggleCheckbox"
+                  checked={isChecked1}
+                  onChange={toggleSwitch1}
+                  style={{ display: "none" }}
+                />
+                <label
+                  htmlFor="toggle1"
+                  className="toggleContainer"
+                  style={{
+                    position: "relative",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    width: "fit-content",
+                    border: "2px solid #343434",
+                    borderRadius: "25px",
+                    background: "#343434",
+                    fontWeight: "bold",
+                    color: "#343434",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "3px",
+                      textAlign: "center",
+                      zIndex: "1",
+                      background: !isChecked1 ? "#343434" : "white",
+                      color: !isChecked1 ? "white" : "#343434",
+                      transition: "all 0.3s",
+                      borderRadius: "20px",
+                      fontSize: "13px", // Adjusted font size
+                    }}
+                  >
+                    CM
+                  </div>
+                  <div
+                    style={{
+                      padding: "3px",
+                      textAlign: "center",
+                      zIndex: "1",
+                      background: isChecked1 ? "#343434" : "white",
+                      color: isChecked1 ? "white" : "#343434",
+                      transition: "all 0.3s",
+                      borderRadius: "20px",
+                      fontSize: "13px", // Adjusted font size
+                    }}
+                  >
+                    IN
+                  </div>
+                </label>
+                <style>
+                  {`
+            #toggle1:checked + .toggleContainer::before {
+              left: 50%;
+            }
 
-                <CircularProgress />
-              ) :(
-                <Typography>NEXT</Typography>
+            #toggle1:checked + .toggleContainer div:first-child {
+              color: white;
+              transition: color 0.3s, background 0.3s;
+            }
 
-              )}
-            </Button>
+            #toggle1:checked + .toggleContainer div:last-child {
+              color: #343434;
+              transition: color 0.3s, background 0.3s;
+            }
+
+            #toggle1 + .toggleContainer div:first-child {
+              color: #343434;
+              transition: color 0.3s, background 0.3s;
+            }
+
+            #toggle1 + .toggleContainer div:last-child {
+              color: white;
+              transition: color 0.3s, background 0.3s;
+            }
+          `}
+                </style>
+              </div>
+            </div>
+            <div style={{ padding: "20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: "5%",
+                }}
+              >
+                <div
+                  style={{
+                    // fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "1rem",
+                    lineHeight: 2,
+                    letterSpacing: "0.00735em",
+                  }}
+                >
+                  <b>Your Height</b>
+                  <span style={{ color: "red" }}>*&nbsp;</span>
+                </div>
+                <Box sx={{ width: 145 }}>
+                  <Slider
+                    value={sliderValue}
+                    onChange={handleSliderChange}
+                    min={140}
+                    step={1}
+                    max={200}
+                    getAriaValueText={valueLabelFormat}
+                    valueLabelFormat={valueLabelFormat}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="non-linear-slider"
+                    style={{ color: "black" }}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button
+                fullWidth
+                size="large"
+                sx={{
+                  backgroundColor: "black",
+                  '&:hover': {
+                    backgroundColor: '#2B2730',
+                    transform:"scale(1.01)",
+                  },
+                  transition: 'backgroundColor 0.3s ease,transform 0.3s ease',
+                  mt:3,
+                }}
+                type="submit"
+                variant="contained"
+                style={{
+                  // backgroundColor: "black",
+                  fontFamily: "SoleilBold",
+                  sansSerif: "sans-serif",
+                  borderRadius:"10px",
+                }}
+                onClick={() => {
+                  callAiApi();
+                }}
+              >
+                {loading ?  (
+
+                  <CircularProgress />
+                ) :(
+                  <Typography>NEXT</Typography>
+
+                )}
+              </Button>
+            </div>
           </div>
         </Box>
       </Box>

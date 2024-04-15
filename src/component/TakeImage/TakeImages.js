@@ -366,29 +366,29 @@ const TakeImages = ({ setPhotoImage, setImageFailed, setMeasure }) => {
                     color: "white",
                     position: "relative",
                     bottom: "20%",
+                    zIndex:-100,
                   }}
                 >
                   Upload an Image
                 </Typography>
               </div>
-              <div>
-                <div>
+                <span>
                   <img
-                    src={"/assets/icons8-x-50.png"}
+                    src={"/assets/cross.png"}
                     alt="not found"
                     style={{
-                      transform: "scale(0.3)",
+                      transform: "scale(0.2)",
                       cursor: "pointer",
                       marginTop: "-50px",
-                      marginRight:"-35px"
+                      marginRight:"-52px",
+                      zIndex:100,
                     }}
                     onClick={() => {
                       setPhotoImage(false);
                       setImageFailed(true);
                     }}
                   />
-                </div>
-              </div>
+                </span>
             </div>
             <div
               style={{

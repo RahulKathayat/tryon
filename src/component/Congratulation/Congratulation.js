@@ -17,7 +17,7 @@ function valueLabelFormat(value) {
 
   return `${scaledValue} ${units[unitIndex]}`;
 }
-const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
+const Congratulation = ({ setCongratulation, setconfirm, setMobiledata,setStatus}) => {
   const [loading, setLoading] = useState(false);
   const [base64String, setBase64String] = useState('');
   const [measurements,setMeasurements] = useState('');
@@ -149,6 +149,17 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
                 />
               </span>
             </Typography>
+            <div>
+              <img
+                src={"/assets/cross.png"}
+                alt="not found"
+                style={{ transform: "scale(0.2)", cursor: "pointer",position:"relative",bottom:"3.3em",left:"18.5em" }}
+                onClick={() => {
+                  setCongratulation(false);
+                  setStatus(false);
+                }}
+              />
+            </div>
           <Typography
             color="text.secondary"
             variant="body2"
@@ -158,7 +169,7 @@ const Congratulation = ({ setCongratulation, setconfirm, setMobiledata }) => {
               letterSpacing: "0.01em",
               marginBottom: "10px",
               position: "relative",
-              bottom: "5px",
+              bottom: "3.8em",
               fontFamily: "SoleilBold",
               sansSerif: "sans-serif",
               color: "white",

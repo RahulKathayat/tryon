@@ -37,19 +37,21 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
             justifyContent: "space-between",
             transform: "scale(0.97)",
             padding: "1px",
+            backgroundImage:"linear-gradient(to bottom, #00050B 9%, #ffffff 9%)",
           }}
         >
           <div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <div>
                 <img
-                  src={"/assets/icons8-less-than-30.png"}
+                  src={"/assets/whiteback.png"}
                   alt="not found"
                   style={{
-                    transform: "scale(0.45)",
+                    transform: "scale(0.4)",
                     cursor: "pointer",
-                    marginTop: "7px",
-                    marginLeft: "2px",
+                    marginLeft: "0px",
+                    position:"relative",
+                    bottom:"0.3em",right:"0.9em"
                   }}
                   onClick={() => {
                     back(true)
@@ -58,9 +60,10 @@ const Mobile = ({ close, back, setMobiledata, setStatus }) => {
               </div>
               <div>
                 <img
-                  src={"/assets/icons8-x-50.png"}
+                  src={"/assets/icons8-cross-50.png"}
                   alt="not found"
-                  style={{ transform: "scale(0.25)", cursor: "pointer",position:"relative",bottom: "4px",left:"2px" }}
+                  objectFit="contain"
+                  style={{ transform: "scale(0.5)", cursor: "pointer",position:"relative",top: "0.2em",left:"0.5em" }}
                   onClick={() => {
                     close(true);
                   }}
