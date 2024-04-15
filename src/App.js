@@ -43,7 +43,7 @@ const Login = () => {
   const [Measure, setMeasure] = useState(false);
   const [status, setStatus] = useState(false);
   const [ImageFailed, setImageFailed] = useState(false);
-  const [Mobiledata, setMobiledata] = useState(true);
+  const [Mobiledata, setMobiledata] = useState(false);
   const [confirm, setconfirm] = useState(false);
   const [Congratulation, setCongratulation] = useState(false);
 
